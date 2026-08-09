@@ -1,0 +1,2671 @@
+/* =========================================================
+   1. VARIABLES GLOBALES
+   Centraliza colores, estados y medidas reutilizables.
+========================================================= */
+
+/* =========================================
+   MODO CLARO
+========================================= */
+
+:root {
+    --primary: #6D5DFB;
+    --primary-hover: #5B4AE8;
+    --primary-light: #EEECFF;
+
+    --sidebar: #111827;
+    --sidebar-secondary: #1F2937;
+    --sidebar-hover: #273449;
+
+    --background: #F5F6FA;
+    --surface: #FFFFFF;
+    --surface-secondary: #F8F9FC;
+
+    --text-primary: #111827;
+    --text-secondary: #64748B;
+    --text-muted: #94A3B8;
+    --text-white: #FFFFFF;
+
+    --border: #E5E7EB;
+    --border-light: #F1F5F9;
+    --radius-lg: 12px;
+
+    --success: #10B981;
+    --success-light: #D1FAE5;
+
+    --warning: #F59E0B;
+    --warning-light: #FEF3C7;
+
+    --danger: #EF4444;
+    --danger-light: #FEE2E2;
+
+    --info: #3B82F6;
+    --info-light: #DBEAFE;
+
+    --searchIco: #64748B;
+}
+
+
+/* =========================================
+   MODO OSCURO
+========================================= */
+
+[data-theme="dark"] {
+
+    --primary: #8B7CFF;
+    --primary-hover: #7C6CF2;
+    --primary-light: #292451;
+
+    --sidebar: #0B0F19;
+    --sidebar-secondary: #151B29;
+    --sidebar-hover: #20283A;
+
+    --background: #0F141F;
+    --surface: #151B27;
+    --surface-secondary: #1B2230;
+
+    --text-primary: #F8FAFC;
+    --text-secondary: #A7B0C0;
+    --text-muted: #6B7280;
+    --text-white: #FFFFFF;
+
+    --border: #273043;
+    --border-light: #202838;
+
+    --success: #34D399;
+    --success-light: #12352B;
+
+    --warning: #FBBF24;
+    --warning-light: #3A2C0F;
+
+    --danger: #F87171;
+    --danger-light: #3A181C;
+
+    --info: #60A5FA;
+    --info-light: #172D4A;
+}
+
+
+/* =========================================================
+   2. TIPOGRAFÍA
+   Importa la fuente principal del proyecto.
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   3. RESET
+   Elimina estilos predeterminados del navegador.
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   4. LAYOUT GENERAL
+   Define la estructura principal: sidebar + contenido.
+========================================================= */
+
+body {
+    min-height: 100vh;
+
+    display: grid;
+    grid-template-columns: 230px 1fr;
+
+    background-color: var(--background);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   5. SIDEBAR
+   Barra lateral principal de navegación.
+========================================================= */
+
+aside {
+    position: relative;
+
+    width: 230px;
+    min-height: 100vh;
+
+    background-color: var(--sidebar);
+    color: white;
+
+    padding: 24px 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================================================
+   6. BRAND
+   Logo y nombre de la aplicación.
+========================================================= */
+
+.brand {
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.brandIcon {
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    background-color: #C7D2FE;
+    color: var(--sidebar);
+
+    border-radius: 7px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.brand h2 {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   7. SEPARADORES
+   Líneas visuales dentro del sidebar.
+========================================================= */
+
+.line {
+    display: block;
+
+    width: 100%;
+    height: 1px;
+
+    margin: 18px 0;
+
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* =========================================================
+   8. NAVEGACIÓN
+   Contenedor y enlaces principales del sidebar.
+========================================================= */
+
+.containerItems {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.item {
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 12px;
+
+    border-radius: 8px;
+
+    color: #CBD5E1;
+
+    text-decoration: none;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.item:hover {
+    background-color: var(--sidebar-secondary);
+    color: var(--text-white);
+}
+
+.item.active {
+    background-color: var(--primary);
+    color: var(--text-white);
+}
+
+
+/* =========================================================
+   9. ICONOS DEL SIDEBAR
+   Controla el tamaño y apariencia de los SVG.
+========================================================= */
+
+.itemIcon {
+    width: 20px;
+    height: 20px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.itemIcon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* =========================================================
+   10. CERRAR SESIÓN
+   Estilo específico para el botón de logout.
+========================================================= */
+
+.logout {
+    font-weight: 700;
+}
+
+.logout:hover {
+    background-color: var(--border);
+    color: var(--danger);
+}
+
+
+/* =========================================================
+   11. PROGRESO DEL SIDEBAR
+   Muestra el progreso general de las tareas.
+========================================================= */
+
+.stad {
+    margin-top: 2.1rem;
+
+    padding: 1rem;
+
+    border: 2px solid var(--primary);
+    border-radius: 11px;
+
+    box-shadow: 0 0 6px var(--primary-hover);
+
+    text-align: center;
+}
+
+.stad h3,
+.stad p {
+    text-align: center;
+}
+
+
+/* =========================================================
+   12. CONTENEDOR ALTERNATIVO DE PROGRESO
+   Permite mantener el bloque de progreso abajo.
+========================================================= */
+
+.sidebarProgress {
+    margin-top: auto;
+
+    padding: 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    border-radius: 12px;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   13. CÍRCULO DE PROGRESO
+   Representa visualmente el porcentaje completado.
+========================================================= */
+
+.progressCircle {
+    width: 100px;
+    height: 100px;
+
+    margin: 20px auto;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        conic-gradient(var(--primary) 75%,
+            rgba(255, 255, 255, 0.1) 75%);
+}
+
+.progressCircle::after {
+    content: "";
+
+    width: 76px;
+    height: 76px;
+
+    grid-area: 1 / 1;
+
+    background-color: var(--sidebar);
+
+    border-radius: 50%;
+}
+
+.progressCircle span {
+    grid-area: 1 / 1;
+
+    position: relative;
+    z-index: 1;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   14. MAIN
+   Área principal donde se muestra el dashboard.
+========================================================= */
+
+main {
+    min-width: 0;
+
+    background-color: var(--background);
+}
+
+
+/* =========================================================
+   15. HEADER DEL DASHBOARD
+   Encabezado con título, buscador y perfil.
+========================================================= */
+
+#hDash {
+    min-height: 100px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 24px 32px;
+
+    background-color: var(--surface);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   16. TÍTULO DEL HEADER
+========================================================= */
+
+.contText {
+    flex: 1;
+}
+
+.contText h1 {
+    margin-bottom: 6px;
+
+    color: var(--text-primary);
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.contText p {
+    color: var(--text-secondary);
+}
+
+
+/* =========================================================
+   17. BUSCADOR PRINCIPAL
+   Buscador ubicado en el header.
+========================================================= */
+
+.contSearch {
+    width: 330px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 12px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    transition: all 300ms ease;
+}
+
+.contSearch:hover {
+    box-shadow: 0px 0px 0px 1px var(--primary);
+}
+
+.contSearch input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text-primary);
+
+    font-family: inherit;
+}
+
+.contSearch input::placeholder {
+    color: var(--text-muted);
+}
+
+.searchIcon {
+    color: var(--searchIco);
+}
+
+.k {
+    padding: 4px 7px;
+
+    background-color: var(--surface-secondary);
+
+    border-radius: 5px;
+
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   18. ACCIONES Y PERFIL
+   Notificaciones, tema y usuario.
+========================================================= */
+
+.contPerfil {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+/* =========================================================
+   19. BOTONES DE NOTIFICACIÓN Y TEMA
+========================================================= */
+
+.noty,
+.mode {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background-color: var(--surface);
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.noty:hover,
+.mode:hover {
+    background-color: var(--primary-light);
+
+    border-color: #FED7AA;
+
+    color: var(--primary);
+
+    transform: translateY(-1px);
+}
+
+.noty:active,
+.mode:active {
+    transform: scale(0.95);
+}
+
+
+/* =========================================================
+   20. INDICADOR DE NOTIFICACIÓN
+   Pequeño punto rojo sobre el botón.
+========================================================= */
+
+.noty {
+    position: relative;
+}
+
+.noty::after {
+    content: "";
+
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    width: 6px;
+    height: 6px;
+
+    border: 2px solid var(--surface);
+    border-radius: 50%;
+
+    background-color: var(--danger);
+
+    box-sizing: content-box;
+}
+
+
+/* =========================================================
+   21. PERFIL
+========================================================= */
+
+.profile {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 5px 8px 5px 5px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.profile:hover {
+    background-color: var(--surface-secondary);
+}
+
+
+/* =========================================================
+   22. FOTO DE PERFIL
+========================================================= */
+
+.profile img {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    border: 2px solid var(--primary-light);
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   23. NOMBRE DEL USUARIO
+========================================================= */
+
+.profile h2 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1.2;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   24. FLECHA DEL PERFIL
+========================================================= */
+
+.profile>span {
+    width: 20px;
+    height: 20px;
+
+    display: grid;
+    place-items: center;
+
+    color: var(--text-muted);
+
+    font-size: 16px;
+
+    transition: transform 0.2s ease;
+}
+
+.profile:hover>span {
+    color: var(--text-primary);
+
+    transform: translateY(2px);
+}
+
+
+/* =========================================================
+   25. BOTÓN NUEVA TAREA
+========================================================= */
+
+.newTask {
+    padding: 11px 16px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: var(--primary);
+    color: var(--text-white);
+
+    font-family: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+}
+
+.newTask:hover {
+    background-color: var(--primary-hover);
+}
+
+.newTask.secondary {
+    padding: 10px 15px;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   26. CONTENIDO DEL DASHBOARD
+========================================================= */
+
+.content {
+    min-width: 0;
+
+    padding: 28px 32px;
+}
+
+
+/* =========================================================
+   27. ESTADÍSTICAS
+   Tarjetas superiores con métricas.
+========================================================= */
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   28. TARJETA DE ESTADÍSTICA
+========================================================= */
+
+.statCard {
+    min-height: 110px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.06);
+}
+
+.statInfo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.statLabel {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.statValue {
+    color: var(--text-primary);
+
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   29. ICONOS DE ESTADÍSTICAS
+========================================================= */
+
+.statIcon {
+    width: 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.statIcon.orange {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.statIcon.warning {
+    background-color: var(--warning-light);
+    color: var(--warning);
+}
+
+.statIcon.info {
+    background-color: var(--info-light);
+    color: var(--info);
+}
+
+.statIcon.success {
+    background-color: var(--success-light);
+    color: var(--success);
+}
+
+
+/* =========================================================
+   30. SECCIÓN DE TAREAS
+========================================================= */
+
+.taskSection {
+    padding: 24px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+}
+
+
+/* =========================================================
+   31. HEADER DE LA SECCIÓN DE TAREAS
+========================================================= */
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 22px;
+}
+
+.sectionHeader h2 {
+    margin-bottom: 5px;
+
+    color: var(--text-primary);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.sectionHeader p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   32. TOOLBAR DE TAREAS
+   Contiene búsqueda, filtros y ordenamiento.
+========================================================= */
+
+.taskToolbar {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding-bottom: 22px;
+    margin-bottom: 22px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+/* =========================================================
+   33. BUSCADOR DE TAREAS
+========================================================= */
+
+.taskSearch {
+    width: 260px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+
+    background-color: var(--surface);
+    transition: all 300ms ease;
+}
+
+.taskSearch:hover {
+    box-shadow: 0px 0px 0px 1px var(--primary);
+}
+
+.taskSearch span {
+    color: var(--text-muted);
+
+    font-size: 18px;
+}
+
+.taskSearch input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text-primary);
+
+    font-family: inherit;
+}
+
+.taskSearch input::placeholder {
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   34. FILTROS
+========================================================= */
+
+.filters {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.filter {
+    padding: 8px 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: transparent;
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.filter:hover {
+    background-color: var(--surface-secondary);
+    color: var(--text-primary);
+}
+
+.filter.active {
+    background-color: var(--primary-light);
+
+    color: var(--primary);
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   35. ORDENAMIENTO
+========================================================= */
+
+.sortSelect {
+    height: 40px;
+
+    padding: 0 12px;
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    background-color: var(--surface);
+
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-size: 12px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   36. KANBAN
+   Distribuye las tareas en tres columnas.
+========================================================= */
+
+.kanban {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   37. COLUMNA KANBAN
+========================================================= */
+
+.kanbanColumn {
+    min-width: 0;
+
+    padding: 14px;
+
+    background-color: var(--background);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+}
+
+
+/* =========================================================
+   38. HEADER DE COLUMNA
+========================================================= */
+
+.columnHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 14px;
+}
+
+.columnTitle {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+}
+
+.columnTitle h3 {
+    color: var(--text-primary);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   39. CONTADOR DE TAREAS
+========================================================= */
+
+.taskCount {
+    min-width: 23px;
+    height: 23px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0 6px;
+
+    border-radius: 6px;
+
+    background-color: var(--surface-secondary);
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   40. ESTADO DE COLUMNA
+========================================================= */
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+}
+
+.statusDot.pending {
+    background-color: var(--warning);
+}
+
+.statusDot.progress {
+    background-color: var(--info);
+}
+
+.statusDot.completed {
+    background-color: var(--success);
+}
+
+
+/* =========================================================
+   41. MENÚ DE COLUMNA / TARJETA
+========================================================= */
+
+.columnMenu,
+.taskMenu {
+    border: none;
+
+    background: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 18px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.columnMenu:hover,
+.taskMenu:hover {
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   42. LISTA DE TAREAS
+========================================================= */
+
+.taskList {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+/* =========================================================
+   43. TARJETA DE TAREA
+========================================================= */
+
+.taskCard {
+    padding: 15px;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.taskCard:hover {
+    transform: translateY(-2px);
+
+    border-color: #CBD5E1;
+
+    box-shadow:
+        0 8px 18px rgba(15, 23, 42, 0.07);
+}
+
+
+/* =========================================================
+   44. PARTE SUPERIOR DE LA TAREA
+========================================================= */
+
+.taskTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 11px;
+}
+
+
+/* =========================================================
+   45. PRIORIDADES
+========================================================= */
+
+.priority {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.priority.high {
+    background-color: var(--danger-light);
+    color: var(--danger);
+}
+
+.priority.medium {
+    background-color: var(--warning-light);
+    color: #B45309;
+}
+
+.priority.low {
+    background-color: var(--success-light);
+    color: var(--success);
+}
+
+
+/* =========================================================
+   46. CONTENIDO DE LA TAREA
+========================================================= */
+
+.taskCard h4 {
+    margin-bottom: 7px;
+
+    color: var(--text-primary);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+.taskCard p {
+    margin-bottom: 14px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   47. METADATA DE LA TAREA
+   Fecha, tiempo, etc.
+========================================================= */
+
+.taskMeta {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 14px;
+
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   48. FOOTER DE LA TAREA
+========================================================= */
+
+.taskFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   49. TAGS
+========================================================= */
+
+.tag {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 4px 8px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    color: var(--text-secondary)
+}
+
+.tag.design {
+    background-color: #EDE9FE;
+    color: #7C3AED;
+}
+
+.tag.backend {
+    background-color: #DBEAFE;
+    color: #2563EB;
+}
+
+.tag.frontend {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.tag.javascript {
+    background-color: #FEF9C3;
+    color: #A16207;
+}
+
+.tag.documentation {
+    background-color: #F1F5F9;
+    color: #64748B;
+}
+
+
+/* =========================================================
+   50. AVATAR DE LA TAREA
+========================================================= */
+
+.taskAvatar {
+    width: 27px;
+    height: 27px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background-color: var(--sidebar);
+    color: var(--text-white);
+
+    font-size: 9px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   51. TAREA COMPLETADA
+========================================================= */
+
+.completedTask h4 {
+    color: var(--text-muted);
+
+    text-decoration: line-through;
+}
+
+.completedTask p {
+    color: var(--text-muted);
+}
+
+
+/* =========================================================
+   52. BOTÓN AGREGAR TAREA
+========================================================= */
+
+.addTask {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 10px;
+
+    border: 1px dashed #CBD5E1;
+    border-radius: 7px;
+
+    background-color: transparent;
+    color: var(--text-secondary);
+
+    font-family: inherit;
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.addTask:hover {
+    border-color: var(--primary);
+
+    background-color: var(--primary-light);
+
+    color: var(--primary);
+}
+
+
+/* =========================================================
+   53. RESPONSIVE — TABLET GRANDE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #hDash {
+        gap: 18px;
+    }
+
+    .profile h2 {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   54. RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .kanban {
+        grid-template-columns: 1fr;
+    }
+
+    .taskToolbar {
+        flex-wrap: wrap;
+    }
+
+    .filters {
+        order: 3;
+
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   55. RESPONSIVE — TABLET PEQUEÑA
+   Convierte el sidebar en una versión compacta.
+========================================================= */
+
+@media (max-width: 800px) {
+
+    body {
+        grid-template-columns: 70px 1fr;
+    }
+
+    aside {
+        width: 70px;
+
+        padding: 20px 10px;
+    }
+
+    .brand {
+        justify-content: center;
+    }
+
+    .brand h2 {
+        display: none;
+    }
+
+    .brandIcon {
+        flex-shrink: 0;
+    }
+
+    .item {
+        justify-content: center;
+
+        padding: 0;
+
+        font-size: 0;
+    }
+
+    .itemIcon {
+        font-size: 18px;
+    }
+
+    .stad {
+        display: none;
+    }
+
+    #hDash {
+        padding: 20px;
+
+        flex-wrap: wrap;
+    }
+
+    .contText {
+        width: 100%;
+        flex-basis: 100%;
+    }
+
+    .contSearch {
+        flex: 1;
+
+        width: auto;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
+
+
+/* =========================================================
+   56. RESPONSIVE — MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .contPerfil .noty,
+    .contPerfil .mode,
+    .profile {
+        display: none;
+    }
+
+    .taskSection {
+        padding: 16px;
+    }
+
+    .sectionHeader {
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .taskToolbar {
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+    .taskSearch {
+        width: 100%;
+    }
+
+    .filters {
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+    .sortSelect {
+        width: 100%;
+    }
+}
+
+
+/* =========================================
+   MODAL OVERLAY
+========================================= */
+
+.modalOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: rgba(15, 23, 42, 0.55);
+
+    backdrop-filter: blur(4px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .2s ease,
+        visibility .2s ease;
+}
+
+
+/* =========================================
+   MODAL ACTIVO
+========================================= */
+
+.modalOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.taskModal {
+    width: 100%;
+    max-width: 560px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background-color: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, .18);
+
+    transform: translateY(15px) scale(.98);
+
+    transition:
+        transform .2s ease;
+}
+
+
+/* Animación cuando está activo */
+
+.modalOverlay.active .taskModal {
+    transform: translateY(0) scale(1);
+}
+
+
+/* =========================================
+   MODAL HEADER
+========================================= */
+
+.modalHeader {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 24px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.modalHeader h2 {
+    margin: 0 0 5px;
+
+    color: var(--text-primary);
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.modalHeader p {
+    margin: 0;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.modalClose {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: transparent;
+
+    color: var(--text-muted);
+
+    font-size: 25px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+}
+
+.modalClose:hover {
+    background-color: var(--surface-secondary);
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.taskForm {
+    padding: 24px;
+}
+
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.formGroup {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 18px;
+}
+
+.formGroup label {
+    color: var(--text-primary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.formGroup input,
+.formGroup textarea,
+.formGroup select {
+
+    width: 100%;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    background-color: var(--surface);
+
+    color: var(--text-primary);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease,
+        background-color .2s ease;
+}
+
+
+/* Inputs */
+
+.formGroup input,
+.formGroup select {
+    height: 42px;
+
+    padding: 0 12px;
+}
+
+
+/* Textarea */
+
+.formGroup textarea {
+    min-height: 100px;
+
+    padding: 12px;
+
+    resize: vertical;
+}
+
+
+/* Placeholder */
+
+.formGroup input::placeholder,
+.formGroup textarea::placeholder {
+    color: var(--text-muted);
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+.formGroup input:focus,
+.formGroup textarea:focus,
+.formGroup select:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px var(--primary-light);
+}
+
+
+/* =========================================
+   FORM ROW
+========================================= */
+
+.formRow {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+
+/* =========================================
+   MODAL FOOTER
+========================================= */
+
+.modalFooter {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 24px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+/* =========================================
+   BUTTON BASE
+========================================= */
+
+.btnCancel,
+.btnCreateTask {
+
+    height: 40px;
+
+    padding: 0 16px;
+
+    border-radius: var(--radius-lg);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+
+/* =========================================
+   CANCEL
+========================================= */
+
+.btnCancel {
+
+    border: 1px solid var(--border);
+
+    background-color: var(--surface);
+
+    color: var(--text-secondary);
+}
+
+.btnCancel:hover {
+
+    background-color: var(--surface-secondary);
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================
+   CREATE
+========================================= */
+
+.btnCreateTask {
+
+    border: 1px solid var(--primary);
+
+    background-color: var(--primary);
+
+    color: var(--text-white);
+}
+
+.btnCreateTask:hover {
+
+    background-color: var(--primary-hover);
+
+    border-color: var(--primary-hover);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .modalOverlay {
+        align-items: flex-end;
+
+        padding: 0;
+    }
+
+    .taskModal {
+
+        max-width: none;
+
+        max-height: 92vh;
+
+        border-radius:
+            var(--radius-xl) var(--radius-xl) 0 0;
+    }
+
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .modalHeader,
+    .taskForm {
+        padding: 20px;
+    }
+
+    .modalFooter {
+        flex-direction: column-reverse;
+    }
+
+    .btnCancel,
+    .btnCreateTask {
+        width: 100%;
+    }
+}
+
+
+/* =========================================
+   PROFILE OVERLAY
+========================================= */
+
+.profileOverlay {
+    position: fixed;
+    inset: 0;
+
+    background-color: rgba(15, 23, 42, 0.45);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+
+    z-index: 999;
+}
+
+
+/* =========================================
+   PROFILE DRAWER
+========================================= */
+
+.profileDrawer {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+
+    width: 380px;
+    max-width: 90vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--surface);
+
+    border-left: 1px solid var(--border);
+
+    box-shadow:
+        -10px 0 35px rgba(15, 23, 42, .12);
+
+    transform: translateX(100%);
+
+    transition:
+        transform .3s cubic-bezier(.4, 0, .2, 1);
+
+    overflow-y: auto;
+
+    z-index: 1000;
+}
+
+
+/* =========================================
+   ACTIVE
+========================================= */
+
+.profileDrawer.active {
+    transform: translateX(0);
+}
+
+.profileOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================
+   DRAWER HEADER
+========================================= */
+
+.drawerHeader {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 24px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.drawerLabel {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: var(--primary);
+
+    font-size: 10px;
+    font-weight: 700;
+
+    letter-spacing: .08em;
+}
+
+.drawerHeader h2 {
+    color: var(--text-primary);
+
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.drawerClose {
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    background-color: var(--surface);
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        border-color .2s ease;
+}
+
+.drawerClose svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.drawerClose:hover {
+    background-color: var(--surface-secondary);
+
+    color: var(--text-primary);
+
+    border-color: var(--border);
+}
+
+
+/* =========================================
+   PROFILE
+========================================= */
+
+.drawerProfile {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: 32px 24px 26px;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.drawerAvatar {
+    position: relative;
+
+    margin-bottom: 15px;
+}
+
+.drawerAvatar img {
+    width: 90px;
+    height: 90px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid var(--primary-light);
+}
+
+
+/* =========================================
+   CHANGE AVATAR
+========================================= */
+
+.changeAvatar {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+    place-items: center;
+
+    border: 3px solid var(--surface);
+
+    border-radius: 50%;
+
+    background-color: var(--primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        transform .2s ease;
+}
+
+.changeAvatar svg {
+    width: 14px;
+    height: 14px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.changeAvatar:hover {
+    background-color: var(--primary-hover);
+
+    transform: scale(1.05);
+}
+
+
+/* =========================================
+   PROFILE NAME
+========================================= */
+
+.drawerProfile h3 {
+    margin-bottom: 5px;
+
+    color: var(--text-primary);
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.drawerProfile p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+   PROFILE INFORMATION
+========================================= */
+
+.profileInfo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+
+    padding: 22px 24px;
+}
+
+.infoItem {
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+}
+
+.infoIcon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 9px;
+
+    background-color: var(--primary-light);
+
+    color: var(--primary);
+}
+
+.infoIcon svg {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.infoItem>div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.infoLabel {
+    color: var(--text-muted);
+
+    font-size: 11px;
+}
+
+.infoItem strong {
+    color: var(--text-primary);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   STATISTICS
+========================================= */
+
+.profileStats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    margin: 0 24px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+}
+
+.profileStat {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 15px 8px;
+
+    background-color: var(--surface-secondary);
+
+    border-right: 1px solid var(--border);
+}
+
+.profileStat:last-child {
+    border-right: none;
+}
+
+.profileStat strong {
+    color: var(--text-primary);
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.profileStat span {
+    color: var(--text-secondary);
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   PROFILE ACTIONS
+========================================= */
+
+.profileActions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 24px;
+}
+
+.profileAction {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 13px 10px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background-color: transparent;
+
+    color: var(--text-secondary);
+
+    text-align: left;
+
+    font-family: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+}
+
+.profileAction:hover {
+    background-color: var(--surface-secondary);
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================
+   ACTION ICON
+========================================= */
+
+.actionIcon {
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 8px;
+
+    background-color: var(--surface-secondary);
+
+    color: var(--text-secondary);
+}
+
+.actionIcon svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.7;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.profileAction div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+
+    flex: 1;
+}
+
+.profileAction strong {
+    color: var(--text-primary);
+
+    font-size: 13px;
+}
+
+.profileAction small {
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   ACTION ARROW
+========================================= */
+
+.actionArrow {
+    display: grid;
+    place-items: center;
+}
+
+.actionArrow svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.profileAction:hover .actionArrow {
+    color: var(--primary);
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+.drawerLogout {
+    margin: auto 24px 24px;
+
+    min-height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    border: 1px solid var(--danger);
+
+    border-radius: 9px;
+
+    background-color: transparent;
+
+    color: var(--danger);
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color .2s ease,
+        color .2s ease;
+}
+
+.drawerLogout svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.drawerLogout:hover {
+    background-color: var(--danger);
+
+    color: white;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .profileDrawer {
+        width: 100%;
+        max-width: 100%;
+    }
+
+}
+
+/* =========================================
+   SIDEBAR TOGGLE
+========================================= */
+
+.sidebarToggle {
+    position: absolute;
+
+    top: 70px;
+    right: -12px;
+
+    width: 26px;
+    height: 26px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    background-color: var(--surface);
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    z-index: 10;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .12);
+
+    transition:
+        background-color .2s ease,
+        color .2s ease,
+        transform .25s ease;
+}
+
+.sidebarToggle:hover {
+    background-color: var(--primary);
+
+    color: var(--text-white);
+
+    border-color: var(--primary);
+}
+
+.sidebarToggle svg {
+    width: 16px;
+    height: 16px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    transition: transform .3s ease;
+}
+
+/* =========================================
+   SIDEBAR COLLAPSED
+========================================= */
+
+body.sidebar-collapsed {
+    grid-template-columns: 72px 1fr;
+}
+
+body.sidebar-collapsed aside {
+    width: 72px;
+
+    padding: 24px 10px;
+}
+
+/* Ocultar nombre de la aplicación */
+
+body.sidebar-collapsed .brand h2 {
+    display: none;
+}
+
+
+/* Centrar logo */
+
+body.sidebar-collapsed .brand {
+    justify-content: center;
+}
+
+
+/* Ocultar texto de navegación */
+
+body.sidebar-collapsed .item {
+    justify-content: center;
+
+    padding: 0;
+
+    gap: 0;
+
+    font-size: 0;
+}
+
+
+/* Mantener visibles los iconos */
+
+body.sidebar-collapsed .itemIcon {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+}
+
+
+/* Ocultar separadores */
+
+body.sidebar-collapsed .line {
+    width: 80%;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Ocultar progreso */
+
+body.sidebar-collapsed .stad {
+    display: none;
+}

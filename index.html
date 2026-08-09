@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TaskFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside id="sidebar">
+
+        <header class="brand">
+
+            <div class="brandIcon">✓</div>
+
+            <h2 class="brandText">
+                TaskFlow
+            </h2>
+
+            <button type="button" class="sidebarToggle" id="sidebarToggle" aria-label="Collapse menu"
+                title="Collapse menu">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m15 18-6-6 6-6"></path>
+                </svg>
+            </button>
+
+        </header>
+
+        <span class="line"></span>
+
+        <nav class="containerItems">
+
+            <a href="#" class="item" data-tooltip="My tasks">
+                <span class="itemIcon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="4" y="3" width="16" height="18" rx="2"></rect>
+                        <path d="M8 8h8"></path>
+                        <path d="M8 12h8"></path>
+                        <path d="M8 16h5"></path>
+                    </svg>
+                </span>
+
+                <span class="itemText">
+                    My tasks
+                </span>
+            </a>
+
+
+            <a href="#" class="item" data-tooltip="Projects">
+                <span class="itemIcon">
+                    <!-- Projects -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M3 7.5A2.5 2.5 0 0 1 5.5 5H10l2 2h6.5A2.5 2.5 0 0 1 21 9.5v8A2.5 2.5 0 0 1 18.5 20h-13A2.5 2.5 0 0 1 3 17.5v-10Z">
+                        </path>
+                        <path d="M3 10h18"></path>
+                    </svg>
+                </span>
+
+                Projects
+            </a>
+
+
+            <a href="#" class="item" data-tooltip="Calendar">
+                <span class="itemIcon">
+                    <!-- Calendar -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                        <path d="M16 3v4"></path>
+                        <path d="M8 3v4"></path>
+                        <path d="M3 10h18"></path>
+                        <path d="M8 14h.01"></path>
+                        <path d="M12 14h.01"></path>
+                        <path d="M16 14h.01"></path>
+                        <path d="M8 17h.01"></path>
+                        <path d="M12 17h.01"></path>
+                    </svg>
+                </span>
+
+                Calendar
+            </a>
+
+
+            <a href="#" class="item" data-tooltip="Statistics">
+                <span class="itemIcon">
+                    <!-- Statistics -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 19V5"></path>
+                        <path d="M4 19h17"></path>
+                        <path d="m7 15 4-4 3 2 5-6"></path>
+                        <path d="M15 7h4v4"></path>
+                    </svg>
+                </span>
+
+                Statistics
+            </a>
+
+
+            <a href="#" class="item" data-tooltip="Tags">
+                <span class="itemIcon">
+                    <!-- Tags -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="m20.5 13.5-7 7a2 2 0 0 1-2.8 0l-7.2-7.2A2 2 0 0 1 3 12V5a2 2 0 0 1 2-2h7a2 2 0 0 1 1.3.5l7.2 7.2a2 2 0 0 1 0 2.8Z">
+                        </path>
+                        <circle cx="8" cy="8" r="1.2"></circle>
+                    </svg>
+                </span>
+
+                Tags
+            </a>
+
+
+            <span class="line"></span>
+
+
+            <a href="#" class="item" data-tooltip="Settings">
+                <span class="itemIcon">
+                    <!-- Settings -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+                        <path
+                            d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-2.5V20a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H6v-2.5h.2a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.8-1.8.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.6V5h2.5v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v2.5H21a1.7 1.7 0 0 0-1.6 1Z">
+                        </path>
+                    </svg>
+                </span>
+
+                Settings
+            </a>
+
+
+            <a href="#" class="item logout" data-tooltip="Log out">
+                <span class="itemIcon">
+                    <!-- Log out -->
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"></path>
+                        <path d="m15 16 4-4-4-4"></path>
+                        <path d="M9 12h10"></path>
+                    </svg>
+                </span>
+
+                Log out
+            </a>
+
+        </nav>
+
+
+        <div class="stad">
+
+            <h3>Overall progress</h3>
+
+            <div class="progressCircle">
+                <span id="progressPercentage">50%</span>
+            </div>
+
+            <p>
+                <strong id="completedTasksSidebar">08</strong>
+                of
+                <strong id="totalTasksSidebar">15</strong>
+                tasks completed
+            </p>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main>
+
+        <!-- HEADER -->
+
+        <header id="hDash">
+
+            <div class="contText">
+
+                <h1>My tasks</h1>
+
+                <p>
+                    Organize and manage your tasks efficiently
+                </p>
+
+            </div>
+
+
+            <div class="contSearch">
+
+                <span class="searchIcon">⌕</span>
+
+                <input type="search" id="search" name="search" placeholder="Search tasks...">
+
+                <span class="k">
+                    Ctrl + K
+                </span>
+
+            </div>
+
+
+            <div class="contPerfil">
+
+                <button class="noty" aria-label="Notifications">
+                    🔔
+                </button>
+
+                <button class="mode" aria-label="Change theme" id="theme">
+                    ☾
+                </button>
+
+
+                <div class="profile">
+
+                    <img src="https://i.pravatar.cc/100?img=12" alt="Alejandro Zapata avatar">
+
+                    <h2>
+                        Alejandro Zapata
+                    </h2>
+
+                    <span>⌄</span>
+
+                </div>
+
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             CONTENT
+        ========================================== -->
+
+        <section class="content">
+
+
+            <!-- =====================================
+                 STATS
+            ====================================== -->
+
+            <section class="stats">
+
+                <article class="statCard">
+
+                    <div class="statInfo">
+
+                        <span class="statLabel">
+                            Total tasks
+                        </span>
+
+                        <strong class="statValue" id="totalTasks">
+                            15
+                        </strong>
+
+                    </div>
+
+                    <div class="statIcon orange">
+                        ✓
+                    </div>
+
+                </article>
+
+
+                <article class="statCard">
+
+                    <div class="statInfo">
+
+                        <span class="statLabel">
+                            Pending
+                        </span>
+
+                        <strong class="statValue" id="pendingStat">
+                            4
+                        </strong>
+
+                    </div>
+
+                    <div class="statIcon warning">
+                        !
+                    </div>
+
+                </article>
+
+
+                <article class="statCard">
+
+                    <div class="statInfo">
+
+                        <span class="statLabel">
+                            In progress
+                        </span>
+
+                        <strong class="statValue" id="progressStat">
+                            2
+                        </strong>
+
+                    </div>
+
+                    <div class="statIcon info">
+                        ↻
+                    </div>
+
+                </article>
+
+
+                <article class="statCard">
+
+                    <div class="statInfo">
+
+                        <span class="statLabel">
+                            Completed
+                        </span>
+
+                        <strong class="statValue" id="completedStat">
+                            5
+                        </strong>
+
+                    </div>
+
+                    <div class="statIcon success">
+                        ✓
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =====================================
+                 TASK SECTION
+            ====================================== -->
+
+            <section class="taskSection">
+
+
+                <div class="sectionHeader">
+
+                    <div>
+
+                        <h2>Tasks</h2>
+
+                        <p>
+                            Manage your tasks and keep your work organized.
+                        </p>
+
+                    </div>
+
+                    <button class="newTask secondary">
+                        + New task
+                    </button>
+
+                </div>
+
+
+                <!-- TOOLBAR -->
+
+                <div class="taskToolbar">
+
+
+                    <div class="taskSearch">
+
+                        <span>⌕</span>
+
+                        <input type="search" id="taskSearch" placeholder="Search tasks...">
+
+                    </div>
+
+
+                    <div class="filters">
+
+                        <button class="filter active" data-filter="all">
+                            All
+                        </button>
+
+                        <button class="filter" data-filter="pending">
+                            Pending
+                        </button>
+
+                        <button class="filter" data-filter="progress">
+                            In progress
+                        </button>
+
+                        <button class="filter" data-filter="completed">
+                            Completed
+                        </button>
+
+                    </div>
+
+
+                    <select class="sortSelect" id="sortTasks">
+
+                        <option value="">
+                            Sort by
+                        </option>
+
+                        <option value="priority">
+                            Priority
+                        </option>
+
+                        <option value="date">
+                            Date
+                        </option>
+
+                        <option value="name">
+                            Name
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- =====================================
+                     KANBAN
+                ====================================== -->
+
+                <div class="kanban">
+
+
+                    <!-- PENDING -->
+
+                    <div class="kanbanColumn">
+
+                        <div class="columnHeader">
+
+                            <div class="columnTitle">
+
+                                <span class="statusDot pending"></span>
+
+                                <h3>Pending</h3>
+
+                                <span class="taskCount" id="pendingCount">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <button class="columnMenu">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <!-- JS INSERTS HERE -->
+
+                        <div class="taskList" id="pendingTasks"></div>
+
+
+                        <button class="addTask">
+                            + Add task
+                        </button>
+
+                    </div>
+
+
+                    <!-- IN PROGRESS -->
+
+                    <div class="kanbanColumn">
+
+                        <div class="columnHeader">
+
+                            <div class="columnTitle">
+
+                                <span class="statusDot progress"></span>
+
+                                <h3>In progress</h3>
+
+                                <span class="taskCount" id="progressCount">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <button class="columnMenu">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <!-- JS INSERTS HERE -->
+
+                        <div class="taskList" id="progressTasks"></div>
+
+
+                        <button class="addTask">
+                            + Add task
+                        </button>
+
+                    </div>
+
+
+                    <!-- COMPLETED -->
+
+                    <div class="kanbanColumn">
+
+                        <div class="columnHeader">
+
+                            <div class="columnTitle">
+
+                                <span class="statusDot completed"></span>
+
+                                <h3>Completed</h3>
+
+                                <span class="taskCount" id="completedCount">
+                                    0
+                                </span>
+
+                            </div>
+
+                            <button class="columnMenu">
+                                ⋮
+                            </button>
+
+                        </div>
+
+
+                        <!-- JS INSERTS HERE -->
+
+                        <div class="taskList" id="completedTasks"></div>
+
+
+                        <button class="addTask">
+                            + Add task
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+     MODAL - CREATE TASK
+    ========================================= -->
+
+    <div class="modalOverlay" id="taskModal">
+
+        <div class="taskModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+            <!-- Header -->
+
+            <div class="modalHeader">
+
+                <div>
+                    <h2 id="modalTitle">Create new task</h2>
+                    <p>Add a new task to your workflow.</p>
+                </div>
+
+                <button type="button" class="modalClose" id="closeTaskModal" aria-label="Close modal">
+                    &times;
+                </button>
+
+            </div>
+
+
+            <!-- Form -->
+
+            <form id="taskForm" class="taskForm">
+
+                <!-- Title -->
+
+                <div class="formGroup">
+
+                    <label for="taskTitle">
+                        Task title
+                    </label>
+
+                    <input type="text" id="taskTitle" name="title" placeholder="e.g. Design homepage"
+                        autocomplete="off" required>
+
+                </div>
+
+
+                <!-- Description -->
+
+                <div class="formGroup">
+
+                    <label for="taskDescription">
+                        Description
+                    </label>
+
+                    <textarea id="taskDescription" name="description" rows="4"
+                        placeholder="Briefly describe the task..."></textarea>
+
+                </div>
+
+
+                <!-- Row -->
+
+                <div class="formRow">
+
+                    <!-- Priority -->
+
+                    <div class="formGroup">
+
+                        <label for="taskPriority">
+                            Priority
+                        </label>
+
+                        <select id="taskPriority" name="priority">
+
+                            <option value="low">
+                                Low
+                            </option>
+
+                            <option value="medium" selected>
+                                Medium
+                            </option>
+
+                            <option value="high">
+                                High
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Date -->
+
+                    <div class="formGroup">
+
+                        <label for="taskDate">
+                            Due date
+                        </label>
+
+                        <input type="date" id="taskDate" name="dueDate">
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project -->
+
+                <div class="formGroup">
+
+                    <label for="taskProject">
+                        Project
+                    </label>
+
+                    <select id="taskProject" name="project">
+
+                        <option value="">
+                            Select project
+                        </option>
+
+                        <option value="website">
+                            Website
+                        </option>
+
+                        <option value="app">
+                            Mobile app
+                        </option>
+
+                        <option value="backend">
+                            Backend / API
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Tags -->
+
+                <div class="formGroup">
+
+                    <label for="taskTag">
+                        Tag
+                    </label>
+
+                    <select id="taskTag" name="tag">
+
+                        <option value="">
+                            Select tag
+                        </option>
+
+                        <option value="frontend">
+                            Frontend
+                        </option>
+
+                        <option value="backend">
+                            Backend
+                        </option>
+
+                        <option value="design">
+                            Design
+                        </option>
+
+                        <option value="javascript">
+                            JavaScript
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Footer -->
+
+                <div class="modalFooter">
+
+                    <button type="button" class="btnCancel" id="cancelTaskModal">
+                        Cancel
+                    </button>
+
+                    <button type="submit" class="btnCreateTask">
+                        Create task
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+     OVERLAY
+    ========================================= -->
+
+    <div class="profileOverlay" id="profileOverlay"></div>
+
+
+    <!-- =========================================
+     PROFILE DRAWER
+    ========================================= -->
+
+    <aside class="profileDrawer" id="profileDrawer">
+
+        <!-- HEADER -->
+
+        <header class="drawerHeader">
+
+            <div>
+                <span class="drawerLabel">MY ACCOUNT</span>
+                <h2>Profile</h2>
+            </div>
+
+            <button type="button" class="drawerClose" id="closeProfileDrawer" aria-label="Close profile">
+
+                <!-- X -->
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 6 6 18"></path>
+                    <path d="m6 6 12 12"></path>
+                </svg>
+
+            </button>
+
+        </header>
+
+
+        <!-- =========================================
+         PROFILE
+        ========================================= -->
+
+        <section class="drawerProfile">
+
+            <div class="drawerAvatar">
+
+                <img src="https://i.pravatar.cc/150?img=12" alt="Alejandro Zapata avatar">
+
+                <button type="button" class="changeAvatar" aria-label="Change profile picture">
+
+                    <!-- Camera -->
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path
+                            d="M14.5 4h-5L8 7H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-1.5-3Z">
+                        </path>
+                        <circle cx="12" cy="13" r="3"></circle>
+                    </svg>
+
+                </button>
+
+            </div>
+
+            <h3>Alejandro Zapata</h3>
+
+            <p>Administrator</p>
+
+        </section>
+
+
+        <!-- =========================================
+         ACCOUNT INFORMATION
+        ========================================= -->
+
+        <section class="profileInfo">
+
+            <!-- Email -->
+
+            <div class="infoItem">
+
+                <span class="infoIcon">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+
+                        <path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7"></path>
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="infoLabel">
+                        Email address
+                    </span>
+
+                    <strong>
+                        alejandro@email.com
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- Date -->
+
+            <div class="infoItem">
+
+                <span class="infoIcon">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                        <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+
+                        <line x1="16" x2="16" y1="2" y2="6"></line>
+
+                        <line x1="8" x2="8" y1="2" y2="6"></line>
+
+                        <line x1="3" x2="21" y1="10" y2="10"></line>
+
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <span class="infoLabel">
+                        Member since
+                    </span>
+
+                    <strong>
+                        August 2026
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+         STATISTICS
+        ========================================= -->
+
+        <section class="profileStats">
+
+            <div class="profileStat">
+
+                <strong>32</strong>
+
+                <span>Tasks</span>
+
+            </div>
+
+
+            <div class="profileStat">
+
+                <strong>24</strong>
+
+                <span>Completed</span>
+
+            </div>
+
+
+            <div class="profileStat">
+
+                <strong>8</strong>
+
+                <span>Pending</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+         ACTIONS
+        ========================================= -->
+
+        <nav class="profileActions">
+
+            <!-- Settings -->
+
+            <button type="button" class="profileAction">
+
+                <span class="actionIcon">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                        <path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"></path>
+
+                        <path
+                            d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.41 1.41-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.56V20h-2v-.09a1.7 1.7 0 0 0-1.03-1.56 1.7 1.7 0 0 0-1.88.34l-.06.06-1.41-1.41.06-.06A1.7 1.7 0 0 0 9.4 15a1.7 1.7 0 0 0-1.56-1.03H7v-2h.84A1.7 1.7 0 0 0 9.4 10.9a1.7 1.7 0 0 0-.34-1.88L9 8.96l1.41-1.41.06.06a1.7 1.7 0 0 0 1.88.34A1.7 1.7 0 0 0 13.38 6.4V6h2v.4a1.7 1.7 0 0 0 1.03 1.56 1.7 1.7 0 0 0 1.88-.34l.06-.06 1.41 1.41-.06.06A1.7 1.7 0 0 0 19.4 10.9a1.7 1.7 0 0 0 1.56 1.03H21v2h-.04A1.7 1.7 0 0 0 19.4 15Z">
+                        </path>
+
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <strong>Settings</strong>
+
+                    <small>
+                        Account preferences
+                    </small>
+
+                </div>
+
+                <span class="actionArrow">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+
+                </span>
+
+            </button>
+
+
+            <!-- Security -->
+
+            <button type="button" class="profileAction">
+
+                <span class="actionIcon">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                        <rect width="18" height="11" x="3" y="11" rx="2"></rect>
+
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+
+                    </svg>
+
+                </span>
+
+                <div>
+
+                    <strong>Security</strong>
+
+                    <small>
+                        Password and privacy
+                    </small>
+
+                </div>
+
+                <span class="actionArrow">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+
+                </span>
+
+            </button>
+
+        </nav>
+
+
+        <!-- =========================================
+         LOGOUT
+        ========================================= -->
+
+        <button type="button" class="drawerLogout">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+
+                <polyline points="16 17 21 12 16 7"></polyline>
+
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+
+            </svg>
+
+            <span>Log out</span>
+
+        </button>
+
+    </aside>
+
+    <script src="js/script.js" defer></script>
+
+</body>
+
+</html>
+
