@@ -1,0 +1,2557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Sign in to TaskFlow and manage your tasks efficiently.">
+
+    <title>Login | TaskFlow</title>
+
+    <!-- =========================================
+         GOOGLE FONT — INTER
+    ========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================================
+   TASKFLOW — LOGIN
+   GREEN THEME
+============================================================ */
+
+
+        /* ============================================================
+   1. VARIABLES
+============================================================ */
+
+        :root {
+
+            /* --------------------------------------------------------
+       Primary — Green
+    -------------------------------------------------------- */
+
+            --primary: #16A34A;
+            --primary-hover: #15803D;
+            --primary-light: #F0FDF4;
+            --primary-soft: #DCFCE7;
+
+            /* --------------------------------------------------------
+       Brand
+    -------------------------------------------------------- */
+
+            --dark-purple: #1E1B4B;
+            --dark-green: #14532D;
+
+            /* --------------------------------------------------------
+       Background
+    -------------------------------------------------------- */
+
+            --background: #F8FAFC;
+            --surface: #FFFFFF;
+
+            /* --------------------------------------------------------
+       Text
+    -------------------------------------------------------- */
+
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --text-muted: #94A3B8;
+
+            /* --------------------------------------------------------
+       Borders
+    -------------------------------------------------------- */
+
+            --border: #E2E8F0;
+            --border-focus: #16A34A;
+
+            /* --------------------------------------------------------
+       Status
+    -------------------------------------------------------- */
+
+            --success: #22C55E;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --info: #3B82F6;
+
+            /* --------------------------------------------------------
+       Radius
+    -------------------------------------------------------- */
+
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 16px;
+
+            /* --------------------------------------------------------
+       Shadows
+    -------------------------------------------------------- */
+
+            --shadow-sm:
+                0 1px 3px rgba(15, 23, 42, 0.06);
+
+            --shadow-md:
+                0 10px 30px rgba(15, 23, 42, 0.08);
+
+            --shadow-lg:
+                0 20px 50px rgba(15, 23, 42, 0.12);
+        }
+
+
+        /* ============================================================
+   2. RESET
+============================================================ */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            font-size: 16px;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            font-family: "Inter", sans-serif;
+
+            background: var(--background);
+
+            color: var(--text-primary);
+
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+
+        /* Form elements */
+
+        button,
+        input {
+            font: inherit;
+        }
+
+
+        button {
+            border: none;
+            background: none;
+        }
+
+
+        button:focus {
+            outline: none;
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* ============================================================
+   3. PAGE LAYOUT
+============================================================ */
+
+        body {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 40px 20px;
+        }
+
+
+        /* Main login container */
+
+        .loginContainer {
+
+            width: min(900px, 100%);
+
+            min-height: 560px;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            overflow: hidden;
+
+            background: var(--surface);
+
+            border-radius: var(--radius-lg);
+
+            box-shadow: var(--shadow-lg);
+        }
+
+
+        /* ============================================================
+   4. BRAND PANEL
+============================================================ */
+
+        .brandPanel {
+
+            position: relative;
+
+            overflow: hidden;
+
+            padding: 48px;
+
+            background: var(--dark-green);
+
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        /* Decorative circle */
+
+        .brandPanel::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            top: -130px;
+            right: -110px;
+
+            border-radius: 50%;
+
+            background: rgba(34, 197, 94, 0.10);
+        }
+
+
+        /* Decorative circle */
+
+        .brandPanel::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 240px;
+            height: 240px;
+
+            bottom: -120px;
+            left: -90px;
+
+            border-radius: 50%;
+
+            background: rgba(34, 197, 94, 0.08);
+        }
+
+
+        /* ============================================================
+   5. BRAND CONTENT
+============================================================ */
+
+        .brandContent {
+
+            position: relative;
+
+            z-index: 2;
+
+            width: 100%;
+        }
+
+
+        /* ============================================================
+   6. BRAND
+============================================================ */
+
+        .brand {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-bottom: 60px;
+        }
+
+
+        /* Logo icon */
+
+        .brandIcon {
+
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background: var(--primary);
+
+            color: #FFFFFF;
+
+            font-size: 20px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 6px 14px rgba(34, 197, 94, 0.25);
+        }
+
+
+        /* Brand name */
+
+        .brandName {
+
+            font-size: 21px;
+
+            font-weight: 700;
+
+            letter-spacing: -0.5px;
+
+            color: #FFFFFF;
+        }
+
+
+        /* Brand "Flow" */
+
+        .brandName span {
+
+            color: #86EFAC;
+        }
+
+
+        /* ============================================================
+   7. BRAND MESSAGE
+============================================================ */
+
+        .brandMessage {
+
+            max-width: 330px;
+        }
+
+
+        /* Main heading */
+
+        .brandMessage h1 {
+
+            margin-bottom: 20px;
+
+            font-size: clamp(36px, 4vw, 48px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+
+            font-weight: 800;
+
+            color: #FFFFFF;
+        }
+
+
+        /* Green highlight */
+
+        .brandMessage h1 span {
+
+            color: #4ADE80;
+        }
+
+
+        /* Description */
+
+        .brandMessage p {
+
+            max-width: 310px;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            color: #BBF7D0;
+        }
+
+
+        /* ============================================================
+   8. TASK PREVIEW
+============================================================ */
+
+        .taskPreview {
+
+            width: 100%;
+
+            max-width: 320px;
+
+            margin-top: 40px;
+
+            padding: 18px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.12);
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.10);
+
+            backdrop-filter: blur(8px);
+        }
+
+
+        /* Preview header */
+
+        .previewHeader {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 14px;
+
+            font-size: 11px;
+
+            font-weight: 600;
+
+            color: #D1FAE5;
+        }
+
+
+        /* Task counter */
+
+        .previewHeader span:last-child {
+
+            color: #86EFAC;
+        }
+
+
+        /* ============================================================
+   9. PREVIEW TASK
+============================================================ */
+
+        .previewTask {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 9px 0;
+
+            font-size: 11px;
+
+            color: #D1FAE5;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+
+        /* ============================================================
+   10. PREVIEW CHECKBOX
+============================================================ */
+
+        .previewCheck {
+
+            width: 16px;
+            height: 16px;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border: 1.5px solid rgba(255, 255, 255, 0.30);
+
+            border-radius: 50%;
+
+            color: #FFFFFF;
+
+            font-size: 9px;
+        }
+
+
+        /* Completed */
+
+        .previewCheck.completed {
+
+            border-color: var(--primary);
+
+            background: var(--primary);
+
+            color: #FFFFFF;
+        }
+
+
+        /* ============================================================
+   11. LOGIN PANEL
+============================================================ */
+
+        .loginPanel {
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            padding: 48px 52px;
+        }
+
+
+        /* ============================================================
+   12. LOGIN HEADER
+============================================================ */
+
+        .loginHeader {
+
+            margin-bottom: 32px;
+
+            text-align: center;
+        }
+
+
+        .loginTitle {
+
+            margin-bottom: 8px;
+
+            font-size: 28px;
+
+            line-height: 1.2;
+
+            font-weight: 700;
+
+            letter-spacing: -0.8px;
+
+            color: var(--text-primary);
+        }
+
+
+        .loginSubtitle {
+
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* ============================================================
+   13. FORM
+============================================================ */
+
+        .loginForm {
+
+            width: 100%;
+        }
+
+
+        .formGroup {
+
+            margin-bottom: 20px;
+        }
+
+
+        /* Labels */
+
+        .formGroup>label,
+        .passwordHeader label {
+
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            color: var(--text-primary);
+        }
+
+
+        /* ============================================================
+   14. PASSWORD HEADER
+============================================================ */
+
+        .passwordHeader {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 8px;
+        }
+
+
+        .passwordHeader label {
+
+            margin-bottom: 0;
+        }
+
+
+        /* Forgot password */
+
+        .forgotPassword {
+
+            font-size: 12px;
+
+            font-weight: 500;
+
+            color: var(--primary);
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        .forgotPassword:hover {
+
+            color: var(--primary-hover);
+
+            text-decoration: underline;
+        }
+
+
+        /* ============================================================
+   15. INPUT WRAPPER
+============================================================ */
+
+        .inputWrapper {
+
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            width: 100%;
+
+            height: 46px;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius-md);
+
+            background: var(--surface);
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background-color 0.2s ease;
+        }
+
+
+        /* Focus */
+
+        .inputWrapper:focus-within {
+
+            border-color: var(--border-focus);
+
+            box-shadow:
+                0 0 0 3px rgba(22, 163, 74, 0.10);
+
+            background: #FFFFFF;
+        }
+
+
+        /* ============================================================
+   16. INPUT ICON
+============================================================ */
+
+        .inputIcon {
+
+            width: 18px;
+            height: 18px;
+
+            flex-shrink: 0;
+
+            margin-left: 14px;
+            margin-right: 10px;
+
+            fill: none;
+
+            stroke: var(--text-muted);
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+
+            transition:
+                stroke 0.2s ease;
+        }
+
+
+        /* Change icon color on focus */
+
+        .inputWrapper:focus-within .inputIcon {
+
+            stroke: var(--primary);
+        }
+
+
+        /* ============================================================
+   17. INPUT
+============================================================ */
+
+        .inputWrapper input {
+
+            width: 100%;
+            height: 100%;
+
+            padding: 0 14px 0 0;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            color: var(--text-primary);
+
+            font-size: 13px;
+        }
+
+
+        /* Placeholder */
+
+        .inputWrapper input::placeholder {
+
+            color: var(--text-muted);
+        }
+
+
+        /* Autofill */
+
+        .inputWrapper input:-webkit-autofill {
+
+            -webkit-text-fill-color: var(--text-primary);
+
+            box-shadow:
+                0 0 0 1000px var(--surface) inset;
+        }
+
+
+        /* ============================================================
+   18. PASSWORD VISIBILITY BUTTON
+============================================================ */
+
+        .togglePassword {
+
+            width: 42px;
+            height: 100%;
+
+            flex-shrink: 0;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            cursor: pointer;
+
+            color: var(--text-muted);
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        .togglePassword:hover {
+
+            color: var(--text-primary);
+        }
+
+
+        /* Eye icon */
+
+        .eyeIcon {
+
+            width: 18px;
+            height: 18px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* ============================================================
+   19. FORM OPTIONS
+============================================================ */
+
+        .formOptions {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-top: 2px;
+
+            margin-bottom: 22px;
+        }
+
+
+        /* ============================================================
+   20. REMEMBER ME
+============================================================ */
+
+        .rememberMe {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            cursor: pointer;
+
+            font-size: 12px;
+
+            color: var(--text-secondary);
+
+            user-select: none;
+        }
+
+
+        /* Hide native checkbox */
+
+        .rememberMe input {
+
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+
+        /* Custom checkbox */
+
+        .customCheckbox {
+
+            width: 16px;
+            height: 16px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 4px;
+
+            background: var(--surface);
+
+            transition:
+                background-color 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+
+        /* Checkbox icon */
+
+        .customCheckbox svg {
+
+            width: 12px;
+            height: 12px;
+
+            fill: none;
+
+            stroke: #FFFFFF;
+
+            stroke-width: 2.5;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+
+            opacity: 0;
+
+            transform: scale(0.7);
+
+            transition:
+                opacity 0.15s ease,
+                transform 0.15s ease;
+        }
+
+
+        /* Checked */
+
+        .rememberMe input:checked+.customCheckbox {
+
+            border-color: var(--primary);
+
+            background: var(--primary);
+        }
+
+
+        /* Show check */
+
+        .rememberMe input:checked+.customCheckbox svg {
+
+            opacity: 1;
+
+            transform: scale(1);
+        }
+
+
+        /* Keyboard accessibility */
+
+        .rememberMe input:focus-visible+.customCheckbox {
+
+            outline: 3px solid rgba(22, 163, 74, 0.15);
+
+            outline-offset: 2px;
+        }
+
+
+        /* ============================================================
+   21. LOGIN BUTTON
+============================================================ */
+
+        .loginButton {
+
+            width: 100%;
+
+            height: 46px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            border-radius: var(--radius-md);
+
+            background: var(--primary);
+
+            color: #FFFFFF;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 5px 12px rgba(22, 163, 74, 0.18);
+
+            transition:
+                background-color 0.2s ease,
+                transform 0.15s ease,
+                box-shadow 0.2s ease;
+        }
+
+
+        /* Hover */
+
+        .loginButton:hover {
+
+            background: var(--primary-hover);
+
+            box-shadow:
+                0 7px 16px rgba(21, 128, 61, 0.22);
+        }
+
+
+        /* Active */
+
+        .loginButton:active {
+
+            transform: translateY(1px);
+        }
+
+
+        /* Keyboard focus */
+
+        .loginButton:focus-visible {
+
+            outline: 3px solid rgba(22, 163, 74, 0.20);
+
+            outline-offset: 3px;
+        }
+
+
+        /* ============================================================
+   22. BUTTON ICON
+============================================================ */
+
+        .buttonIcon {
+
+            width: 17px;
+            height: 17px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+
+            transition:
+                transform 0.2s ease;
+        }
+
+
+        /* Arrow animation */
+
+        .loginButton:hover .buttonIcon {
+
+            transform: translateX(3px);
+        }
+
+
+        /* ============================================================
+   23. DIVIDER
+============================================================ */
+
+        .divider {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 24px 0;
+        }
+
+
+        .divider span {
+
+            flex: 1;
+
+            height: 1px;
+
+            background: var(--border);
+        }
+
+
+        .divider p {
+
+            font-size: 11px;
+
+            color: var(--text-muted);
+        }
+
+
+        /* ============================================================
+   24. REGISTER
+============================================================ */
+
+        .registerText {
+
+            text-align: center;
+
+            font-size: 12px;
+
+            color: var(--text-secondary);
+        }
+
+
+        .registerLink {
+
+            margin-left: 3px;
+
+            font-weight: 600;
+
+            color: var(--primary);
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        .registerLink:hover {
+
+            color: var(--primary-hover);
+
+            text-decoration: underline;
+        }
+
+
+        /* ============================================================
+   25. FOOTER
+============================================================ */
+
+        .loginFooter {
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 32px;
+
+            font-size: 10px;
+
+            color: var(--text-muted);
+        }
+
+
+        .loginFooter a {
+
+            transition:
+                color 0.2s ease;
+        }
+
+
+        .loginFooter a:hover {
+
+            color: var(--text-secondary);
+
+            text-decoration: underline;
+        }
+
+
+        .footerDot {
+
+            color: var(--border);
+        }
+
+
+        /* ============================================================
+   26. VALIDATION STATES
+============================================================ */
+
+        /* Invalid input */
+
+        .inputWrapper.error {
+
+            border-color: var(--error);
+
+            box-shadow:
+                0 0 0 3px rgba(239, 68, 68, 0.08);
+        }
+
+
+        /* Valid input */
+
+        .inputWrapper.success {
+
+            border-color: var(--success);
+
+            box-shadow:
+                0 0 0 3px rgba(34, 197, 94, 0.08);
+        }
+
+
+        /* ============================================================
+   27. RESPONSIVE — TABLET
+============================================================ */
+
+        @media (max-width: 800px) {
+
+            .loginContainer {
+
+                grid-template-columns: 1fr;
+
+                max-width: 500px;
+            }
+
+
+            .brandPanel {
+
+                display: none;
+            }
+
+
+            .loginPanel {
+
+                min-height: 560px;
+
+                padding: 48px;
+            }
+        }
+
+
+        /* ============================================================
+   28. RESPONSIVE — MOBILE
+============================================================ */
+
+        @media (max-width: 520px) {
+
+            body {
+
+                padding: 20px 14px;
+
+                align-items: flex-start;
+            }
+
+
+            .loginContainer {
+
+                min-height: auto;
+
+                margin-top: 20px;
+
+                border-radius: 14px;
+            }
+
+
+            .loginPanel {
+
+                padding: 36px 24px;
+            }
+
+
+            .loginTitle {
+
+                font-size: 25px;
+            }
+
+
+            .loginSubtitle {
+
+                font-size: 12px;
+            }
+
+
+            .loginFooter {
+
+                margin-top: 28px;
+
+                flex-wrap: wrap;
+            }
+        }
+
+
+        /* ============================================================
+   29. VERY SMALL SCREENS
+============================================================ */
+
+        @media (max-width: 360px) {
+
+            .loginPanel {
+
+                padding: 30px 18px;
+            }
+
+
+            .loginHeader {
+
+                margin-bottom: 26px;
+            }
+
+
+            .passwordHeader {
+
+                align-items: flex-start;
+
+                gap: 8px;
+            }
+
+
+            .forgotPassword {
+
+                font-size: 11px;
+            }
+        }
+
+
+        /* ============================================================
+   30. REDUCED MOTION
+============================================================ */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                scroll-behavior: auto !important;
+
+                transition-duration: 0.01ms !important;
+
+                animation-duration: 0.01ms !important;
+
+                animation-iteration-count: 1 !important;
+            }
+        }
+
+        /* ============================================================
+   TOAST NOTIFICATIONS
+============================================================ */
+
+.toastContainer {
+
+    position: fixed;
+
+    top: 24px;
+    right: 24px;
+
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: min(360px, calc(100vw - 32px));
+}
+
+
+/* ============================================================
+   TOAST
+============================================================ */
+
+.toast {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.12);
+
+    overflow: hidden;
+
+    animation:
+        toastIn 0.3s ease forwards;
+}
+
+
+/* ============================================================
+   TOAST ICON
+============================================================ */
+
+.toastIcon {
+
+    width: 22px;
+    height: 22px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   TOAST CONTENT
+============================================================ */
+
+.toastContent {
+
+    flex: 1;
+}
+
+
+.toastTitle {
+
+    margin-bottom: 3px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    color: var(--text-primary);
+}
+
+
+.toastMessage {
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   CLOSE BUTTON
+============================================================ */
+
+.toastClose {
+
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    color: var(--text-muted);
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    border-radius: 6px;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.toastClose:hover {
+
+    color: var(--text-primary);
+
+    background: #F1F5F9;
+}
+
+
+/* ============================================================
+   SUCCESS
+============================================================ */
+
+.toast.success {
+
+    border-left: 4px solid var(--success);
+}
+
+
+.toast.success .toastIcon {
+
+    background: #DCFCE7;
+
+    color: #16A34A;
+}
+
+
+/* ============================================================
+   ERROR
+============================================================ */
+
+.toast.error {
+
+    border-left: 4px solid var(--error);
+}
+
+
+.toast.error .toastIcon {
+
+    background: #FEE2E2;
+
+    color: #DC2626;
+}
+
+
+/* ============================================================
+   WARNING
+============================================================ */
+
+.toast.warning {
+
+    border-left: 4px solid var(--warning);
+}
+
+
+.toast.warning .toastIcon {
+
+    background: #FEF3C7;
+
+    color: #D97706;
+}
+
+
+/* ============================================================
+   INFO
+============================================================ */
+
+.toast.info {
+
+    border-left: 4px solid var(--info);
+}
+
+
+.toast.info .toastIcon {
+
+    background: #DBEAFE;
+
+    color: #2563EB;
+}
+
+
+/* ============================================================
+   PROGRESS BAR
+============================================================ */
+
+.toastProgress {
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    height: 3px;
+
+    width: 100%;
+
+    transform-origin: left;
+
+    animation:
+        toastProgress 4s linear forwards;
+}
+
+
+.toast.success .toastProgress {
+    background: var(--success);
+}
+
+
+.toast.error .toastProgress {
+    background: var(--error);
+}
+
+
+.toast.warning .toastProgress {
+    background: var(--warning);
+}
+
+
+.toast.info .toastProgress {
+    background: var(--info);
+}
+
+
+/* ============================================================
+   ANIMATIONS
+============================================================ */
+
+@keyframes toastIn {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateX(30px)
+            scale(0.95);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+}
+
+
+.toast.removing {
+
+    animation:
+        toastOut 0.25s ease forwards;
+}
+
+
+@keyframes toastOut {
+
+    from {
+
+        opacity: 1;
+
+        transform:
+            translateX(0)
+            scale(1);
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform:
+            translateX(30px)
+            scale(0.95);
+    }
+}
+
+
+/* ============================================================
+   MOBILE
+============================================================ */
+
+@media (max-width: 520px) {
+
+    .toastContainer {
+
+        top: 16px;
+
+        right: 16px;
+        left: 16px;
+
+        width: auto;
+    }
+}
+    </style>
+
+
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         MAIN CONTAINER
+    ========================================== -->
+
+    <main class="loginContainer">
+
+
+        <!-- =========================================
+             BRAND / VISUAL PANEL
+        ========================================== -->
+
+        <section class="brandPanel">
+
+            <div class="brandContent">
+
+                <!-- Logo -->
+
+                <div class="brand">
+
+                    <div class="brandIcon">
+                        ✓
+                    </div>
+
+                    <span class="brandName">
+                        Task <span>Flow</span>
+                    </span>
+
+                </div>
+
+
+                <!-- Main message -->
+
+                <div class="brandMessage">
+
+                    <h1>
+                        Organize.
+                        <br>
+                        Focus.
+                        <br>
+                        <span>Achieve</span>.
+                    </h1>
+
+                    <p>
+                        Manage your tasks, organize your projects
+                        and stay focused on what matters.
+                    </p>
+
+                </div>
+
+
+                <!-- Decorative illustration -->
+
+                <div class="taskPreview">
+
+                    <div class="previewHeader">
+
+                        <span>
+                            Today's tasks
+                        </span>
+
+                        <span>
+                            08 / 15
+                        </span>
+
+                    </div>
+
+
+                    <div class="previewTask">
+
+                        <span class="previewCheck completed">
+                            ✓
+                        </span>
+
+                        <span>
+                            Design dashboard
+                        </span>
+
+                    </div>
+
+
+                    <div class="previewTask">
+
+                        <span class="previewCheck">
+                        </span>
+
+                        <span>
+                            Create API endpoints
+                        </span>
+
+                    </div>
+
+
+                    <div class="previewTask">
+
+                        <span class="previewCheck">
+                        </span>
+
+                        <span>
+                            Implement filters
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             LOGIN PANEL
+        ========================================== -->
+
+        <section class="loginPanel">
+
+
+            <!-- =====================================
+                 LOGIN HEADER
+            ====================================== -->
+
+            <div class="loginHeader">
+
+                <h2 class="loginTitle">
+                    Welcome back
+                </h2>
+
+                <p class="loginSubtitle">
+                    Sign in to continue managing your tasks
+                </p>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 LOGIN FORM
+            ====================================== -->
+
+            <form class="loginForm" id="loginForm">
+
+
+                <!-- =================================
+                     EMAIL
+                ================================== -->
+
+                <div class="formGroup">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+
+                    <div class="inputWrapper">
+
+                        <!-- Email icon -->
+
+                        <svg class="inputIcon" viewBox="0 0 24 24" aria-hidden="true">
+
+                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+
+                            <path d="m3 7 8.1 5.4a1.5 1.5 0 0 0 1.8 0L21 7"></path>
+
+                        </svg>
+
+
+                        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email"
+                            >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     PASSWORD
+                ================================== -->
+
+                <div class="formGroup">
+
+                    <div class="passwordHeader">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <a href="#" class="forgotPassword">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <div class="inputWrapper">
+
+                        <!-- Lock icon -->
+
+                        <svg class="inputIcon" viewBox="0 0 24 24" aria-hidden="true">
+
+                            <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+
+                        </svg>
+
+
+                        <input type="password" id="password" name="password" placeholder="Enter your password"
+                            autocomplete="current-password" >
+
+
+                        <!-- Toggle password -->
+
+                        <button type="button" class="togglePassword" id="togglePassword" aria-label="Show password">
+
+                            <!-- Eye icon -->
+
+                            <svg class="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
+
+                                <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+
+                                <circle cx="12" cy="12" r="2.5"></circle>
+
+                            </svg>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================
+                     OPTIONS
+                ================================== -->
+
+                <div class="formOptions">
+
+
+                    <!-- Remember me -->
+
+                    <label class="rememberMe">
+
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+
+                        <span class="customCheckbox">
+
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+
+                                <path d="m7 12 3 3 7-7"></path>
+
+                            </svg>
+
+                        </span>
+
+                        <span>
+                            Remember me
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+
+                <!-- =================================
+                     LOGIN BUTTON
+                ================================== -->
+
+                <button type="submit" class="loginButton" id="loginButton">
+
+                    <span>
+                        Sign in
+                    </span>
+
+                    <!-- Arrow -->
+
+                    <svg class="buttonIcon" viewBox="0 0 24 24" aria-hidden="true">
+
+                        <path d="M5 12h14"></path>
+
+                        <path d="m13 6 6 6-6 6"></path>
+
+                    </svg>
+
+                </button>
+
+
+
+                <!-- =================================
+                     DIVIDER
+                ================================== -->
+
+                <div class="divider">
+
+                    <span></span>
+
+                    <p>
+                        or
+                    </p>
+
+                    <span></span>
+
+                </div>
+
+
+
+                <!-- =================================
+                     REGISTER
+                ================================== -->
+
+                <p class="registerText">
+
+                    Don't have an account?
+
+                    <a href="#" class="registerLink">
+                        Create account
+                    </a>
+
+                </p>
+
+
+            </form>
+
+
+            <!-- =====================================
+                 FOOTER
+            ====================================== -->
+
+            <footer class="loginFooter">
+
+                <span>
+                    © 2026 TaskFlow
+                </span>
+
+                <span class="footerDot">
+                    •
+                </span>
+
+                <a href="#">
+                    Privacy
+                </a>
+
+                <span class="footerDot">
+                    •
+                </span>
+
+                <a href="#">
+                    Terms
+                </a>
+
+            </footer>
+
+
+        </section>
+
+
+    </main>
+
+    <!-- TOAST CONTAINER -->
+    <div id="toastContainer" class="toastContainer" aria-live="polite" aria-atomic="true">
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+  <script>
+// ============================================================
+// TASKFLOW — LOGIN JAVASCRIPT
+// ============================================================
+
+
+// ============================================================
+// DOM REFERENCES
+// ============================================================
+
+
+const toastContainer = document.querySelector("#toastContainer");
+
+const loginForm = document.querySelector("#loginForm");
+
+const emailInput = document.querySelector("#email");
+
+const passwordInput = document.querySelector("#password");
+
+const togglePassword = document.querySelector("#togglePassword");
+
+
+// ============================================================
+// TOAST SYSTEM
+// ============================================================
+
+function showToast(
+    message,
+    type = "success",
+    title = "Success"
+) {
+
+    // --------------------------------------------------------
+    // Verificar que exista el contenedor
+    // --------------------------------------------------------
+
+    if (!toastContainer) {
+        console.error("Toast container not found.");
+        return;
+    }
+
+
+    // --------------------------------------------------------
+    // Crear toast
+    // --------------------------------------------------------
+
+    const toast = document.createElement("div");
+
+    toast.className = `toast ${type}`;
+
+
+    // --------------------------------------------------------
+    // Iconos
+    // --------------------------------------------------------
+
+    const icons = {
+
+        success: "✓",
+
+        error: "!",
+
+        warning: "!",
+
+        info: "i"
+
+    };
+
+
+    // --------------------------------------------------------
+    // HTML del toast
+    // --------------------------------------------------------
+
+    toast.innerHTML = `
+
+        <div class="toastIcon">
+            ${icons[type] || icons.info}
+        </div>
+
+
+        <div class="toastContent">
+
+            <div class="toastTitle">
+                ${title}
+            </div>
+
+            <div class="toastMessage">
+                ${message}
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="toastClose"
+            aria-label="Close notification">
+
+            ×
+
+        </button>
+
+
+        <div class="toastProgress"></div>
+
+    `;
+
+
+    // --------------------------------------------------------
+    // Agregar toast al contenedor
+    // --------------------------------------------------------
+
+    toastContainer.append(toast);
+
+
+    // --------------------------------------------------------
+    // Botón cerrar
+    // --------------------------------------------------------
+
+    const closeButton =
+        toast.querySelector(".toastClose");
+
+
+    closeButton.addEventListener("click", () => {
+
+        removeToast(toast);
+
+    });
+
+
+    // --------------------------------------------------------
+    // Cierre automático
+    // --------------------------------------------------------
+
+    const timeout = setTimeout(() => {
+
+        removeToast(toast);
+
+    }, 4000);
+
+
+    // --------------------------------------------------------
+    // Limpiar timeout
+    // --------------------------------------------------------
+
+    toast.addEventListener("toast:remove", () => {
+
+        clearTimeout(timeout);
+
+    });
+
+}
+
+
+// ============================================================
+// REMOVE TOAST
+// ============================================================
+
+function removeToast(toast) {
+
+    // --------------------------------------------------------
+    // Evitar errores si ya fue eliminado
+    // --------------------------------------------------------
+
+    if (!toast || !toast.isConnected) {
+        return;
+    }
+
+
+    // --------------------------------------------------------
+    // Limpiar timeout asociado
+    // --------------------------------------------------------
+
+    toast.dispatchEvent(
+        new Event("toast:remove")
+    );
+
+
+    // --------------------------------------------------------
+    // Animación de salida
+    // --------------------------------------------------------
+
+    toast.classList.add("removing");
+
+
+    // --------------------------------------------------------
+    // Eliminar después de la animación
+    // --------------------------------------------------------
+
+    toast.addEventListener(
+        "animationend",
+        () => {
+
+            toast.remove();
+
+        },
+        { once: true }
+    );
+
+}
+
+
+// ============================================================
+// EMAIL VALIDATION
+// ============================================================
+
+function isValidEmail(email) {
+
+    const emailRegex =
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    return emailRegex.test(email);
+
+}
+
+
+// ============================================================
+// LOGIN
+// ============================================================
+
+function logIn(event) {
+
+    // --------------------------------------------------------
+    // Evitar comportamiento predeterminado
+    // --------------------------------------------------------
+
+    event.preventDefault();
+
+
+    // --------------------------------------------------------
+    // Obtener valores
+    // --------------------------------------------------------
+
+    const email =
+        emailInput.value.trim();
+
+    const password =
+        passwordInput.value.trim();
+
+
+    // ========================================================
+    // VALIDAR EMAIL VACÍO
+    // ========================================================
+
+    if (email === "") {
+
+        showToast(
+            "Please enter your email address.",
+            "error",
+            "Email required"
+        );
+
+
+        emailInput.focus();
+
+        return;
+
+    }
+
+
+    // ========================================================
+    // VALIDAR FORMATO DEL EMAIL
+    // ========================================================
+
+    if (!isValidEmail(email)) {
+
+        showToast(
+            "Please enter a valid email address.",
+            "error",
+            "Invalid email"
+        );
+
+
+        emailInput.focus();
+
+        return;
+
+    }
+
+
+    // ========================================================
+    // VALIDAR PASSWORD VACÍO
+    // ========================================================
+
+    if (password === "") {
+
+        showToast(
+            "Please enter your password.",
+            "error",
+            "Password required"
+        );
+
+
+        passwordInput.focus();
+
+        return;
+
+    }
+
+
+    // ========================================================
+    // CREDENCIALES DE PRUEBA
+    // ========================================================
+
+    const emailFic =
+        "alejandrozapt@gmail.com";
+
+    const passwordFic =
+        "1234";
+
+
+    // ========================================================
+    // VALIDAR CREDENCIALES
+    // ========================================================
+
+    if (
+        email === emailFic &&
+        password === passwordFic
+    ) {
+
+
+        // ----------------------------------------------------
+        // LOGIN CORRECTO
+        // ----------------------------------------------------
+
+        showToast(
+            "Login successful. Redirecting...",
+            "success",
+            "Welcome back"
+        );
+
+
+        // ----------------------------------------------------
+        // Guardar sesión temporal
+        // ----------------------------------------------------
+
+        sessionStorage.setItem(
+            "isLoggedIn",
+            "true"
+        );
+
+
+        // ----------------------------------------------------
+        // Redireccionar
+        // ----------------------------------------------------
+
+        setTimeout(() => {
+
+            window.location.href =
+                "./index.html";
+
+        }, 1500);
+
+
+        return;
+
+    }
+
+
+    // ========================================================
+    // CREDENCIALES INCORRECTAS
+    // ========================================================
+
+    showToast(
+        "The email or password is incorrect.",
+        "error",
+        "Login failed"
+    );
+
+}
+
+
+// ============================================================
+// TOGGLE PASSWORD VISIBILITY
+// ============================================================
+
+if (togglePassword) {
+
+    togglePassword.addEventListener(
+        "click",
+        () => {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+
+            // ------------------------------------------------
+            // Cambiar tipo de input
+            // ------------------------------------------------
+
+            passwordInput.type =
+                isPassword
+                    ? "text"
+                    : "password";
+
+
+            // ------------------------------------------------
+            // Actualizar accesibilidad
+            // ------------------------------------------------
+
+            togglePassword.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "Hide password"
+                    : "Show password"
+            );
+
+
+            // ------------------------------------------------
+            // Cambiar icono
+            // ------------------------------------------------
+
+            const eyeIcon =
+                togglePassword.querySelector(".eyeIcon");
+
+
+            if (eyeIcon) {
+
+                eyeIcon.innerHTML =
+                    isPassword
+
+                        ? `
+                            <path
+                                d="M3 3l18 18"
+                            ></path>
+
+                            <path
+                                d="M10.6 10.6a2 2 0 0 0 2.8 2.8"
+                            ></path>
+
+                            <path
+                                d="M9.9 4.2A10.8 10.8 0 0 1 12 4
+                                   c6 0 9.5 8 9.5 8
+                                   a17.4 17.4 0 0 1-4.1 4.9"
+                            ></path>
+
+                            <path
+                                d="M6.6 6.6C3.9 8.5 2.5 12 2.5 12
+                                   s3.5 6 9.5 6
+                                   c1.2 0 2.3-.2 3.3-.6"
+                            ></path>
+                        `
+
+                        : `
+                            <path
+                                d="M2.5 12s3.5-6 9.5-6
+                                   9.5 6 9.5 6
+                                   -3.5 6-9.5 6
+                                   -9.5-6-9.5-6Z"
+                            ></path>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="2.5"
+                            ></circle>
+                        `;
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// LOGIN FORM EVENT
+// ============================================================
+
+if (loginForm) {
+
+    loginForm.addEventListener(
+        "submit",
+        logIn
+    );
+
+}
+
+
+// ============================================================
+// PREVENT DEFAULT FOR FORGOT PASSWORD
+// ============================================================
+
+const forgotPassword =
+    document.querySelector(".forgotPassword");
+
+
+if (forgotPassword) {
+
+    forgotPassword.addEventListener(
+        "click",
+        (event) => {
+
+            event.preventDefault();
+
+
+            showToast(
+                "Password recovery will be available soon.",
+                "info",
+                "Coming soon"
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// REGISTER LINK
+// ============================================================
+
+const registerLink =
+    document.querySelector(".registerLink");
+
+
+if (registerLink) {
+
+    registerLink.addEventListener(
+        "click",
+        (event) => {
+
+            event.preventDefault();
+
+
+            showToast(
+                "Account registration will be available soon.",
+                "info",
+                "Coming soon"
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>

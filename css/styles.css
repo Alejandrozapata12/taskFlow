@@ -2,35 +2,66 @@
    1. VARIABLES GLOBALES
    Centraliza colores, estados y medidas reutilizables.
 ========================================================= */
-
+ 
 /* =========================================
    MODO CLARO
 ========================================= */
 
 :root {
-    --primary: #6D5DFB;
-    --primary-hover: #5B4AE8;
-    --primary-light: #EEECFF;
 
-    --sidebar: #111827;
-    --sidebar-secondary: #1F2937;
-    --sidebar-hover: #273449;
+    /* =========================
+       BRAND / PRIMARY
+    ========================= */
 
-    --background: #F5F6FA;
+    --primary: #16A34A;
+    --primary-hover: #15803D;
+    --primary-light: #DCFCE7;
+
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    --sidebar: #14532D;
+    --sidebar-secondary: #166534;
+    --sidebar-hover: #15803D;
+
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    --background: #F8FAFC;
     --surface: #FFFFFF;
-    --surface-secondary: #F8F9FC;
+    --surface-secondary: #F1F5F9;
 
-    --text-primary: #111827;
+
+    /* =========================
+       TEXT
+    ========================= */
+
+    --text-primary: #0F172A;
     --text-secondary: #64748B;
     --text-muted: #94A3B8;
     --text-white: #FFFFFF;
 
-    --border: #E5E7EB;
+
+    /* =========================
+       BORDERS
+    ========================= */
+
+    --border: #E2E8F0;
     --border-light: #F1F5F9;
+
     --radius-lg: 12px;
 
-    --success: #10B981;
-    --success-light: #D1FAE5;
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    --success: #16A34A;
+    --success-light: #DCFCE7;
 
     --warning: #F59E0B;
     --warning-light: #FEF3C7;
@@ -40,6 +71,11 @@
 
     --info: #3B82F6;
     --info-light: #DBEAFE;
+
+
+    /* =========================
+       SEARCH
+    ========================= */
 
     --searchIco: #64748B;
 }
@@ -51,28 +87,57 @@
 
 [data-theme="dark"] {
 
-    --primary: #8B7CFF;
-    --primary-hover: #7C6CF2;
-    --primary-light: #292451;
+    /* =========================
+       BRAND / PRIMARY
+    ========================= */
+
+    --primary: #4ADE80;
+    --primary-hover: #22C55E;
+    --primary-light: #14532D;
+
+
+    /* =========================
+       SIDEBAR
+    ========================= */
 
     --sidebar: #0B0F19;
-    --sidebar-secondary: #151B29;
-    --sidebar-hover: #20283A;
+    --sidebar-secondary: #111827;
+    --sidebar-hover: #1F2937;
 
-    --background: #0F141F;
-    --surface: #151B27;
-    --surface-secondary: #1B2230;
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    --background: #0F1419;
+    --surface: #151B20;
+    --surface-secondary: #1B2420;
+
+
+    /* =========================
+       TEXT
+    ========================= */
 
     --text-primary: #F8FAFC;
     --text-secondary: #A7B0C0;
     --text-muted: #6B7280;
     --text-white: #FFFFFF;
 
-    --border: #273043;
-    --border-light: #202838;
 
-    --success: #34D399;
-    --success-light: #12352B;
+    /* =========================
+       BORDERS
+    ========================= */
+
+    --border: #27332D;
+    --border-light: #202A25;
+
+
+    /* =========================
+       STATUS
+    ========================= */
+
+    --success: #4ADE80;
+    --success-light: #12351F;
 
     --warning: #FBBF24;
     --warning-light: #3A2C0F;
@@ -82,8 +147,14 @@
 
     --info: #60A5FA;
     --info-light: #172D4A;
-}
 
+
+    /* =========================
+       SEARCH
+    ========================= */
+
+    --searchIco: #94A3B8;
+}
 
 /* =========================================================
    2. TIPOGRAFÍA
@@ -596,7 +667,8 @@ main {
     border-radius: 10px;
 
     cursor: pointer;
-
+    background-color: var(--background);
+    border: none;
     transition: background-color 0.2s ease;
 }
 
@@ -2669,3 +2741,22 @@ body.sidebar-collapsed .line {
 body.sidebar-collapsed .stad {
     display: none;
 }
+
+
+/* =========================================================
+   TagsView
+========================================================= */
+
+.pagePlaceholder{
+
+    h1{
+        color: var(--text-white);
+        text-align: center;
+    }
+
+    p{
+        color: var(--text-white);
+        text-align: center;
+    }
+}
+
