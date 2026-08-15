@@ -1634,6 +1634,378 @@
         width: auto;
     }
 }
+
+/* ============================================================
+   MODALS
+============================================================ */
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background: rgba(15, 23, 42, 0.55);
+
+    backdrop-filter: blur(4px);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+
+/* ============================================================
+   MODAL OPEN
+============================================================ */
+
+.modalOverlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* ============================================================
+   MODAL
+============================================================ */
+
+.modal {
+    position: relative;
+
+    width: min(430px, 100%);
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    padding: 36px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-lg);
+
+    transform: translateY(15px) scale(0.98);
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.modalOverlay.active .modal {
+    transform: translateY(0) scale(1);
+}
+
+
+/* ============================================================
+   CLOSE
+============================================================ */
+
+.modalClose {
+    position: absolute;
+
+    top: 14px;
+    right: 14px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    color: var(--text-muted);
+
+    font-size: 24px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+
+.modalClose:hover {
+    color: var(--text-primary);
+
+    background: #F1F5F9;
+}
+
+
+.modalClose:focus-visible {
+    outline: 3px solid rgba(22, 163, 74, 0.15);
+
+    outline-offset: 2px;
+}
+
+
+/* ============================================================
+   MODAL ICON
+============================================================ */
+
+.modalIcon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 14px;
+
+    background: var(--primary-soft);
+
+    color: var(--primary);
+}
+
+
+.modalIcon svg {
+    width: 23px;
+    height: 23px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   MODAL HEADER
+============================================================ */
+
+.modalHeader {
+    margin-bottom: 26px;
+
+    text-align: center;
+}
+
+
+.modalHeader h2 {
+    margin-bottom: 8px;
+
+    font-size: 23px;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.6px;
+
+    font-weight: 700;
+
+    color: var(--text-primary);
+}
+
+
+.modalHeader p {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    color: var(--text-secondary);
+}
+
+
+/* ============================================================
+   MODAL FORM
+============================================================ */
+
+.modalForm {
+    width: 100%;
+}
+
+
+.modalForm .formGroup {
+    margin-bottom: 17px;
+}
+
+
+.modalForm .inputWrapper {
+    height: 46px;
+}
+
+
+/* ============================================================
+   MODAL PRIMARY BUTTON
+============================================================ */
+
+.modalPrimaryButton {
+    width: 100%;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5px;
+
+    border-radius: var(--radius-md);
+
+    background: var(--primary);
+
+    color: #FFFFFF;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 12px rgba(22, 163, 74, 0.18);
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.modalPrimaryButton:hover {
+    background: var(--primary-hover);
+
+    box-shadow:
+        0 7px 16px rgba(21, 128, 61, 0.22);
+}
+
+
+.modalPrimaryButton:active {
+    transform: translateY(1px);
+}
+
+
+.modalPrimaryButton:focus-visible {
+    outline: 3px solid rgba(22, 163, 74, 0.20);
+
+    outline-offset: 3px;
+}
+
+
+/* ============================================================
+   BACK BUTTON
+============================================================ */
+
+.modalBackButton {
+    display: block;
+
+    margin: 18px auto 0;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.modalBackButton:hover {
+    color: var(--primary);
+}
+
+
+/* ============================================================
+   MODAL FOOTER
+============================================================ */
+
+.modalFooterText {
+    margin-top: 20px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: var(--text-secondary);
+}
+
+
+.modalLink {
+    margin-left: 3px;
+
+    font-size: inherit;
+
+    font-weight: 600;
+
+    color: var(--primary);
+
+    cursor: pointer;
+}
+
+
+.modalLink:hover {
+    color: var(--primary-hover);
+
+    text-decoration: underline;
+}
+
+
+/* ============================================================
+   PASSWORD TOGGLE
+============================================================ */
+
+.modalPasswordToggle {
+    width: 42px;
+    height: 100%;
+}
+
+
+/* ============================================================
+   BODY LOCK
+============================================================ */
+
+body.modalOpen {
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 520px) {
+
+    .modalOverlay {
+        padding: 14px;
+    }
+
+    .modal {
+        padding: 30px 22px;
+
+        border-radius: 14px;
+    }
+
+    .modalHeader h2 {
+        font-size: 21px;
+    }
+
+}
+
+
     </style>
 
 
@@ -2004,6 +2376,401 @@
 
     </main>
 
+
+<!-- ============================================================
+     FORGOT PASSWORD MODAL
+============================================================ -->
+
+<div
+    class="modalOverlay"
+    id="forgotPasswordModal"
+    aria-hidden="true"
+>
+    <div
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="forgotPasswordTitle"
+    >
+
+        <button
+            type="button"
+            class="modalClose"
+            data-close-modal
+            aria-label="Close modal"
+        >
+            &times;
+        </button>
+
+        <div class="modalIcon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 6h16v12H4z"></path>
+                <path d="m4 7 8 6 8-6"></path>
+            </svg>
+        </div>
+
+        <div class="modalHeader">
+
+            <h2 id="forgotPasswordTitle">
+                Forgot your password?
+            </h2>
+
+            <p>
+                Enter your email and we'll send you a link to reset
+                your password.
+            </p>
+
+        </div>
+
+        <form id="forgotPasswordForm" class="modalForm">
+
+            <div class="formGroup">
+
+                <label for="forgotEmail">
+                    Email address
+                </label>
+
+                <div class="inputWrapper">
+
+                    <svg
+                        class="inputIcon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="3"
+                            y="5"
+                            width="18"
+                            height="14"
+                            rx="2"
+                        ></rect>
+
+                        <path
+                            d="m3 7 8.1 5.4a1.5 1.5 0 0 0 1.8 0L21 7"
+                        ></path>
+                    </svg>
+
+                    <input
+                        type="email"
+                        id="forgotEmail"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+            <button
+                type="submit"
+                class="modalPrimaryButton"
+            >
+                Send reset link
+            </button>
+
+        </form>
+
+        <button
+            type="button"
+            class="modalBackButton"
+            data-close-modal
+        >
+            Back to sign in
+        </button>
+
+    </div>
+</div>
+
+
+<!-- ============================================================
+     CREATE ACCOUNT MODAL
+============================================================ -->
+
+<div
+    class="modalOverlay"
+    id="registerModal"
+    aria-hidden="true"
+>
+    <div
+        class="modal modalRegister"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="registerTitle"
+    >
+
+        <button
+            type="button"
+            class="modalClose"
+            data-close-modal
+            aria-label="Close modal"
+        >
+            &times;
+        </button>
+
+        <div class="modalIcon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M19 8v6"></path>
+                <path d="M22 11h-6"></path>
+            </svg>
+        </div>
+
+        <div class="modalHeader">
+
+            <h2 id="registerTitle">
+                Create your account
+            </h2>
+
+            <p>
+                Start organizing your tasks with TaskFlow.
+            </p>
+
+        </div>
+
+        <form id="registerForm" class="modalForm">
+
+            <!-- NAME -->
+
+            <div class="formGroup">
+
+                <label for="registerName">
+                    Full name
+                </label>
+
+                <div class="inputWrapper">
+
+                    <svg
+                        class="inputIcon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle
+                            cx="12"
+                            cy="8"
+                            r="4"
+                        ></circle>
+
+                        <path
+                            d="M4 21a8 8 0 0 1 16 0"
+                        ></path>
+                    </svg>
+
+                    <input
+                        type="text"
+                        id="registerName"
+                        name="name"
+                        placeholder="John Doe"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="formGroup">
+
+                <label for="registerEmail">
+                    Email address
+                </label>
+
+                <div class="inputWrapper">
+
+                    <svg
+                        class="inputIcon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="3"
+                            y="5"
+                            width="18"
+                            height="14"
+                            rx="2"
+                        ></rect>
+
+                        <path
+                            d="m3 7 8.1 5.4a1.5 1.5 0 0 0 1.8 0L21 7"
+                        ></path>
+                    </svg>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="formGroup">
+
+                <label for="registerPassword">
+                    Password
+                </label>
+
+                <div class="inputWrapper">
+
+                    <svg
+                        class="inputIcon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="4"
+                            y="10"
+                            width="16"
+                            height="10"
+                            rx="2"
+                        ></rect>
+
+                        <path
+                            d="M8 10V7a4 4 0 0 1 8 0v3"
+                        ></path>
+                    </svg>
+
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        name="password"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="togglePassword modalPasswordToggle"
+                        data-password-toggle="registerPassword"
+                        aria-label="Show password"
+                    >
+                        <svg
+                            class="eyeIcon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
+                            ></path>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="2.5"
+                            ></circle>
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- CONFIRM PASSWORD -->
+
+            <div class="formGroup">
+
+                <label for="registerPasswordConfirm">
+                    Confirm password
+                </label>
+
+                <div class="inputWrapper">
+
+                    <svg
+                        class="inputIcon"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <rect
+                            x="4"
+                            y="10"
+                            width="16"
+                            height="10"
+                            rx="2"
+                        ></rect>
+
+                        <path
+                            d="M8 10V7a4 4 0 0 1 8 0v3"
+                        ></path>
+                    </svg>
+
+                    <input
+                        type="password"
+                        id="registerPasswordConfirm"
+                        name="passwordConfirm"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="togglePassword modalPasswordToggle"
+                        data-password-toggle="registerPasswordConfirm"
+                        aria-label="Show password"
+                    >
+                        <svg
+                            class="eyeIcon"
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
+                            ></path>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="2.5"
+                            ></circle>
+                        </svg>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="modalPrimaryButton"
+            >
+                Create account
+            </button>
+
+        </form>
+
+        <p class="modalFooterText">
+            Already have an account?
+
+            <button
+                type="button"
+                class="modalLink"
+                id="backToLogin"
+            >
+                Sign in
+            </button>
+        </p>
+
+    </div>
+</div>
+
+
+
+
     <!-- TOAST CONTAINER -->
     <div id="toastContainer" class="toastContainer" aria-live="polite" aria-atomic="true">
     </div>
@@ -2013,8 +2780,8 @@
          JAVASCRIPT
     ========================================== -->
 
-  <script>
-// ============================================================
+<script>
+    // ============================================================
 // TASKFLOW — LOGIN JAVASCRIPT
 // ============================================================
 
@@ -2023,16 +2790,46 @@
 // DOM REFERENCES
 // ============================================================
 
+const toastContainer =
+    document.querySelector("#toastContainer");
 
-const toastContainer = document.querySelector("#toastContainer");
+const loginForm =
+    document.querySelector("#loginForm");
 
-const loginForm = document.querySelector("#loginForm");
+const emailInput =
+    document.querySelector("#email");
 
-const emailInput = document.querySelector("#email");
+const passwordInput =
+    document.querySelector("#password");
 
-const passwordInput = document.querySelector("#password");
+const togglePassword =
+    document.querySelector("#togglePassword");
 
-const togglePassword = document.querySelector("#togglePassword");
+
+// ============================================================
+// MODAL REFERENCES
+// ============================================================
+
+const forgotPasswordModal =
+    document.querySelector("#forgotPasswordModal");
+
+const registerModal =
+    document.querySelector("#registerModal");
+
+const forgotPasswordForm =
+    document.querySelector("#forgotPasswordForm");
+
+const registerForm =
+    document.querySelector("#registerForm");
+
+const forgotPasswordLink =
+    document.querySelector(".forgotPassword");
+
+const registerLink =
+    document.querySelector(".registerLink");
+
+const backToLogin =
+    document.querySelector("#backToLogin");
 
 
 // ============================================================
@@ -2046,22 +2843,14 @@ function showToast(
 ) {
 
     // --------------------------------------------------------
-    // Verificar que exista el contenedor
-    // --------------------------------------------------------
-
-    if (!toastContainer) {
-        console.error("Toast container not found.");
-        return;
-    }
-
-
-    // --------------------------------------------------------
     // Crear toast
     // --------------------------------------------------------
 
-    const toast = document.createElement("div");
+    const toast =
+        document.createElement("div");
 
-    toast.className = `toast ${type}`;
+    toast.className =
+        `toast toast-${type}`;
 
 
     // --------------------------------------------------------
@@ -2070,19 +2859,58 @@ function showToast(
 
     const icons = {
 
-        success: "✓",
+        success: `
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path
+                    d="M20 6 9 17l-5-5"
+                ></path>
+            </svg>
+        `,
 
-        error: "!",
+        error: `
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <path
+                    d="M18 6 6 18"
+                ></path>
 
-        warning: "!",
+                <path
+                    d="m6 6 12 12"
+                ></path>
+            </svg>
+        `,
 
-        info: "i"
+        info: `
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                ></circle>
+
+                <path
+                    d="M12 11v5"
+                ></path>
+
+                <path
+                    d="M12 8h.01"
+                ></path>
+            </svg>
+        `
 
     };
 
 
     // --------------------------------------------------------
-    // HTML del toast
+    // HTML
     // --------------------------------------------------------
 
     toast.innerHTML = `
@@ -2090,7 +2918,6 @@ function showToast(
         <div class="toastIcon">
             ${icons[type] || icons.info}
         </div>
-
 
         <div class="toastContent">
 
@@ -2104,16 +2931,13 @@ function showToast(
 
         </div>
 
-
         <button
             type="button"
             class="toastClose"
-            aria-label="Close notification">
-
+            aria-label="Close notification"
+        >
             ×
-
         </button>
-
 
         <div class="toastProgress"></div>
 
@@ -2121,10 +2945,14 @@ function showToast(
 
 
     // --------------------------------------------------------
-    // Agregar toast al contenedor
+    // Agregar toast
     // --------------------------------------------------------
 
-    toastContainer.append(toast);
+    if (toastContainer) {
+
+        toastContainer.append(toast);
+
+    }
 
 
     // --------------------------------------------------------
@@ -2134,34 +2962,47 @@ function showToast(
     const closeButton =
         toast.querySelector(".toastClose");
 
+    if (closeButton) {
 
-    closeButton.addEventListener("click", () => {
+        closeButton.addEventListener(
+            "click",
+            () => {
 
-        removeToast(toast);
+                removeToast(toast);
 
-    });
+            }
+        );
+
+    }
 
 
     // --------------------------------------------------------
     // Cierre automático
     // --------------------------------------------------------
 
-    const timeout = setTimeout(() => {
+    const timeout =
+        setTimeout(
+            () => {
 
-        removeToast(toast);
+                removeToast(toast);
 
-    }, 4000);
+            },
+            4000
+        );
 
 
     // --------------------------------------------------------
     // Limpiar timeout
     // --------------------------------------------------------
 
-    toast.addEventListener("toast:remove", () => {
+    toast.addEventListener(
+        "toast:remove",
+        () => {
 
-        clearTimeout(timeout);
+            clearTimeout(timeout);
 
-    });
+        }
+    );
 
 }
 
@@ -2176,13 +3017,18 @@ function removeToast(toast) {
     // Evitar errores si ya fue eliminado
     // --------------------------------------------------------
 
-    if (!toast || !toast.isConnected) {
+    if (
+        !toast ||
+        !toast.isConnected
+    ) {
+
         return;
+
     }
 
 
     // --------------------------------------------------------
-    // Limpiar timeout asociado
+    // Limpiar timeout
     // --------------------------------------------------------
 
     toast.dispatchEvent(
@@ -2208,7 +3054,9 @@ function removeToast(toast) {
             toast.remove();
 
         },
-        { once: true }
+        {
+            once: true
+        }
     );
 
 }
@@ -2264,7 +3112,6 @@ function logIn(event) {
             "Email required"
         );
 
-
         emailInput.focus();
 
         return;
@@ -2273,7 +3120,7 @@ function logIn(event) {
 
 
     // ========================================================
-    // VALIDAR FORMATO DEL EMAIL
+    // VALIDAR FORMATO EMAIL
     // ========================================================
 
     if (!isValidEmail(email)) {
@@ -2283,7 +3130,6 @@ function logIn(event) {
             "error",
             "Invalid email"
         );
-
 
         emailInput.focus();
 
@@ -2303,7 +3149,6 @@ function logIn(event) {
             "error",
             "Password required"
         );
-
 
         passwordInput.focus();
 
@@ -2332,7 +3177,6 @@ function logIn(event) {
         password === passwordFic
     ) {
 
-
         // ----------------------------------------------------
         // LOGIN CORRECTO
         // ----------------------------------------------------
@@ -2358,12 +3202,15 @@ function logIn(event) {
         // Redireccionar
         // ----------------------------------------------------
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            window.location.href =
-                "./index.html";
+                window.location.href =
+                    "./index.html";
 
-        }, 1500);
+            },
+            1500
+        );
 
 
         return;
@@ -2385,10 +3232,27 @@ function logIn(event) {
 
 
 // ============================================================
-// TOGGLE PASSWORD VISIBILITY
+// LOGIN FORM EVENT
 // ============================================================
 
-if (togglePassword) {
+if (loginForm) {
+
+    loginForm.addEventListener(
+        "submit",
+        logIn
+    );
+
+}
+
+
+// ============================================================
+// TOGGLE LOGIN PASSWORD
+// ============================================================
+
+if (
+    togglePassword &&
+    passwordInput
+) {
 
     togglePassword.addEventListener(
         "click",
@@ -2409,7 +3273,7 @@ if (togglePassword) {
 
 
             // ------------------------------------------------
-            // Actualizar accesibilidad
+            // Accesibilidad
             // ------------------------------------------------
 
             togglePassword.setAttribute(
@@ -2425,7 +3289,9 @@ if (togglePassword) {
             // ------------------------------------------------
 
             const eyeIcon =
-                togglePassword.querySelector(".eyeIcon");
+                togglePassword.querySelector(
+                    ".eyeIcon"
+                );
 
 
             if (eyeIcon) {
@@ -2443,24 +3309,17 @@ if (togglePassword) {
                             ></path>
 
                             <path
-                                d="M9.9 4.2A10.8 10.8 0 0 1 12 4
-                                   c6 0 9.5 8 9.5 8
-                                   a17.4 17.4 0 0 1-4.1 4.9"
+                                d="M9.9 4.3A10.7 10.7 0 0 1 12 4c6 0 9.5 8 9.5 8a17.7 17.7 0 0 1-3.1 4.1"
                             ></path>
 
                             <path
-                                d="M6.6 6.6C3.9 8.5 2.5 12 2.5 12
-                                   s3.5 6 9.5 6
-                                   c1.2 0 2.3-.2 3.3-.6"
+                                d="M6.1 6.1C3.7 7.8 2.5 12 2.5 12s3.5 8 9.5 8a10.8 10.8 0 0 0 3-.4"
                             ></path>
                         `
 
                         : `
                             <path
-                                d="M2.5 12s3.5-6 9.5-6
-                                   9.5 6 9.5 6
-                                   -3.5 6-9.5 6
-                                   -9.5-6-9.5-6Z"
+                                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
                             ></path>
 
                             <circle
@@ -2479,40 +3338,135 @@ if (togglePassword) {
 
 
 // ============================================================
-// LOGIN FORM EVENT
+// MODAL FUNCTIONS
 // ============================================================
 
-if (loginForm) {
 
-    loginForm.addEventListener(
-        "submit",
-        logIn
+// ============================================================
+// OPEN MODAL
+// ============================================================
+
+function openModal(modal) {
+
+    if (!modal) {
+
+        return;
+
+    }
+
+
+    modal.classList.add("active");
+
+    modal.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body.classList.add(
+        "modalOpen"
+    );
+
+
+    // --------------------------------------------------------
+    // Focus first input
+    // --------------------------------------------------------
+
+    const firstInput =
+        modal.querySelector("input");
+
+
+    if (firstInput) {
+
+        setTimeout(
+            () => {
+
+                firstInput.focus();
+
+            },
+            100
+        );
+
+    }
+
+}
+
+
+// ============================================================
+// CLOSE MODAL
+// ============================================================
+
+function closeModal(modal) {
+
+    if (!modal) {
+
+        return;
+
+    }
+
+
+    modal.classList.remove(
+        "active"
+    );
+
+    modal.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    // --------------------------------------------------------
+    // Verificar si todavía existe otro modal abierto
+    // --------------------------------------------------------
+
+    const anotherModalOpen =
+        document.querySelector(
+            ".modalOverlay.active"
+        );
+
+
+    if (!anotherModalOpen) {
+
+        document.body.classList.remove(
+            "modalOpen"
+        );
+
+    }
+
+}
+
+
+// ============================================================
+// CLOSE ALL MODALS
+// ============================================================
+
+function closeAllModals() {
+
+    closeModal(
+        forgotPasswordModal
+    );
+
+    closeModal(
+        registerModal
     );
 
 }
 
 
 // ============================================================
-// PREVENT DEFAULT FOR FORGOT PASSWORD
+// FORGOT PASSWORD — OPEN MODAL
 // ============================================================
 
-const forgotPassword =
-    document.querySelector(".forgotPassword");
+if (forgotPasswordLink) {
 
-
-if (forgotPassword) {
-
-    forgotPassword.addEventListener(
+    forgotPasswordLink.addEventListener(
         "click",
         (event) => {
 
             event.preventDefault();
 
-
-            showToast(
-                "Password recovery will be available soon.",
-                "info",
-                "Coming soon"
+            openModal(
+                forgotPasswordModal
             );
 
         }
@@ -2522,12 +3476,8 @@ if (forgotPassword) {
 
 
 // ============================================================
-// REGISTER LINK
+// REGISTER — OPEN MODAL
 // ============================================================
-
-const registerLink =
-    document.querySelector(".registerLink");
-
 
 if (registerLink) {
 
@@ -2537,11 +3487,8 @@ if (registerLink) {
 
             event.preventDefault();
 
-
-            showToast(
-                "Account registration will be available soon.",
-                "info",
-                "Coming soon"
+            openModal(
+                registerModal
             );
 
         }
@@ -2549,6 +3496,515 @@ if (registerLink) {
 
 }
 
+
+// ============================================================
+// CLOSE MODAL BUTTONS
+// ============================================================
+
+document
+    .querySelectorAll("[data-close-modal]")
+    .forEach(
+        (button) => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    closeAllModals();
+
+                }
+            );
+
+        }
+    );
+
+
+// ============================================================
+// CLICK OUTSIDE MODAL
+// ============================================================
+
+document
+    .querySelectorAll(".modalOverlay")
+    .forEach(
+        (overlay) => {
+
+            overlay.addEventListener(
+                "click",
+                (event) => {
+
+                    if (
+                        event.target === overlay
+                    ) {
+
+                        closeModal(
+                            overlay
+                        );
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+// ============================================================
+// ESCAPE KEY
+// ============================================================
+
+document.addEventListener(
+    "keydown",
+    (event) => {
+
+        if (
+            event.key !== "Escape"
+        ) {
+
+            return;
+
+        }
+
+
+        closeAllModals();
+
+    }
+);
+
+
+// ============================================================
+// FORGOT PASSWORD FORM
+// ============================================================
+
+if (forgotPasswordForm) {
+
+    forgotPasswordForm.addEventListener(
+        "submit",
+        (event) => {
+
+            event.preventDefault();
+
+
+            const forgotEmailInput =
+                document.querySelector(
+                    "#forgotEmail"
+                );
+
+
+            if (!forgotEmailInput) {
+
+                return;
+
+            }
+
+
+            const email =
+                forgotEmailInput.value.trim();
+
+
+            // ------------------------------------------------
+            // EMAIL VACÍO
+            // ------------------------------------------------
+
+            if (email === "") {
+
+                showToast(
+                    "Please enter your email address.",
+                    "error",
+                    "Email required"
+                );
+
+                forgotEmailInput.focus();
+
+                return;
+
+            }
+
+
+            // ------------------------------------------------
+            // EMAIL INVÁLIDO
+            // ------------------------------------------------
+
+            if (
+                !isValidEmail(email)
+            ) {
+
+                showToast(
+                    "Please enter a valid email address.",
+                    "error",
+                    "Invalid email"
+                );
+
+                forgotEmailInput.focus();
+
+                return;
+
+            }
+
+
+            // ------------------------------------------------
+            // SIMULACIÓN
+            // ------------------------------------------------
+
+            showToast(
+                "If an account exists with this email, you'll receive a password reset link.",
+                "success",
+                "Email sent"
+            );
+
+
+            // ------------------------------------------------
+            // Limpiar formulario
+            // ------------------------------------------------
+
+            forgotPasswordForm.reset();
+
+
+            // ------------------------------------------------
+            // Cerrar modal
+            // ------------------------------------------------
+
+            closeModal(
+                forgotPasswordModal
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// REGISTER FORM
+// ============================================================
+
+if (registerForm) {
+
+    registerForm.addEventListener(
+        "submit",
+        (event) => {
+
+            event.preventDefault();
+
+
+            const registerName =
+                document.querySelector(
+                    "#registerName"
+                );
+
+            const registerEmail =
+                document.querySelector(
+                    "#registerEmail"
+                );
+
+            const registerPassword =
+                document.querySelector(
+                    "#registerPassword"
+                );
+
+            const registerPasswordConfirm =
+                document.querySelector(
+                    "#registerPasswordConfirm"
+                );
+
+
+            // ------------------------------------------------
+            // Verificar elementos
+            // ------------------------------------------------
+
+            if (
+                !registerName ||
+                !registerEmail ||
+                !registerPassword ||
+                !registerPasswordConfirm
+            ) {
+
+                return;
+
+            }
+
+
+            const name =
+                registerName.value.trim();
+
+            const email =
+                registerEmail.value.trim();
+
+            const password =
+                registerPassword.value;
+
+            const passwordConfirm =
+                registerPasswordConfirm.value;
+
+
+            // =================================================
+            // VALIDAR NOMBRE
+            // =================================================
+
+            if (name === "") {
+
+                showToast(
+                    "Please enter your full name.",
+                    "error",
+                    "Name required"
+                );
+
+                registerName.focus();
+
+                return;
+
+            }
+
+
+            // =================================================
+            // VALIDAR EMAIL VACÍO
+            // =================================================
+
+            if (email === "") {
+
+                showToast(
+                    "Please enter your email address.",
+                    "error",
+                    "Email required"
+                );
+
+                registerEmail.focus();
+
+                return;
+
+            }
+
+
+            // =================================================
+            // VALIDAR EMAIL
+            // =================================================
+
+            if (
+                !isValidEmail(email)
+            ) {
+
+                showToast(
+                    "Please enter a valid email address.",
+                    "error",
+                    "Invalid email"
+                );
+
+                registerEmail.focus();
+
+                return;
+
+            }
+
+
+            // =================================================
+            // VALIDAR PASSWORD
+            // =================================================
+
+            if (
+                password.length < 8
+            ) {
+
+                showToast(
+                    "Your password must contain at least 8 characters.",
+                    "error",
+                    "Weak password"
+                );
+
+                registerPassword.focus();
+
+                return;
+
+            }
+
+
+            // =================================================
+            // VALIDAR CONFIRMACIÓN
+            // =================================================
+
+            if (
+                password !== passwordConfirm
+            ) {
+
+                showToast(
+                    "The passwords do not match.",
+                    "error",
+                    "Password mismatch"
+                );
+
+                registerPasswordConfirm.focus();
+
+                return;
+
+            }
+
+
+            // =================================================
+            // CUENTA CREADA
+            // =================================================
+
+            showToast(
+                "Your account has been created successfully.",
+                "success",
+                "Welcome to TaskFlow"
+            );
+
+
+            // ------------------------------------------------
+            // Limpiar formulario
+            // ------------------------------------------------
+
+            registerForm.reset();
+
+
+            // ------------------------------------------------
+            // Cerrar modal
+            // ------------------------------------------------
+
+            closeModal(
+                registerModal
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// BACK TO LOGIN
+// ============================================================
+
+if (backToLogin) {
+
+    backToLogin.addEventListener(
+        "click",
+        () => {
+
+            closeModal(
+                registerModal
+            );
+
+        }
+    );
+
+}
+
+
+// ============================================================
+// MODAL PASSWORD VISIBILITY
+// ============================================================
+
+document
+    .querySelectorAll(
+        "[data-password-toggle]"
+    )
+    .forEach(
+        (button) => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    const inputId =
+                        button.dataset.passwordToggle;
+
+
+                    const input =
+                        document.querySelector(
+                            `#${inputId}`
+                        );
+
+
+                    if (!input) {
+
+                        return;
+
+                    }
+
+
+                    const isPassword =
+                        input.type === "password";
+
+
+                    // ------------------------------------------------
+                    // Cambiar tipo
+                    // ------------------------------------------------
+
+                    input.type =
+                        isPassword
+                            ? "text"
+                            : "password";
+
+
+                    // ------------------------------------------------
+                    // Accesibilidad
+                    // ------------------------------------------------
+
+                    button.setAttribute(
+                        "aria-label",
+                        isPassword
+                            ? "Hide password"
+                            : "Show password"
+                    );
+
+
+                    // ------------------------------------------------
+                    // Cambiar icono
+                    // ------------------------------------------------
+
+                    const eyeIcon =
+                        button.querySelector(
+                            ".eyeIcon"
+                        );
+
+
+                    if (eyeIcon) {
+
+                        eyeIcon.innerHTML =
+                            isPassword
+
+                                ? `
+                                    <path
+                                        d="M3 3l18 18"
+                                    ></path>
+
+                                    <path
+                                        d="M10.6 10.6a2 2 0 0 0 2.8 2.8"
+                                    ></path>
+
+                                    <path
+                                        d="M9.9 4.3A10.7 10.7 0 0 1 12 4c6 0 9.5 8 9.5 8a17.7 17.7 0 0 1-3.1 4.1"
+                                    ></path>
+
+                                    <path
+                                        d="M6.1 6.1C3.7 7.8 2.5 12 2.5 12s3.5 8 9.5 8a10.8 10.8 0 0 0 3-.4"
+                                    ></path>
+                                `
+
+                                : `
+                                    <path
+                                        d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
+                                    ></path>
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                    ></circle>
+                                `;
+
+                    }
+
+                }
+            );
+
+        }
+    );
+
+
+// ============================================================
+// END OF TASKFLOW LOGIN JAVASCRIPT
+// ============================================================
 </script>
 
 
