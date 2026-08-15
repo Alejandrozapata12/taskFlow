@@ -7,13 +7,28 @@ import {
 } from "./taskCard.js";
 
 
+// ============================================================
+// FILTER STATE
+// ============================================================
+
+const filterState = {
+    status: "all",
+    search: "",
+    sort: ""
+};
+
+
 export function TasksView() {
+
+    // Reiniciar filtros cada vez que se entra a la vista
+    filterState.status = "all";
+    filterState.search = "";
+    filterState.sort = "";
+
 
     const section = document.createElement("section");
 
-
     section.className = "content";
-
 
     section.innerHTML = `
 
@@ -394,15 +409,182 @@ export function TasksView() {
 
     updateStats(section);
 
+    initFilters(section);
+
 
     return section;
 
 }
 
 
+// ============================================================
+// FILTERS / SEARCH / SORT
+// ============================================================
+
+function initFilters(container) {
+
+    const filterButtons =
+        container.querySelectorAll(".filter");
+
+    const searchInput =
+        container.querySelector("#taskSearch");
+
+    const sortSelect =
+        container.querySelector("#sortTasks");
+
+
+    filterButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            filterButtons.forEach(
+                btn => btn.classList.remove("active")
+            );
+
+            button.classList.add("active");
+
+            filterState.status =
+                button.dataset.filter;
+
+            renderTasks(container);
+
+        });
+
+    });
+
+
+    searchInput.addEventListener("input", () => {
+
+        filterState.search =
+            searchInput.value.trim().toLowerCase();
+
+        renderTasks(container);
+
+    });
+
+
+    sortSelect.addEventListener("change", () => {
+
+        filterState.sort =
+            sortSelect.value;
+
+        renderTasks(container);
+
+    });
+
+}
+
+
+function getFilteredTasks() {
+
+    let tasks = getTasks();
+
+
+    if (filterState.status !== "all") {
+
+        tasks = tasks.filter(
+            task => task.status === filterState.status
+        );
+
+    }
+
+
+    if (filterState.search) {
+
+        tasks = tasks.filter(task => {
+
+            const haystack = `
+                ${task.title}
+                ${task.description}
+                ${task.tag}
+            `.toLowerCase();
+
+            return haystack.includes(filterState.search);
+
+        });
+
+    }
+
+
+    if (filterState.sort) {
+
+        tasks = sortTasks(tasks, filterState.sort);
+
+    }
+
+
+    return tasks;
+
+}
+
+
+function sortTasks(tasks, criteria) {
+
+    const priorityOrder = {
+        high: 0,
+        medium: 1,
+        low: 2
+    };
+
+
+    const sorted = [...tasks];
+
+
+    if (criteria === "priority") {
+
+        sorted.sort(
+            (a, b) =>
+                priorityOrder[a.priority] -
+                priorityOrder[b.priority]
+        );
+
+    }
+
+
+    if (criteria === "date") {
+
+        sorted.sort(
+            (a, b) =>
+                parseDueDate(a.dueDate) -
+                parseDueDate(b.dueDate)
+        );
+
+    }
+
+
+    if (criteria === "name") {
+
+        sorted.sort(
+            (a, b) => a.title.localeCompare(b.title)
+        );
+
+    }
+
+
+    return sorted;
+
+}
+
+
+function parseDueDate(dueDate) {
+
+    // Las fechas vienen sin año ("Aug 10"), se asume el año actual
+    const parsed = Date.parse(
+        `${dueDate}, ${new Date().getFullYear()}`
+    );
+
+    return Number.isNaN(parsed) ? 0 : parsed;
+
+}
+
+
+// ============================================================
+// RENDER
+// ============================================================
+
 function renderTasks(container) {
 
-    const tasks = getTasks();
+    const tasks = getFilteredTasks();
 
 
     const columns = {
@@ -430,6 +612,13 @@ function renderTasks(container) {
     );
 
 
+    if (tasks.length === 0) {
+
+        renderEmptyState(container);
+
+    }
+
+
     tasks.forEach(task => {
 
         const card =
@@ -453,6 +642,25 @@ function renderTasks(container) {
         container,
         tasks
     );
+
+}
+
+
+function renderEmptyState(container) {
+
+    const columns =
+        container.querySelectorAll(".taskList");
+
+
+    columns.forEach(column => {
+
+        column.innerHTML = `
+            <p class="emptyState">
+                No tasks found
+            </p>
+        `;
+
+    });
 
 }
 
