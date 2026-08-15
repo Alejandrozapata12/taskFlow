@@ -2770,3 +2770,425 @@ body.sidebar-collapsed .stad {
     }
 }
 
+/* ============================================================
+   NOTIFICATION WRAPPER
+   ============================================================ */
+
+.notificationWrapper {
+    position: relative;
+}
+
+
+/* ============================================================
+   NOTIFICATION BUTTON
+   ============================================================ */
+
+.notificationButton {
+    position: relative;
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--surface);
+    color: var(--text-secondary);
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.notificationButton:hover {
+    background: var(--surface-hover);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+
+.notificationButton:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+
+/* ============================================================
+   NOTIFICATION SVG
+   ============================================================ */
+
+.notificationIcon {
+    width: 18px;
+    height: 18px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   BADGE
+   ============================================================ */
+
+.notificationBadge {
+    position: absolute;
+
+    top: -4px;
+    right: -4px;
+
+    min-width: 17px;
+    height: 17px;
+
+    padding: 0 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--background);
+    border-radius: 999px;
+
+    background: var(--primary);
+    color: white;
+
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* ============================================================
+   NOTIFICATION PANEL
+   ============================================================ */
+
+.notificationPanel {
+    position: absolute;
+
+    top: calc(100% + 10px);
+    right: 0;
+
+    width: 360px;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--surface);
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.35),
+        0 4px 12px rgba(0, 0, 0, 0.2);
+
+    z-index: 1000;
+}
+
+
+/* ============================================================
+   PANEL HEADER
+   ============================================================ */
+
+.notificationHeader {
+    min-height: 64px;
+
+    padding: 14px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.notificationHeader h3 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.notificationCount {
+    display: block;
+
+    margin-top: 3px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+
+.markAllButton {
+    border: none;
+
+    background: transparent;
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.markAllButton:hover {
+    color: var(--primary-hover);
+}
+
+
+/* ============================================================
+   NOTIFICATION LIST
+   ============================================================ */
+
+.notificationList {
+    max-height: 330px;
+
+    overflow-y: auto;
+}
+
+
+/* ============================================================
+   NOTIFICATION ITEM
+   ============================================================ */
+
+.notificationItem {
+    position: relative;
+
+    display: flex;
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border-bottom: 1px solid var(--border);
+
+    background: transparent;
+
+    transition:
+        background-color 0.2s ease;
+}
+
+
+.notificationItem:hover {
+    background: var(--surface-hover);
+}
+
+
+.notificationItem.unread {
+    background: rgba(22, 163, 74, 0.035);
+}
+
+
+.notificationItem:last-child {
+    border-bottom: none;
+}
+
+
+/* ============================================================
+   NOTIFICATION ICON
+   ============================================================ */
+
+.notificationItemIcon {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+}
+
+
+.notificationItemIcon svg {
+    width: 17px;
+    height: 17px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* Success */
+
+.notificationItemIcon.success {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+
+/* Warning */
+
+.notificationItemIcon.warning {
+    background: rgba(245, 158, 11, 0.10);
+    color: #f59e0b;
+}
+
+
+/* Info */
+
+.notificationItemIcon.info {
+    background: rgba(59, 130, 246, 0.10);
+    color: #3b82f6;
+}
+
+
+/* ============================================================
+   NOTIFICATION CONTENT
+   ============================================================ */
+
+.notificationContent {
+    min-width: 0;
+
+    flex: 1;
+}
+
+
+.notificationTitleRow {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+.notificationTitleRow h4 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    line-height: 1.4;
+}
+
+
+.notificationContent p {
+    margin: 4px 0 5px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+.notificationContent time {
+    color: var(--text-muted);
+
+    font-size: 10px;
+}
+
+
+/* ============================================================
+   UNREAD DOT
+   ============================================================ */
+
+.notificationDot {
+    width: 5px;
+    height: 5px;
+
+    flex: 0 0 5px;
+
+    border-radius: 50%;
+
+    background: var(--primary);
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.notificationFooter {
+    padding: 10px;
+
+    border-top: 1px solid var(--border);
+}
+
+
+.viewNotificationsButton {
+    width: 100%;
+
+    min-height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+    color: var(--text-secondary);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.viewNotificationsButton:hover {
+    background: var(--surface-hover);
+    color: var(--text-primary);
+}
+
+
+.viewNotificationsButton svg {
+    width: 14px;
+    height: 14px;
+
+    fill: none;
+    stroke: currentColor;
+
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .notificationPanel {
+        position: fixed;
+
+        top: 70px;
+        left: 12px;
+        right: 12px;
+
+        width: auto;
+    }
+
+}
