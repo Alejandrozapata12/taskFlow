@@ -1,6 +1,7 @@
 const TASKS_KEY = "taskflow_tasks";
 const THEME_KEY = "taskflow_theme";
 const PROJECTS_KEY = "taskflow_projects";
+const SETTINGS_KEY = "taskflow_settings";
 
 
 export function loadTasks(defaultTasks = []) {
@@ -106,5 +107,58 @@ export function saveProjects(projects) {
         console.error("Error saving projects:", error);
 
     }
+
+}
+
+
+export function loadSettings(defaultSettings = {}) {
+
+    try {
+
+        const savedSettings = localStorage.getItem(SETTINGS_KEY);
+
+        if (!savedSettings) {
+            return defaultSettings;
+        }
+
+        return {
+            ...defaultSettings,
+            ...JSON.parse(savedSettings)
+        };
+
+    } catch (error) {
+
+        console.error("Error loading settings:", error);
+
+        return defaultSettings;
+
+    }
+
+}
+
+
+export function saveSettings(settings) {
+
+    try {
+
+        localStorage.setItem(
+            SETTINGS_KEY,
+            JSON.stringify(settings)
+        );
+
+    } catch (error) {
+
+        console.error("Error saving settings:", error);
+
+    }
+
+}
+
+
+export function clearAllData() {
+
+    localStorage.removeItem(TASKS_KEY);
+    localStorage.removeItem(PROJECTS_KEY);
+    localStorage.removeItem(SETTINGS_KEY);
 
 }
