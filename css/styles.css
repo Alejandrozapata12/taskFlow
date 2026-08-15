@@ -203,7 +203,7 @@ body {
 aside {
    position: relative;
 
-    width: 230px;
+    width: 250px;
     height: 100vh;
 
     overflow-y: auto;
@@ -1061,7 +1061,7 @@ main {
     padding: 0 12px;
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 
     background-color: var(--surface);
 
@@ -1073,6 +1073,8 @@ main {
     outline: none;
 
     cursor: pointer;
+
+
 }
 
 
