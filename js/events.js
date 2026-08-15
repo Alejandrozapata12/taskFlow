@@ -4,6 +4,9 @@ import {
 } from "./storage.js";
 
 
+
+
+
 export function initTheme() {
 
     const button = document.querySelector("#theme");

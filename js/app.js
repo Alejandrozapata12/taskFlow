@@ -15,6 +15,10 @@ import {
     initProfileDrawer
 } from "./components/profileDrawer.js";
 
+import {
+    initLogout
+} from "./auth.js";
+
 
 function initNavigation() {
 
@@ -87,6 +91,8 @@ function initApplication() {
     initTaskModal();
 
     initProfileDrawer();
+
+    initLogout();
 
     router();
 
