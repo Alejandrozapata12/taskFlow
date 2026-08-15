@@ -1,5 +1,6 @@
 const TASKS_KEY = "taskflow_tasks";
 const THEME_KEY = "taskflow_theme";
+const PROJECTS_KEY = "taskflow_projects";
 
 
 export function loadTasks(defaultTasks = []) {
@@ -60,5 +61,50 @@ export function saveTheme(theme) {
         THEME_KEY,
         theme
     );
+
+}
+
+
+export function loadProjects(defaultProjects = []) {
+
+    try {
+
+        const savedProjects = localStorage.getItem(PROJECTS_KEY);
+
+        if (!savedProjects) {
+            return defaultProjects;
+        }
+
+        const parsedProjects = JSON.parse(savedProjects);
+
+        return Array.isArray(parsedProjects)
+            ? parsedProjects
+            : defaultProjects;
+
+    } catch (error) {
+
+        console.error("Error loading projects:", error);
+
+        return defaultProjects;
+
+    }
+
+}
+
+
+export function saveProjects(projects) {
+
+    try {
+
+        localStorage.setItem(
+            PROJECTS_KEY,
+            JSON.stringify(projects)
+        );
+
+    } catch (error) {
+
+        console.error("Error saving projects:", error);
+
+    }
 
 }
