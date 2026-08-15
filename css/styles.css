@@ -200,22 +200,18 @@ body {
 ========================================================= */
 
 aside {
-    /* Mantenemos fixed para que no se rompa el layout actual */
-    position: fixed; 
-    top: 0;
-    left: 0;
+    position: relative;
 
-    /* Nuevas dimensiones y estética */
-    width: 230px; 
-    height: 100dvh;
-    background-color: var(--sidebar, #1a1f2e); /* Con fallback al color actual */
+    width: 230px;
+    min-height: 100vh;
+
+    background-color: var(--sidebar);
     color: white;
+
     padding: 24px 18px;
 
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
-    z-index: 100;
 }
 
 
