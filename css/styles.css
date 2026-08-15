@@ -182,10 +182,11 @@
 ========================================================= */
 
 body {
-    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
 
     display: grid;
-    grid-template-columns: 230px 1fr;
+    grid-template-columns: 230px minmax(0, 1fr);
 
     background-color: var(--background);
 
@@ -200,10 +201,13 @@ body {
 ========================================================= */
 
 aside {
-    position: relative;
+   position: relative;
 
     width: 230px;
-    min-height: 100vh;
+    height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
 
     background-color: var(--sidebar);
     color: white;
@@ -363,7 +367,7 @@ aside {
 ========================================================= */
 
 .stad {
-    margin-top: 2.1rem;
+    margin-top: auto;
 
     padding: 1rem;
 
@@ -451,6 +455,10 @@ aside {
 
 main {
     min-width: 0;
+    height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
 
     background-color: var(--background);
 }
