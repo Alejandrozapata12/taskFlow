@@ -1303,709 +1303,834 @@
    TOAST NOTIFICATIONS
 ============================================================ */
 
-.toastContainer {
+        .toastContainer {
 
-    position: fixed;
+            position: fixed;
 
-    top: 24px;
-    right: 24px;
+            top: 24px;
+            right: 24px;
 
-    z-index: 9999;
+            z-index: 9999;
 
-    display: flex;
-    flex-direction: column;
+            display: flex;
+            flex-direction: column;
 
-    gap: 12px;
+            gap: 12px;
 
-    width: min(360px, calc(100vw - 32px));
-}
+            width: min(360px, calc(100vw - 32px));
+        }
 
 
-/* ============================================================
+        /* ============================================================
    TOAST
 ============================================================ */
 
-.toast {
+        .toast {
 
-    position: relative;
+            position: relative;
 
-    display: flex;
+            display: flex;
 
-    align-items: flex-start;
+            align-items: flex-start;
 
-    gap: 12px;
+            gap: 12px;
 
-    width: 100%;
+            width: 100%;
 
-    padding: 14px 16px;
+            padding: 14px 16px;
 
-    background: #FFFFFF;
+            background: #FFFFFF;
 
-    border: 1px solid var(--border);
+            border: 1px solid var(--border);
 
-    border-radius: 12px;
+            border-radius: 12px;
 
-    box-shadow:
-        0 10px 30px rgba(15, 23, 42, 0.12);
+            box-shadow:
+                0 10px 30px rgba(15, 23, 42, 0.12);
 
-    overflow: hidden;
+            overflow: hidden;
 
-    animation:
-        toastIn 0.3s ease forwards;
-}
+            animation:
+                toastIn 0.3s ease forwards;
+        }
 
 
-/* ============================================================
+        /* ============================================================
    TOAST ICON
 ============================================================ */
 
-.toastIcon {
+        .toastIcon {
 
-    width: 22px;
-    height: 22px;
+            width: 22px;
+            height: 22px;
 
-    flex-shrink: 0;
+            flex-shrink: 0;
 
-    display: flex;
+            display: flex;
 
-    align-items: center;
-    justify-content: center;
+            align-items: center;
+            justify-content: center;
 
-    border-radius: 50%;
+            border-radius: 50%;
 
-    font-size: 12px;
+            font-size: 12px;
 
-    font-weight: 700;
-}
+            font-weight: 700;
+        }
 
 
-/* ============================================================
+        /* ============================================================
    TOAST CONTENT
 ============================================================ */
 
-.toastContent {
+        .toastContent {
 
-    flex: 1;
-}
-
-
-.toastTitle {
-
-    margin-bottom: 3px;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    color: var(--text-primary);
-}
+            flex: 1;
+        }
 
 
-.toastMessage {
+        .toastTitle {
 
-    font-size: 12px;
+            margin-bottom: 3px;
 
-    line-height: 1.5;
+            font-size: 13px;
 
-    color: var(--text-secondary);
-}
+            font-weight: 600;
+
+            color: var(--text-primary);
+        }
 
 
-/* ============================================================
+        .toastMessage {
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* ============================================================
    CLOSE BUTTON
 ============================================================ */
 
-.toastClose {
+        .toastClose {
 
-    width: 24px;
-    height: 24px;
+            width: 24px;
+            height: 24px;
 
-    display: flex;
+            display: flex;
 
-    align-items: center;
-    justify-content: center;
+            align-items: center;
+            justify-content: center;
 
-    flex-shrink: 0;
+            flex-shrink: 0;
 
-    color: var(--text-muted);
+            color: var(--text-muted);
 
-    font-size: 18px;
+            font-size: 18px;
 
-    cursor: pointer;
+            cursor: pointer;
 
-    border-radius: 6px;
+            border-radius: 6px;
 
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease;
-}
-
-
-.toastClose:hover {
-
-    color: var(--text-primary);
-
-    background: #F1F5F9;
-}
+            transition:
+                color 0.2s ease,
+                background-color 0.2s ease;
+        }
 
 
-/* ============================================================
+        .toastClose:hover {
+
+            color: var(--text-primary);
+
+            background: #F1F5F9;
+        }
+
+
+        /* ============================================================
    SUCCESS
 ============================================================ */
 
-.toast.success {
+        .toast.success {
 
-    border-left: 4px solid var(--success);
-}
-
-
-.toast.success .toastIcon {
-
-    background: #DCFCE7;
-
-    color: #16A34A;
-}
+            border-left: 4px solid var(--success);
+        }
 
 
-/* ============================================================
+        .toast.success .toastIcon {
+
+            background: #DCFCE7;
+
+            color: #16A34A;
+        }
+
+
+        /* ============================================================
    ERROR
 ============================================================ */
 
-.toast.error {
+        .toast.error {
 
-    border-left: 4px solid var(--error);
-}
-
-
-.toast.error .toastIcon {
-
-    background: #FEE2E2;
-
-    color: #DC2626;
-}
+            border-left: 4px solid var(--error);
+        }
 
 
-/* ============================================================
+        .toast.error .toastIcon {
+
+            background: #FEE2E2;
+
+            color: #DC2626;
+        }
+
+
+        /* ============================================================
    WARNING
 ============================================================ */
 
-.toast.warning {
+        .toast.warning {
 
-    border-left: 4px solid var(--warning);
-}
-
-
-.toast.warning .toastIcon {
-
-    background: #FEF3C7;
-
-    color: #D97706;
-}
+            border-left: 4px solid var(--warning);
+        }
 
 
-/* ============================================================
+        .toast.warning .toastIcon {
+
+            background: #FEF3C7;
+
+            color: #D97706;
+        }
+
+
+        /* ============================================================
    INFO
 ============================================================ */
 
-.toast.info {
+        .toast.info {
 
-    border-left: 4px solid var(--info);
-}
-
-
-.toast.info .toastIcon {
-
-    background: #DBEAFE;
-
-    color: #2563EB;
-}
+            border-left: 4px solid var(--info);
+        }
 
 
-/* ============================================================
+        .toast.info .toastIcon {
+
+            background: #DBEAFE;
+
+            color: #2563EB;
+        }
+
+
+        /* ============================================================
    PROGRESS BAR
 ============================================================ */
 
-.toastProgress {
+        .toastProgress {
 
-    position: absolute;
+            position: absolute;
 
-    bottom: 0;
-    left: 0;
+            bottom: 0;
+            left: 0;
 
-    height: 3px;
+            height: 3px;
 
-    width: 100%;
+            width: 100%;
 
-    transform-origin: left;
+            transform-origin: left;
 
-    animation:
-        toastProgress 4s linear forwards;
-}
-
-
-.toast.success .toastProgress {
-    background: var(--success);
-}
+            animation:
+                toastProgress 4s linear forwards;
+        }
 
 
-.toast.error .toastProgress {
-    background: var(--error);
-}
+        .toast.success .toastProgress {
+            background: var(--success);
+        }
 
 
-.toast.warning .toastProgress {
-    background: var(--warning);
-}
+        .toast.error .toastProgress {
+            background: var(--error);
+        }
 
 
-.toast.info .toastProgress {
-    background: var(--info);
-}
+        .toast.warning .toastProgress {
+            background: var(--warning);
+        }
 
 
-/* ============================================================
+        .toast.info .toastProgress {
+            background: var(--info);
+        }
+
+
+        /* ============================================================
    ANIMATIONS
 ============================================================ */
 
-@keyframes toastIn {
+        @keyframes toastIn {
 
-    from {
+            from {
 
-        opacity: 0;
+                opacity: 0;
 
-        transform:
-            translateX(30px)
-            scale(0.95);
-    }
+                transform:
+                    translateX(30px) scale(0.95);
+            }
 
-    to {
+            to {
 
-        opacity: 1;
+                opacity: 1;
 
-        transform:
-            translateX(0)
-            scale(1);
-    }
-}
+                transform:
+                    translateX(0) scale(1);
+            }
+        }
 
 
-.toast.removing {
+        .toast.removing {
 
-    animation:
-        toastOut 0.25s ease forwards;
-}
-
-
-@keyframes toastOut {
-
-    from {
-
-        opacity: 1;
-
-        transform:
-            translateX(0)
-            scale(1);
-    }
-
-    to {
-
-        opacity: 0;
-
-        transform:
-            translateX(30px)
-            scale(0.95);
-    }
-}
+            animation:
+                toastOut 0.25s ease forwards;
+        }
 
 
-/* ============================================================
+        @keyframes toastOut {
+
+            from {
+
+                opacity: 1;
+
+                transform:
+                    translateX(0) scale(1);
+            }
+
+            to {
+
+                opacity: 0;
+
+                transform:
+                    translateX(30px) scale(0.95);
+            }
+        }
+
+
+        /* ============================================================
    MOBILE
 ============================================================ */
 
-@media (max-width: 520px) {
+        @media (max-width: 520px) {
 
-    .toastContainer {
+            .toastContainer {
 
-        top: 16px;
+                top: 16px;
 
-        right: 16px;
-        left: 16px;
+                right: 16px;
+                left: 16px;
 
-        width: auto;
-    }
-}
+                width: auto;
+            }
+        }
 
-/* ============================================================
+        /* ============================================================
    MODALS
 ============================================================ */
 
-.modalOverlay {
-    position: fixed;
-    inset: 0;
+        .modalOverlay {
+            position: fixed;
+            inset: 0;
 
-    z-index: 5000;
+            z-index: 5000;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    padding: 20px;
+            padding: 20px;
 
-    background: rgba(15, 23, 42, 0.55);
+            background: rgba(15, 23, 42, 0.55);
 
-    backdrop-filter: blur(4px);
+            backdrop-filter: blur(4px);
 
-    opacity: 0;
-    visibility: hidden;
+            opacity: 0;
+            visibility: hidden;
 
-    transition:
-        opacity 0.2s ease,
-        visibility 0.2s ease;
-}
+            transition:
+                opacity 0.2s ease,
+                visibility 0.2s ease;
+        }
 
 
-/* ============================================================
+        /* ============================================================
    MODAL OPEN
 ============================================================ */
 
-.modalOverlay.active {
-    opacity: 1;
-    visibility: visible;
-}
+        .modalOverlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
 
 
-/* ============================================================
+        /* ============================================================
    MODAL
 ============================================================ */
 
-.modal {
-    position: relative;
+        .modal {
+            position: relative;
 
-    width: min(430px, 100%);
+            width: min(430px, 100%);
 
-    max-height: calc(100vh - 40px);
+            max-height: calc(100vh - 40px);
 
-    overflow-y: auto;
+            overflow-y: auto;
 
-    padding: 36px;
+            padding: 36px;
 
-    background: var(--surface);
+            background: var(--surface);
 
-    border: 1px solid var(--border);
+            border: 1px solid var(--border);
 
-    border-radius: var(--radius-lg);
+            border-radius: var(--radius-lg);
 
-    box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-lg);
 
-    transform: translateY(15px) scale(0.98);
+            transform: translateY(15px) scale(0.98);
 
-    transition:
-        transform 0.2s ease;
-}
-
-
-.modalOverlay.active .modal {
-    transform: translateY(0) scale(1);
-}
+            transition:
+                transform 0.2s ease;
+        }
 
 
-/* ============================================================
+        .modalOverlay.active .modal {
+            transform: translateY(0) scale(1);
+        }
+
+
+        /* ============================================================
    CLOSE
 ============================================================ */
 
-.modalClose {
-    position: absolute;
+        .modalClose {
+            position: absolute;
 
-    top: 14px;
-    right: 14px;
+            top: 14px;
+            right: 14px;
 
-    width: 34px;
-    height: 34px;
+            width: 34px;
+            height: 34px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    border-radius: 8px;
+            border-radius: 8px;
 
-    color: var(--text-muted);
+            color: var(--text-muted);
 
-    font-size: 24px;
-    line-height: 1;
+            font-size: 24px;
+            line-height: 1;
 
-    cursor: pointer;
+            cursor: pointer;
 
-    transition:
-        color 0.2s ease,
-        background-color 0.2s ease;
-}
-
-
-.modalClose:hover {
-    color: var(--text-primary);
-
-    background: #F1F5F9;
-}
+            transition:
+                color 0.2s ease,
+                background-color 0.2s ease;
+        }
 
 
-.modalClose:focus-visible {
-    outline: 3px solid rgba(22, 163, 74, 0.15);
+        .modalClose:hover {
+            color: var(--text-primary);
 
-    outline-offset: 2px;
-}
+            background: #F1F5F9;
+        }
 
 
-/* ============================================================
+        .modalClose:focus-visible {
+            outline: 3px solid rgba(22, 163, 74, 0.15);
+
+            outline-offset: 2px;
+        }
+
+
+        /* ============================================================
    MODAL ICON
 ============================================================ */
 
-.modalIcon {
-    width: 48px;
-    height: 48px;
+        .modalIcon {
+            width: 48px;
+            height: 48px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    margin: 0 auto 20px;
+            margin: 0 auto 20px;
 
-    border-radius: 14px;
+            border-radius: 14px;
 
-    background: var(--primary-soft);
+            background: var(--primary-soft);
 
-    color: var(--primary);
-}
-
-
-.modalIcon svg {
-    width: 23px;
-    height: 23px;
-
-    fill: none;
-
-    stroke: currentColor;
-
-    stroke-width: 1.8;
-
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
+            color: var(--primary);
+        }
 
 
-/* ============================================================
+        .modalIcon svg {
+            width: 23px;
+            height: 23px;
+
+            fill: none;
+
+            stroke: currentColor;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* ============================================================
    MODAL HEADER
 ============================================================ */
 
-.modalHeader {
-    margin-bottom: 26px;
+        .modalHeader {
+            margin-bottom: 26px;
 
-    text-align: center;
-}
-
-
-.modalHeader h2 {
-    margin-bottom: 8px;
-
-    font-size: 23px;
-
-    line-height: 1.25;
-
-    letter-spacing: -0.6px;
-
-    font-weight: 700;
-
-    color: var(--text-primary);
-}
+            text-align: center;
+        }
 
 
-.modalHeader p {
-    font-size: 13px;
+        .modalHeader h2 {
+            margin-bottom: 8px;
 
-    line-height: 1.6;
+            font-size: 23px;
 
-    color: var(--text-secondary);
-}
+            line-height: 1.25;
+
+            letter-spacing: -0.6px;
+
+            font-weight: 700;
+
+            color: var(--text-primary);
+        }
 
 
-/* ============================================================
+        .modalHeader p {
+            font-size: 13px;
+
+            line-height: 1.6;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* ============================================================
    MODAL FORM
 ============================================================ */
 
-.modalForm {
-    width: 100%;
-}
+        .modalForm {
+            width: 100%;
+        }
 
 
-.modalForm .formGroup {
-    margin-bottom: 17px;
-}
+        .modalForm .formGroup {
+            margin-bottom: 17px;
+        }
 
 
-.modalForm .inputWrapper {
-    height: 46px;
-}
+        .modalForm .inputWrapper {
+            height: 46px;
+        }
 
 
-/* ============================================================
+        /* ============================================================
    MODAL PRIMARY BUTTON
 ============================================================ */
 
-.modalPrimaryButton {
-    width: 100%;
-    height: 46px;
+        .modalPrimaryButton {
+            width: 100%;
+            height: 46px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-    margin-top: 5px;
+            margin-top: 5px;
 
-    border-radius: var(--radius-md);
+            border-radius: var(--radius-md);
 
-    background: var(--primary);
+            background: var(--primary);
 
-    color: #FFFFFF;
+            color: #FFFFFF;
 
-    font-size: 13px;
+            font-size: 13px;
 
-    font-weight: 600;
+            font-weight: 600;
 
-    cursor: pointer;
+            cursor: pointer;
 
-    box-shadow:
-        0 5px 12px rgba(22, 163, 74, 0.18);
+            box-shadow:
+                0 5px 12px rgba(22, 163, 74, 0.18);
 
-    transition:
-        background-color 0.2s ease,
-        transform 0.15s ease,
-        box-shadow 0.2s ease;
-}
-
-
-.modalPrimaryButton:hover {
-    background: var(--primary-hover);
-
-    box-shadow:
-        0 7px 16px rgba(21, 128, 61, 0.22);
-}
+            transition:
+                background-color 0.2s ease,
+                transform 0.15s ease,
+                box-shadow 0.2s ease;
+        }
 
 
-.modalPrimaryButton:active {
-    transform: translateY(1px);
-}
+        .modalPrimaryButton:hover {
+            background: var(--primary-hover);
+
+            box-shadow:
+                0 7px 16px rgba(21, 128, 61, 0.22);
+        }
 
 
-.modalPrimaryButton:focus-visible {
-    outline: 3px solid rgba(22, 163, 74, 0.20);
-
-    outline-offset: 3px;
-}
+        .modalPrimaryButton:active {
+            transform: translateY(1px);
+        }
 
 
-/* ============================================================
+        .modalPrimaryButton:focus-visible {
+            outline: 3px solid rgba(22, 163, 74, 0.20);
+
+            outline-offset: 3px;
+        }
+
+
+        /* ============================================================
    BACK BUTTON
 ============================================================ */
 
-.modalBackButton {
-    display: block;
+        .modalBackButton {
+            display: block;
 
-    margin: 18px auto 0;
+            margin: 18px auto 0;
 
-    font-size: 12px;
+            font-size: 12px;
 
-    font-weight: 600;
+            font-weight: 600;
 
-    color: var(--text-secondary);
+            color: var(--text-secondary);
 
-    cursor: pointer;
+            cursor: pointer;
 
-    transition:
-        color 0.2s ease;
-}
-
-
-.modalBackButton:hover {
-    color: var(--primary);
-}
+            transition:
+                color 0.2s ease;
+        }
 
 
-/* ============================================================
+        .modalBackButton:hover {
+            color: var(--primary);
+        }
+
+
+        /* ============================================================
    MODAL FOOTER
 ============================================================ */
 
-.modalFooterText {
-    margin-top: 20px;
+        .modalFooterText {
+            margin-top: 20px;
 
-    text-align: center;
+            text-align: center;
 
-    font-size: 12px;
+            font-size: 12px;
 
-    color: var(--text-secondary);
-}
-
-
-.modalLink {
-    margin-left: 3px;
-
-    font-size: inherit;
-
-    font-weight: 600;
-
-    color: var(--primary);
-
-    cursor: pointer;
-}
+            color: var(--text-secondary);
+        }
 
 
-.modalLink:hover {
-    color: var(--primary-hover);
+        .modalLink {
+            margin-left: 3px;
 
-    text-decoration: underline;
-}
+            font-size: inherit;
+
+            font-weight: 600;
+
+            color: var(--primary);
+
+            cursor: pointer;
+        }
 
 
-/* ============================================================
+        .modalLink:hover {
+            color: var(--primary-hover);
+
+            text-decoration: underline;
+        }
+
+
+        /* ============================================================
    PASSWORD TOGGLE
 ============================================================ */
 
-.modalPasswordToggle {
-    width: 42px;
-    height: 100%;
-}
+        .modalPasswordToggle {
+            width: 42px;
+            height: 100%;
+        }
 
 
-/* ============================================================
+        /* ============================================================
    BODY LOCK
 ============================================================ */
 
-body.modalOpen {
-    overflow: hidden;
-}
+        body.modalOpen {
+            overflow: hidden;
+        }
 
 
-/* ============================================================
+        /* ============================================================
    RESPONSIVE
 ============================================================ */
 
-@media (max-width: 520px) {
+        @media (max-width: 520px) {
 
-    .modalOverlay {
-        padding: 14px;
-    }
+            .modalOverlay {
+                padding: 14px;
+            }
 
-    .modal {
-        padding: 30px 22px;
+            .modal {
+                padding: 30px 22px;
 
-        border-radius: 14px;
-    }
+                border-radius: 14px;
+            }
 
-    .modalHeader h2 {
-        font-size: 21px;
-    }
+            .modalHeader h2 {
+                font-size: 21px;
+            }
 
-}
+        }
+
+        /* ============================================================
+   FOOTER POLICY LINKS
+============================================================ */
+
+        .footerLink {
+            padding: 0;
+
+            font-family: inherit;
+            font-size: inherit;
+
+            color: var(--text-secondary);
+
+            background: transparent;
+
+            cursor: pointer;
+
+            transition:
+                color 0.2s ease;
+        }
 
 
+        .footerLink:hover {
+            color: var(--primary);
+        }
+
+
+        /* ============================================================
+   POLICY MODALS
+============================================================ */
+
+        .policyModal {
+            width: min(600px, 100%);
+
+            max-height: min(720px,
+                    calc(100vh - 40px));
+        }
+
+
+        /* ============================================================
+   POLICY CONTENT
+============================================================ */
+
+        .policyContent {
+            max-height: 400px;
+
+            overflow-y: auto;
+
+            margin-bottom: 24px;
+
+            padding-right: 8px;
+        }
+
+
+        /* ============================================================
+   POLICY SECTIONS
+============================================================ */
+
+        .policyContent section {
+            margin-bottom: 22px;
+        }
+
+
+        .policyContent section:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .policyContent h3 {
+            margin-bottom: 7px;
+
+            font-size: 13px;
+
+            line-height: 1.4;
+
+            font-weight: 700;
+
+            color: var(--text-primary);
+        }
+
+
+        .policyContent p {
+            font-size: 12px;
+
+            line-height: 1.7;
+
+            color: var(--text-secondary);
+        }
+
+
+        /* ============================================================
+   POLICY SCROLLBAR
+============================================================ */
+
+        .policyContent::-webkit-scrollbar {
+            width: 5px;
+        }
+
+
+        .policyContent::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+
+        .policyContent::-webkit-scrollbar-thumb {
+            background: #CBD5E1;
+
+            border-radius: 999px;
+        }
+
+
+        .policyContent::-webkit-scrollbar-thumb:hover {
+            background: #94A3B8;
+        }
+
+
+        /* ============================================================
+   RESPONSIVE
+============================================================ */
+
+        @media (max-width: 520px) {
+
+            .policyModal {
+                max-height: calc(100vh - 28px);
+            }
+
+            .policyContent {
+                max-height: 50vh;
+            }
+
+        }
     </style>
 
 
@@ -2182,8 +2307,7 @@ body.modalOpen {
                         </svg>
 
 
-                        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email"
-                            >
+                        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email">
 
                     </div>
 
@@ -2224,7 +2348,7 @@ body.modalOpen {
 
 
                         <input type="password" id="password" name="password" placeholder="Enter your password"
-                            autocomplete="current-password" >
+                            autocomplete="current-password">
 
 
                         <!-- Toggle password -->
@@ -2356,17 +2480,15 @@ body.modalOpen {
                     •
                 </span>
 
-                <a href="#">
+                <button type="button" class="footerLink" id="privacyPolicyLink">
                     Privacy
-                </a>
+                </button>
 
-                <span class="footerDot">
-                    •
-                </span>
+                <span class="footerDot">•</span>
 
-                <a href="#">
+                <button type="button" class="footerLink" id="termsLink">
                     Terms
-                </a>
+                </button>
 
             </footer>
 
@@ -2377,399 +2499,488 @@ body.modalOpen {
     </main>
 
 
-<!-- ============================================================
+    <!-- ============================================================
      FORGOT PASSWORD MODAL
 ============================================================ -->
 
-<div
-    class="modalOverlay"
-    id="forgotPasswordModal"
-    aria-hidden="true"
->
-    <div
-        class="modal"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="forgotPasswordTitle"
-    >
+    <div class="modalOverlay" id="forgotPasswordModal" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="forgotPasswordTitle">
 
-        <button
-            type="button"
-            class="modalClose"
-            data-close-modal
-            aria-label="Close modal"
-        >
-            &times;
-        </button>
+            <button type="button" class="modalClose" data-close-modal aria-label="Close modal">
+                &times;
+            </button>
 
-        <div class="modalIcon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M4 6h16v12H4z"></path>
-                <path d="m4 7 8 6 8-6"></path>
-            </svg>
-        </div>
+            <div class="modalIcon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16v12H4z"></path>
+                    <path d="m4 7 8 6 8-6"></path>
+                </svg>
+            </div>
 
-        <div class="modalHeader">
+            <div class="modalHeader">
 
-            <h2 id="forgotPasswordTitle">
-                Forgot your password?
-            </h2>
+                <h2 id="forgotPasswordTitle">
+                    Forgot your password?
+                </h2>
 
-            <p>
-                Enter your email and we'll send you a link to reset
-                your password.
-            </p>
-
-        </div>
-
-        <form id="forgotPasswordForm" class="modalForm">
-
-            <div class="formGroup">
-
-                <label for="forgotEmail">
-                    Email address
-                </label>
-
-                <div class="inputWrapper">
-
-                    <svg
-                        class="inputIcon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <rect
-                            x="3"
-                            y="5"
-                            width="18"
-                            height="14"
-                            rx="2"
-                        ></rect>
-
-                        <path
-                            d="m3 7 8.1 5.4a1.5 1.5 0 0 0 1.8 0L21 7"
-                        ></path>
-                    </svg>
-
-                    <input
-                        type="email"
-                        id="forgotEmail"
-                        name="email"
-                        placeholder="you@example.com"
-                        autocomplete="email"
-                        required
-                    >
-
-                </div>
+                <p>
+                    Enter your email and we'll send you a link to reset
+                    your password.
+                </p>
 
             </div>
 
-            <button
-                type="submit"
-                class="modalPrimaryButton"
-            >
-                Send reset link
+            <form id="forgotPasswordForm" class="modalForm">
+
+                <div class="formGroup">
+
+                    <label for="forgotEmail">
+                        Email address
+                    </label>
+
+                    <div class="inputWrapper">
+
+                        <svg class="inputIcon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+
+                            <path d="m3 7 8.1 5.4a1.5 1.5 0 0 0 1.8 0L21 7"></path>
+                        </svg>
+
+                        <input type="email" id="forgotEmail" name="email" placeholder="you@example.com"
+                            autocomplete="email" required>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="modalPrimaryButton">
+                    Send reset link
+                </button>
+
+            </form>
+
+            <button type="button" class="modalBackButton" data-close-modal>
+                Back to sign in
             </button>
 
-        </form>
-
-        <button
-            type="button"
-            class="modalBackButton"
-            data-close-modal
-        >
-            Back to sign in
-        </button>
-
+        </div>
     </div>
-</div>
 
 
-<!-- ============================================================
+    <!-- ============================================================
      CREATE ACCOUNT MODAL
 ============================================================ -->
 
-<div
-    class="modalOverlay"
-    id="registerModal"
-    aria-hidden="true"
->
-    <div
-        class="modal modalRegister"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="registerTitle"
-    >
+    <div class="modalOverlay" id="registerModal" aria-hidden="true">
+        <div class="modal modalRegister" role="dialog" aria-modal="true" aria-labelledby="registerTitle">
 
-        <button
-            type="button"
-            class="modalClose"
-            data-close-modal
-            aria-label="Close modal"
-        >
-            &times;
-        </button>
+            <button type="button" class="modalClose" data-close-modal aria-label="Close modal">
+                &times;
+            </button>
 
-        <div class="modalIcon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M19 8v6"></path>
-                <path d="M22 11h-6"></path>
-            </svg>
-        </div>
+            <div class="modalIcon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M19 8v6"></path>
+                    <path d="M22 11h-6"></path>
+                </svg>
+            </div>
 
-        <div class="modalHeader">
+            <div class="modalHeader">
 
-            <h2 id="registerTitle">
-                Create your account
-            </h2>
+                <h2 id="registerTitle">
+                    Create your account
+                </h2>
 
-            <p>
-                Start organizing your tasks with TaskFlow.
+                <p>
+                    Start organizing your tasks with TaskFlow.
+                </p>
+
+            </div>
+
+            <form id="registerForm" class="modalForm">
+
+                <!-- NAME -->
+
+                <div class="formGroup">
+
+                    <label for="registerName">
+                        Full name
+                    </label>
+
+                    <div class="inputWrapper">
+
+                        <svg class="inputIcon" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="8" r="4"></circle>
+
+                            <path d="M4 21a8 8 0 0 1 16 0"></path>
+                        </svg>
+
+                        <input type="text" id="registerName" name="name" placeholder="John Doe" autocomplete="name"
+                            required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div class="formGroup">
+
+                    <label for="registerEmail">
+                        Email address
+                    </label>
+
+                    <div class="inputWrapper">
+
+                        <svg class="inputIcon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+
+                            <path d="m3 7 8.1 5.4a1.5 1.5 0 0 0 1.8 0L21 7"></path>
+                        </svg>
+
+                        <input type="email" id="registerEmail" name="email" placeholder="you@example.com"
+                            autocomplete="email" required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div class="formGroup">
+
+                    <label for="registerPassword">
+                        Password
+                    </label>
+
+                    <div class="inputWrapper">
+
+                        <svg class="inputIcon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                        </svg>
+
+                        <input type="password" id="registerPassword" name="password" placeholder="Create a password"
+                            autocomplete="new-password" required>
+
+                        <button type="button" class="togglePassword modalPasswordToggle"
+                            data-password-toggle="registerPassword" aria-label="Show password">
+                            <svg class="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="formGroup">
+
+                    <label for="registerPasswordConfirm">
+                        Confirm password
+                    </label>
+
+                    <div class="inputWrapper">
+
+                        <svg class="inputIcon" viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="4" y="10" width="16" height="10" rx="2"></rect>
+
+                            <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                        </svg>
+
+                        <input type="password" id="registerPasswordConfirm" name="passwordConfirm"
+                            placeholder="Confirm your password" autocomplete="new-password" required>
+
+                        <button type="button" class="togglePassword modalPasswordToggle"
+                            data-password-toggle="registerPasswordConfirm" aria-label="Show password">
+                            <svg class="eyeIcon" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"></path>
+
+                                <circle cx="12" cy="12" r="2.5"></circle>
+                            </svg>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="modalPrimaryButton">
+                    Create account
+                </button>
+
+            </form>
+
+            <p class="modalFooterText">
+                Already have an account?
+
+                <button type="button" class="modalLink" id="backToLogin">
+                    Sign in
+                </button>
             </p>
 
         </div>
-
-        <form id="registerForm" class="modalForm">
-
-            <!-- NAME -->
-
-            <div class="formGroup">
-
-                <label for="registerName">
-                    Full name
-                </label>
-
-                <div class="inputWrapper">
-
-                    <svg
-                        class="inputIcon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <circle
-                            cx="12"
-                            cy="8"
-                            r="4"
-                        ></circle>
-
-                        <path
-                            d="M4 21a8 8 0 0 1 16 0"
-                        ></path>
-                    </svg>
-
-                    <input
-                        type="text"
-                        id="registerName"
-                        name="name"
-                        placeholder="John Doe"
-                        autocomplete="name"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <!-- EMAIL -->
-
-            <div class="formGroup">
-
-                <label for="registerEmail">
-                    Email address
-                </label>
-
-                <div class="inputWrapper">
-
-                    <svg
-                        class="inputIcon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <rect
-                            x="3"
-                            y="5"
-                            width="18"
-                            height="14"
-                            rx="2"
-                        ></rect>
-
-                        <path
-                            d="m3 7 8.1 5.4a1.5 1.5 0 0 0 1.8 0L21 7"
-                        ></path>
-                    </svg>
-
-                    <input
-                        type="email"
-                        id="registerEmail"
-                        name="email"
-                        placeholder="you@example.com"
-                        autocomplete="email"
-                        required
-                    >
-
-                </div>
-
-            </div>
-
-
-            <!-- PASSWORD -->
-
-            <div class="formGroup">
-
-                <label for="registerPassword">
-                    Password
-                </label>
-
-                <div class="inputWrapper">
-
-                    <svg
-                        class="inputIcon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <rect
-                            x="4"
-                            y="10"
-                            width="16"
-                            height="10"
-                            rx="2"
-                        ></rect>
-
-                        <path
-                            d="M8 10V7a4 4 0 0 1 8 0v3"
-                        ></path>
-                    </svg>
-
-                    <input
-                        type="password"
-                        id="registerPassword"
-                        name="password"
-                        placeholder="Create a password"
-                        autocomplete="new-password"
-                        required
-                    >
-
-                    <button
-                        type="button"
-                        class="togglePassword modalPasswordToggle"
-                        data-password-toggle="registerPassword"
-                        aria-label="Show password"
-                    >
-                        <svg
-                            class="eyeIcon"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
-                            ></path>
-
-                            <circle
-                                cx="12"
-                                cy="12"
-                                r="2.5"
-                            ></circle>
-                        </svg>
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- CONFIRM PASSWORD -->
-
-            <div class="formGroup">
-
-                <label for="registerPasswordConfirm">
-                    Confirm password
-                </label>
-
-                <div class="inputWrapper">
-
-                    <svg
-                        class="inputIcon"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <rect
-                            x="4"
-                            y="10"
-                            width="16"
-                            height="10"
-                            rx="2"
-                        ></rect>
-
-                        <path
-                            d="M8 10V7a4 4 0 0 1 8 0v3"
-                        ></path>
-                    </svg>
-
-                    <input
-                        type="password"
-                        id="registerPasswordConfirm"
-                        name="passwordConfirm"
-                        placeholder="Confirm your password"
-                        autocomplete="new-password"
-                        required
-                    >
-
-                    <button
-                        type="button"
-                        class="togglePassword modalPasswordToggle"
-                        data-password-toggle="registerPasswordConfirm"
-                        aria-label="Show password"
-                    >
-                        <svg
-                            class="eyeIcon"
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
-                            ></path>
-
-                            <circle
-                                cx="12"
-                                cy="12"
-                                r="2.5"
-                            ></circle>
-                        </svg>
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <button
-                type="submit"
-                class="modalPrimaryButton"
-            >
-                Create account
-            </button>
-
-        </form>
-
-        <p class="modalFooterText">
-            Already have an account?
-
-            <button
-                type="button"
-                class="modalLink"
-                id="backToLogin"
-            >
-                Sign in
-            </button>
-        </p>
-
     </div>
-</div>
+
+    <!-- ============================================================
+     PRIVACY POLICY MODAL
+============================================================ -->
+
+    <div class="modalOverlay" id="privacyPolicyModal" aria-hidden="true">
+        <div class="modal policyModal" role="dialog" aria-modal="true" aria-labelledby="privacyPolicyTitle">
+
+            <button type="button" class="modalClose" data-close-modal aria-label="Close privacy policy">
+                &times;
+            </button>
 
 
+            <div class="modalIcon">
 
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 3 5 6v5c0 4.5 2.8 8.5 7 10 4.2-1.5 7-5.5 7-10V6l-7-3Z"></path>
+
+                    <path d="m9 12 2 2 4-4"></path>
+
+                </svg>
+
+            </div>
+
+
+            <div class="modalHeader">
+
+                <h2 id="privacyPolicyTitle">
+                    Privacy Policy
+                </h2>
+
+                <p>
+                    Last updated: August 2026
+                </p>
+
+            </div>
+
+
+            <div class="policyContent">
+
+                <section>
+
+                    <h3>
+                        1. Information We Collect
+                    </h3>
+
+                    <p>
+                        TaskFlow may collect information that you
+                        provide when creating an account, such as
+                        your name and email address.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        2. How We Use Your Information
+                    </h3>
+
+                    <p>
+                        We use your information to provide, maintain
+                        and improve TaskFlow and its features.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        3. Data Protection
+                    </h3>
+
+                    <p>
+                        We take reasonable measures to protect your
+                        information against unauthorized access,
+                        alteration or disclosure.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        4. Your Information
+                    </h3>
+
+                    <p>
+                        You may request information about the data
+                        associated with your account and request
+                        its modification or deletion where applicable.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        5. Contact
+                    </h3>
+
+                    <p>
+                        If you have questions about this Privacy
+                        Policy, please contact the TaskFlow team.
+                    </p>
+
+                </section>
+
+            </div>
+
+
+            <button type="button" class="modalPrimaryButton" data-close-modal>
+                I understand
+            </button>
+
+        </div>
+    </div>
+
+    <!-- ============================================================
+     TERMS OF SERVICE MODAL
+============================================================ -->
+
+    <div class="modalOverlay" id="termsModal" aria-hidden="true">
+        <div class="modal policyModal" role="dialog" aria-modal="true" aria-labelledby="termsTitle">
+
+            <button type="button" class="modalClose" data-close-modal aria-label="Close terms of service">
+                &times;
+            </button>
+
+
+            <div class="modalIcon">
+
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 3h12v18H6z"></path>
+
+                    <path d="M9 7h6"></path>
+
+                    <path d="M9 11h6"></path>
+
+                    <path d="M9 15h4"></path>
+
+                </svg>
+
+            </div>
+
+
+            <div class="modalHeader">
+
+                <h2 id="termsTitle">
+                    Terms of Service
+                </h2>
+
+                <p>
+                    Last updated: August 2026
+                </p>
+
+            </div>
+
+
+            <div class="policyContent">
+
+                <section>
+
+                    <h3>
+                        1. Acceptance of Terms
+                    </h3>
+
+                    <p>
+                        By using TaskFlow, you agree to comply with
+                        these Terms of Service and all applicable
+                        laws and regulations.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        2. Your Account
+                    </h3>
+
+                    <p>
+                        You are responsible for maintaining the
+                        confidentiality of your account credentials
+                        and for all activity performed through your
+                        account.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        3. Acceptable Use
+                    </h3>
+
+                    <p>
+                        You agree not to misuse TaskFlow, interfere
+                        with its operation or attempt to gain
+                        unauthorized access to its systems.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        4. Service Availability
+                    </h3>
+
+                    <p>
+                        TaskFlow may be updated, modified,
+                        interrupted or discontinued as necessary
+                        to maintain and improve the service.
+                    </p>
+
+                </section>
+
+
+                <section>
+
+                    <h3>
+                        5. Changes to These Terms
+                    </h3>
+
+                    <p>
+                        These Terms of Service may be updated from
+                        time to time. Continued use of TaskFlow
+                        after changes means that you accept the
+                        updated terms.
+                    </p>
+
+                </section>
+
+            </div>
+
+
+            <button type="button" class="modalPrimaryButton" data-close-modal>
+                I understand
+            </button>
+
+        </div>
+    </div>
 
     <!-- TOAST CONTAINER -->
     <div id="toastContainer" class="toastContainer" aria-live="polite" aria-atomic="true">
@@ -2780,86 +2991,139 @@ body.modalOpen {
          JAVASCRIPT
     ========================================== -->
 
-<script>
-    // ============================================================
-// TASKFLOW — LOGIN JAVASCRIPT
-// ============================================================
+    <script>
+        // ============================================================
+        // TASKFLOW — LOGIN JAVASCRIPT
+        // ============================================================
 
 
-// ============================================================
-// DOM REFERENCES
-// ============================================================
+        // ============================================================
+        // DOM REFERENCES
+        // ============================================================
 
-const toastContainer =
-    document.querySelector("#toastContainer");
+        const toastContainer =
+            document.querySelector("#toastContainer");
 
-const loginForm =
-    document.querySelector("#loginForm");
+        const loginForm =
+            document.querySelector("#loginForm");
 
-const emailInput =
-    document.querySelector("#email");
+        const emailInput =
+            document.querySelector("#email");
 
-const passwordInput =
-    document.querySelector("#password");
+        const passwordInput =
+            document.querySelector("#password");
 
-const togglePassword =
-    document.querySelector("#togglePassword");
-
-
-// ============================================================
-// MODAL REFERENCES
-// ============================================================
-
-const forgotPasswordModal =
-    document.querySelector("#forgotPasswordModal");
-
-const registerModal =
-    document.querySelector("#registerModal");
-
-const forgotPasswordForm =
-    document.querySelector("#forgotPasswordForm");
-
-const registerForm =
-    document.querySelector("#registerForm");
-
-const forgotPasswordLink =
-    document.querySelector(".forgotPassword");
-
-const registerLink =
-    document.querySelector(".registerLink");
-
-const backToLogin =
-    document.querySelector("#backToLogin");
+        const togglePassword =
+            document.querySelector("#togglePassword");
 
 
-// ============================================================
-// TOAST SYSTEM
-// ============================================================
+        const privacyPolicyModal =
+            document.querySelector("#privacyPolicyModal");
 
-function showToast(
-    message,
-    type = "success",
-    title = "Success"
-) {
+        const termsModal =
+            document.querySelector("#termsModal");
 
-    // --------------------------------------------------------
-    // Crear toast
-    // --------------------------------------------------------
+        const privacyPolicyLink =
+            document.querySelector("#privacyPolicyLink");
 
-    const toast =
-        document.createElement("div");
-
-    toast.className =
-        `toast toast-${type}`;
+        const termsLink =
+            document.querySelector("#termsLink");
 
 
-    // --------------------------------------------------------
-    // Iconos
-    // --------------------------------------------------------
+        // ============================================================
+        // MODAL REFERENCES
+        // ============================================================
 
-    const icons = {
+        const forgotPasswordModal =
+            document.querySelector("#forgotPasswordModal");
 
-        success: `
+        const registerModal =
+            document.querySelector("#registerModal");
+
+        const forgotPasswordForm =
+            document.querySelector("#forgotPasswordForm");
+
+        const registerForm =
+            document.querySelector("#registerForm");
+
+        const forgotPasswordLink =
+            document.querySelector(".forgotPassword");
+
+        const registerLink =
+            document.querySelector(".registerLink");
+
+        const backToLogin =
+            document.querySelector("#backToLogin");
+
+
+        // ============================================================
+        // PRIVACY POLICY
+        // ============================================================
+
+        if (privacyPolicyLink) {
+
+            privacyPolicyLink.addEventListener(
+                "click",
+                () => {
+
+                    openModal(
+                        privacyPolicyModal
+                    );
+
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // TERMS OF SERVICE
+        // ============================================================
+
+        if (termsLink) {
+
+            termsLink.addEventListener(
+                "click",
+                () => {
+
+                    openModal(
+                        termsModal
+                    );
+
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // TOAST SYSTEM
+        // ============================================================
+
+        function showToast(
+            message,
+            type = "success",
+            title = "Success"
+        ) {
+
+            // --------------------------------------------------------
+            // Crear toast
+            // --------------------------------------------------------
+
+            const toast =
+                document.createElement("div");
+
+            toast.className =
+                `toast toast-${type}`;
+
+
+            // --------------------------------------------------------
+            // Iconos
+            // --------------------------------------------------------
+
+            const icons = {
+
+                success: `
             <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -2870,7 +3134,7 @@ function showToast(
             </svg>
         `,
 
-        error: `
+                error: `
             <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -2885,7 +3149,7 @@ function showToast(
             </svg>
         `,
 
-        info: `
+                info: `
             <svg
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -2906,14 +3170,14 @@ function showToast(
             </svg>
         `
 
-    };
+            };
 
 
-    // --------------------------------------------------------
-    // HTML
-    // --------------------------------------------------------
+            // --------------------------------------------------------
+            // HTML
+            // --------------------------------------------------------
 
-    toast.innerHTML = `
+            toast.innerHTML = `
 
         <div class="toastIcon">
             ${icons[type] || icons.info}
@@ -2944,362 +3208,362 @@ function showToast(
     `;
 
 
-    // --------------------------------------------------------
-    // Agregar toast
-    // --------------------------------------------------------
+            // --------------------------------------------------------
+            // Agregar toast
+            // --------------------------------------------------------
 
-    if (toastContainer) {
+            if (toastContainer) {
 
-        toastContainer.append(toast);
-
-    }
-
-
-    // --------------------------------------------------------
-    // Botón cerrar
-    // --------------------------------------------------------
-
-    const closeButton =
-        toast.querySelector(".toastClose");
-
-    if (closeButton) {
-
-        closeButton.addEventListener(
-            "click",
-            () => {
-
-                removeToast(toast);
+                toastContainer.append(toast);
 
             }
-        );
 
-    }
 
+            // --------------------------------------------------------
+            // Botón cerrar
+            // --------------------------------------------------------
 
-    // --------------------------------------------------------
-    // Cierre automático
-    // --------------------------------------------------------
+            const closeButton =
+                toast.querySelector(".toastClose");
 
-    const timeout =
-        setTimeout(
-            () => {
+            if (closeButton) {
 
-                removeToast(toast);
+                closeButton.addEventListener(
+                    "click",
+                    () => {
 
-            },
-            4000
-        );
+                        removeToast(toast);
 
+                    }
+                );
 
-    // --------------------------------------------------------
-    // Limpiar timeout
-    // --------------------------------------------------------
+            }
 
-    toast.addEventListener(
-        "toast:remove",
-        () => {
 
-            clearTimeout(timeout);
+            // --------------------------------------------------------
+            // Cierre automático
+            // --------------------------------------------------------
 
-        }
-    );
+            const timeout =
+                setTimeout(
+                    () => {
 
-}
+                        removeToast(toast);
 
-
-// ============================================================
-// REMOVE TOAST
-// ============================================================
-
-function removeToast(toast) {
-
-    // --------------------------------------------------------
-    // Evitar errores si ya fue eliminado
-    // --------------------------------------------------------
-
-    if (
-        !toast ||
-        !toast.isConnected
-    ) {
-
-        return;
-
-    }
-
-
-    // --------------------------------------------------------
-    // Limpiar timeout
-    // --------------------------------------------------------
-
-    toast.dispatchEvent(
-        new Event("toast:remove")
-    );
-
-
-    // --------------------------------------------------------
-    // Animación de salida
-    // --------------------------------------------------------
-
-    toast.classList.add("removing");
-
-
-    // --------------------------------------------------------
-    // Eliminar después de la animación
-    // --------------------------------------------------------
-
-    toast.addEventListener(
-        "animationend",
-        () => {
-
-            toast.remove();
-
-        },
-        {
-            once: true
-        }
-    );
-
-}
-
-
-// ============================================================
-// EMAIL VALIDATION
-// ============================================================
-
-function isValidEmail(email) {
-
-    const emailRegex =
-        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    return emailRegex.test(email);
-
-}
-
-
-// ============================================================
-// LOGIN
-// ============================================================
-
-function logIn(event) {
-
-    // --------------------------------------------------------
-    // Evitar comportamiento predeterminado
-    // --------------------------------------------------------
-
-    event.preventDefault();
-
-
-    // --------------------------------------------------------
-    // Obtener valores
-    // --------------------------------------------------------
-
-    const email =
-        emailInput.value.trim();
-
-    const password =
-        passwordInput.value.trim();
-
-
-    // ========================================================
-    // VALIDAR EMAIL VACÍO
-    // ========================================================
-
-    if (email === "") {
-
-        showToast(
-            "Please enter your email address.",
-            "error",
-            "Email required"
-        );
-
-        emailInput.focus();
-
-        return;
-
-    }
-
-
-    // ========================================================
-    // VALIDAR FORMATO EMAIL
-    // ========================================================
-
-    if (!isValidEmail(email)) {
-
-        showToast(
-            "Please enter a valid email address.",
-            "error",
-            "Invalid email"
-        );
-
-        emailInput.focus();
-
-        return;
-
-    }
-
-
-    // ========================================================
-    // VALIDAR PASSWORD VACÍO
-    // ========================================================
-
-    if (password === "") {
-
-        showToast(
-            "Please enter your password.",
-            "error",
-            "Password required"
-        );
-
-        passwordInput.focus();
-
-        return;
-
-    }
-
-
-    // ========================================================
-    // CREDENCIALES DE PRUEBA
-    // ========================================================
-
-    const emailFic =
-        "alejandrozapt@gmail.com";
-
-    const passwordFic =
-        "1234";
-
-
-    // ========================================================
-    // VALIDAR CREDENCIALES
-    // ========================================================
-
-    if (
-        email === emailFic &&
-        password === passwordFic
-    ) {
-
-        // ----------------------------------------------------
-        // LOGIN CORRECTO
-        // ----------------------------------------------------
-
-        showToast(
-            "Login successful. Redirecting...",
-            "success",
-            "Welcome back"
-        );
-
-
-        // ----------------------------------------------------
-        // Guardar sesión temporal
-        // ----------------------------------------------------
-
-        sessionStorage.setItem(
-            "isLoggedIn",
-            "true"
-        );
-
-
-        // ----------------------------------------------------
-        // Redireccionar
-        // ----------------------------------------------------
-
-        setTimeout(
-            () => {
-
-                window.location.href =
-                    "./index.html";
-
-            },
-            1500
-        );
-
-
-        return;
-
-    }
-
-
-    // ========================================================
-    // CREDENCIALES INCORRECTAS
-    // ========================================================
-
-    showToast(
-        "The email or password is incorrect.",
-        "error",
-        "Login failed"
-    );
-
-}
-
-
-// ============================================================
-// LOGIN FORM EVENT
-// ============================================================
-
-if (loginForm) {
-
-    loginForm.addEventListener(
-        "submit",
-        logIn
-    );
-
-}
-
-
-// ============================================================
-// TOGGLE LOGIN PASSWORD
-// ============================================================
-
-if (
-    togglePassword &&
-    passwordInput
-) {
-
-    togglePassword.addEventListener(
-        "click",
-        () => {
-
-            const isPassword =
-                passwordInput.type === "password";
-
-
-            // ------------------------------------------------
-            // Cambiar tipo de input
-            // ------------------------------------------------
-
-            passwordInput.type =
-                isPassword
-                    ? "text"
-                    : "password";
-
-
-            // ------------------------------------------------
-            // Accesibilidad
-            // ------------------------------------------------
-
-            togglePassword.setAttribute(
-                "aria-label",
-                isPassword
-                    ? "Hide password"
-                    : "Show password"
-            );
-
-
-            // ------------------------------------------------
-            // Cambiar icono
-            // ------------------------------------------------
-
-            const eyeIcon =
-                togglePassword.querySelector(
-                    ".eyeIcon"
+                    },
+                    4000
                 );
 
 
-            if (eyeIcon) {
+            // --------------------------------------------------------
+            // Limpiar timeout
+            // --------------------------------------------------------
 
-                eyeIcon.innerHTML =
-                    isPassword
+            toast.addEventListener(
+                "toast:remove",
+                () => {
 
-                        ? `
+                    clearTimeout(timeout);
+
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // REMOVE TOAST
+        // ============================================================
+
+        function removeToast(toast) {
+
+            // --------------------------------------------------------
+            // Evitar errores si ya fue eliminado
+            // --------------------------------------------------------
+
+            if (
+                !toast ||
+                !toast.isConnected
+            ) {
+
+                return;
+
+            }
+
+
+            // --------------------------------------------------------
+            // Limpiar timeout
+            // --------------------------------------------------------
+
+            toast.dispatchEvent(
+                new Event("toast:remove")
+            );
+
+
+            // --------------------------------------------------------
+            // Animación de salida
+            // --------------------------------------------------------
+
+            toast.classList.add("removing");
+
+
+            // --------------------------------------------------------
+            // Eliminar después de la animación
+            // --------------------------------------------------------
+
+            toast.addEventListener(
+                "animationend",
+                () => {
+
+                    toast.remove();
+
+                },
+                {
+                    once: true
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // EMAIL VALIDATION
+        // ============================================================
+
+        function isValidEmail(email) {
+
+            const emailRegex =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            return emailRegex.test(email);
+
+        }
+
+
+        // ============================================================
+        // LOGIN
+        // ============================================================
+
+        function logIn(event) {
+
+            // --------------------------------------------------------
+            // Evitar comportamiento predeterminado
+            // --------------------------------------------------------
+
+            event.preventDefault();
+
+
+            // --------------------------------------------------------
+            // Obtener valores
+            // --------------------------------------------------------
+
+            const email =
+                emailInput.value.trim();
+
+            const password =
+                passwordInput.value.trim();
+
+
+            // ========================================================
+            // VALIDAR EMAIL VACÍO
+            // ========================================================
+
+            if (email === "") {
+
+                showToast(
+                    "Please enter your email address.",
+                    "error",
+                    "Email required"
+                );
+
+                emailInput.focus();
+
+                return;
+
+            }
+
+
+            // ========================================================
+            // VALIDAR FORMATO EMAIL
+            // ========================================================
+
+            if (!isValidEmail(email)) {
+
+                showToast(
+                    "Please enter a valid email address.",
+                    "error",
+                    "Invalid email"
+                );
+
+                emailInput.focus();
+
+                return;
+
+            }
+
+
+            // ========================================================
+            // VALIDAR PASSWORD VACÍO
+            // ========================================================
+
+            if (password === "") {
+
+                showToast(
+                    "Please enter your password.",
+                    "error",
+                    "Password required"
+                );
+
+                passwordInput.focus();
+
+                return;
+
+            }
+
+
+            // ========================================================
+            // CREDENCIALES DE PRUEBA
+            // ========================================================
+
+            const emailFic =
+                "alejandrozapt@gmail.com";
+
+            const passwordFic =
+                "1234";
+
+
+            // ========================================================
+            // VALIDAR CREDENCIALES
+            // ========================================================
+
+            if (
+                email === emailFic &&
+                password === passwordFic
+            ) {
+
+                // ----------------------------------------------------
+                // LOGIN CORRECTO
+                // ----------------------------------------------------
+
+                showToast(
+                    "Login successful. Redirecting...",
+                    "success",
+                    "Welcome back"
+                );
+
+
+                // ----------------------------------------------------
+                // Guardar sesión temporal
+                // ----------------------------------------------------
+
+                sessionStorage.setItem(
+                    "isLoggedIn",
+                    "true"
+                );
+
+
+                // ----------------------------------------------------
+                // Redireccionar
+                // ----------------------------------------------------
+
+                setTimeout(
+                    () => {
+
+                        window.location.href =
+                            "./index.html";
+
+                    },
+                    1500
+                );
+
+
+                return;
+
+            }
+
+
+            // ========================================================
+            // CREDENCIALES INCORRECTAS
+            // ========================================================
+
+            showToast(
+                "The email or password is incorrect.",
+                "error",
+                "Login failed"
+            );
+
+        }
+
+
+        // ============================================================
+        // LOGIN FORM EVENT
+        // ============================================================
+
+        if (loginForm) {
+
+            loginForm.addEventListener(
+                "submit",
+                logIn
+            );
+
+        }
+
+
+        // ============================================================
+        // TOGGLE LOGIN PASSWORD
+        // ============================================================
+
+        if (
+            togglePassword &&
+            passwordInput
+        ) {
+
+            togglePassword.addEventListener(
+                "click",
+                () => {
+
+                    const isPassword =
+                        passwordInput.type === "password";
+
+
+                    // ------------------------------------------------
+                    // Cambiar tipo de input
+                    // ------------------------------------------------
+
+                    passwordInput.type =
+                        isPassword
+                            ? "text"
+                            : "password";
+
+
+                    // ------------------------------------------------
+                    // Accesibilidad
+                    // ------------------------------------------------
+
+                    togglePassword.setAttribute(
+                        "aria-label",
+                        isPassword
+                            ? "Hide password"
+                            : "Show password"
+                    );
+
+
+                    // ------------------------------------------------
+                    // Cambiar icono
+                    // ------------------------------------------------
+
+                    const eyeIcon =
+                        togglePassword.querySelector(
+                            ".eyeIcon"
+                        );
+
+
+                    if (eyeIcon) {
+
+                        eyeIcon.innerHTML =
+                            isPassword
+
+                                ? `
                             <path
                                 d="M3 3l18 18"
                             ></path>
@@ -3317,7 +3581,7 @@ if (
                             ></path>
                         `
 
-                        : `
+                                : `
                             <path
                                 d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
                             ></path>
@@ -3329,641 +3593,649 @@ if (
                             ></circle>
                         `;
 
-            }
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// MODAL FUNCTIONS
-// ============================================================
-
-
-// ============================================================
-// OPEN MODAL
-// ============================================================
-
-function openModal(modal) {
-
-    if (!modal) {
-
-        return;
-
-    }
-
-
-    modal.classList.add("active");
-
-    modal.setAttribute(
-        "aria-hidden",
-        "false"
-    );
-
-
-    document.body.classList.add(
-        "modalOpen"
-    );
-
-
-    // --------------------------------------------------------
-    // Focus first input
-    // --------------------------------------------------------
-
-    const firstInput =
-        modal.querySelector("input");
-
-
-    if (firstInput) {
-
-        setTimeout(
-            () => {
-
-                firstInput.focus();
-
-            },
-            100
-        );
-
-    }
-
-}
-
-
-// ============================================================
-// CLOSE MODAL
-// ============================================================
-
-function closeModal(modal) {
-
-    if (!modal) {
-
-        return;
-
-    }
-
-
-    modal.classList.remove(
-        "active"
-    );
-
-    modal.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-
-
-    // --------------------------------------------------------
-    // Verificar si todavía existe otro modal abierto
-    // --------------------------------------------------------
-
-    const anotherModalOpen =
-        document.querySelector(
-            ".modalOverlay.active"
-        );
-
-
-    if (!anotherModalOpen) {
-
-        document.body.classList.remove(
-            "modalOpen"
-        );
-
-    }
-
-}
-
-
-// ============================================================
-// CLOSE ALL MODALS
-// ============================================================
-
-function closeAllModals() {
-
-    closeModal(
-        forgotPasswordModal
-    );
-
-    closeModal(
-        registerModal
-    );
-
-}
-
-
-// ============================================================
-// FORGOT PASSWORD — OPEN MODAL
-// ============================================================
-
-if (forgotPasswordLink) {
-
-    forgotPasswordLink.addEventListener(
-        "click",
-        (event) => {
-
-            event.preventDefault();
-
-            openModal(
-                forgotPasswordModal
-            );
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// REGISTER — OPEN MODAL
-// ============================================================
-
-if (registerLink) {
-
-    registerLink.addEventListener(
-        "click",
-        (event) => {
-
-            event.preventDefault();
-
-            openModal(
-                registerModal
-            );
-
-        }
-    );
-
-}
-
-
-// ============================================================
-// CLOSE MODAL BUTTONS
-// ============================================================
-
-document
-    .querySelectorAll("[data-close-modal]")
-    .forEach(
-        (button) => {
-
-            button.addEventListener(
-                "click",
-                () => {
-
-                    closeAllModals();
-
-                }
-            );
-
-        }
-    );
-
-
-// ============================================================
-// CLICK OUTSIDE MODAL
-// ============================================================
-
-document
-    .querySelectorAll(".modalOverlay")
-    .forEach(
-        (overlay) => {
-
-            overlay.addEventListener(
-                "click",
-                (event) => {
-
-                    if (
-                        event.target === overlay
-                    ) {
-
-                        closeModal(
-                            overlay
-                        );
-
                     }
 
                 }
             );
 
         }
-    );
 
 
-// ============================================================
-// ESCAPE KEY
-// ============================================================
+        // ============================================================
+        // MODAL FUNCTIONS
+        // ============================================================
 
-document.addEventListener(
-    "keydown",
-    (event) => {
 
-        if (
-            event.key !== "Escape"
-        ) {
+        // ============================================================
+        // OPEN MODAL
+        // ============================================================
 
-            return;
+        function openModal(modal) {
+
+            if (!modal) {
+
+                return;
+
+            }
+
+
+            modal.classList.add("active");
+
+            modal.setAttribute(
+                "aria-hidden",
+                "false"
+            );
+
+
+            document.body.classList.add(
+                "modalOpen"
+            );
+
+
+            // --------------------------------------------------------
+            // Focus first input
+            // --------------------------------------------------------
+
+            const firstInput =
+                modal.querySelector("input");
+
+
+            if (firstInput) {
+
+                setTimeout(
+                    () => {
+
+                        firstInput.focus();
+
+                    },
+                    100
+                );
+
+            }
 
         }
 
 
-        closeAllModals();
+        // ============================================================
+        // CLOSE MODAL
+        // ============================================================
 
-    }
-);
+        function closeModal(modal) {
 
-
-// ============================================================
-// FORGOT PASSWORD FORM
-// ============================================================
-
-if (forgotPasswordForm) {
-
-    forgotPasswordForm.addEventListener(
-        "submit",
-        (event) => {
-
-            event.preventDefault();
-
-
-            const forgotEmailInput =
-                document.querySelector(
-                    "#forgotEmail"
-                );
-
-
-            if (!forgotEmailInput) {
+            if (!modal) {
 
                 return;
 
             }
 
 
-            const email =
-                forgotEmailInput.value.trim();
+            modal.classList.remove(
+                "active"
+            );
 
-
-            // ------------------------------------------------
-            // EMAIL VACÍO
-            // ------------------------------------------------
-
-            if (email === "") {
-
-                showToast(
-                    "Please enter your email address.",
-                    "error",
-                    "Email required"
-                );
-
-                forgotEmailInput.focus();
-
-                return;
-
-            }
-
-
-            // ------------------------------------------------
-            // EMAIL INVÁLIDO
-            // ------------------------------------------------
-
-            if (
-                !isValidEmail(email)
-            ) {
-
-                showToast(
-                    "Please enter a valid email address.",
-                    "error",
-                    "Invalid email"
-                );
-
-                forgotEmailInput.focus();
-
-                return;
-
-            }
-
-
-            // ------------------------------------------------
-            // SIMULACIÓN
-            // ------------------------------------------------
-
-            showToast(
-                "If an account exists with this email, you'll receive a password reset link.",
-                "success",
-                "Email sent"
+            modal.setAttribute(
+                "aria-hidden",
+                "true"
             );
 
 
-            // ------------------------------------------------
-            // Limpiar formulario
-            // ------------------------------------------------
+            // --------------------------------------------------------
+            // Verificar si todavía existe otro modal abierto
+            // --------------------------------------------------------
 
-            forgotPasswordForm.reset();
+            const anotherModalOpen =
+                document.querySelector(
+                    ".modalOverlay.active"
+                );
 
 
-            // ------------------------------------------------
-            // Cerrar modal
-            // ------------------------------------------------
+            if (!anotherModalOpen) {
+
+                document.body.classList.remove(
+                    "modalOpen"
+                );
+
+            }
+
+        }
+
+
+        // ============================================================
+        // CLOSE ALL MODALS
+        // ============================================================
+
+        function closeAllModals() {
 
             closeModal(
                 forgotPasswordModal
             );
 
-        }
-    );
-
-}
-
-
-// ============================================================
-// REGISTER FORM
-// ============================================================
-
-if (registerForm) {
-
-    registerForm.addEventListener(
-        "submit",
-        (event) => {
-
-            event.preventDefault();
-
-
-            const registerName =
-                document.querySelector(
-                    "#registerName"
-                );
-
-            const registerEmail =
-                document.querySelector(
-                    "#registerEmail"
-                );
-
-            const registerPassword =
-                document.querySelector(
-                    "#registerPassword"
-                );
-
-            const registerPasswordConfirm =
-                document.querySelector(
-                    "#registerPasswordConfirm"
-                );
-
-
-            // ------------------------------------------------
-            // Verificar elementos
-            // ------------------------------------------------
-
-            if (
-                !registerName ||
-                !registerEmail ||
-                !registerPassword ||
-                !registerPasswordConfirm
-            ) {
-
-                return;
-
-            }
-
-
-            const name =
-                registerName.value.trim();
-
-            const email =
-                registerEmail.value.trim();
-
-            const password =
-                registerPassword.value;
-
-            const passwordConfirm =
-                registerPasswordConfirm.value;
-
-
-            // =================================================
-            // VALIDAR NOMBRE
-            // =================================================
-
-            if (name === "") {
-
-                showToast(
-                    "Please enter your full name.",
-                    "error",
-                    "Name required"
-                );
-
-                registerName.focus();
-
-                return;
-
-            }
-
-
-            // =================================================
-            // VALIDAR EMAIL VACÍO
-            // =================================================
-
-            if (email === "") {
-
-                showToast(
-                    "Please enter your email address.",
-                    "error",
-                    "Email required"
-                );
-
-                registerEmail.focus();
-
-                return;
-
-            }
-
-
-            // =================================================
-            // VALIDAR EMAIL
-            // =================================================
-
-            if (
-                !isValidEmail(email)
-            ) {
-
-                showToast(
-                    "Please enter a valid email address.",
-                    "error",
-                    "Invalid email"
-                );
-
-                registerEmail.focus();
-
-                return;
-
-            }
-
-
-            // =================================================
-            // VALIDAR PASSWORD
-            // =================================================
-
-            if (
-                password.length < 8
-            ) {
-
-                showToast(
-                    "Your password must contain at least 8 characters.",
-                    "error",
-                    "Weak password"
-                );
-
-                registerPassword.focus();
-
-                return;
-
-            }
-
-
-            // =================================================
-            // VALIDAR CONFIRMACIÓN
-            // =================================================
-
-            if (
-                password !== passwordConfirm
-            ) {
-
-                showToast(
-                    "The passwords do not match.",
-                    "error",
-                    "Password mismatch"
-                );
-
-                registerPasswordConfirm.focus();
-
-                return;
-
-            }
-
-
-            // =================================================
-            // CUENTA CREADA
-            // =================================================
-
-            showToast(
-                "Your account has been created successfully.",
-                "success",
-                "Welcome to TaskFlow"
-            );
-
-
-            // ------------------------------------------------
-            // Limpiar formulario
-            // ------------------------------------------------
-
-            registerForm.reset();
-
-
-            // ------------------------------------------------
-            // Cerrar modal
-            // ------------------------------------------------
-
             closeModal(
                 registerModal
             );
 
-        }
-    );
-
-}
-
-
-// ============================================================
-// BACK TO LOGIN
-// ============================================================
-
-if (backToLogin) {
-
-    backToLogin.addEventListener(
-        "click",
-        () => {
+            closeModal(
+                privacyPolicyModal
+            );
 
             closeModal(
-                registerModal
+                termsModal
             );
 
         }
-    );
-
-}
 
 
-// ============================================================
-// MODAL PASSWORD VISIBILITY
-// ============================================================
+        // ============================================================
+        // FORGOT PASSWORD — OPEN MODAL
+        // ============================================================
 
-document
-    .querySelectorAll(
-        "[data-password-toggle]"
-    )
-    .forEach(
-        (button) => {
+        if (forgotPasswordLink) {
 
-            button.addEventListener(
+            forgotPasswordLink.addEventListener(
                 "click",
-                () => {
+                (event) => {
 
-                    const inputId =
-                        button.dataset.passwordToggle;
+                    event.preventDefault();
+
+                    openModal(
+                        forgotPasswordModal
+                    );
+
+                }
+            );
+
+        }
 
 
-                    const input =
+        // ============================================================
+        // REGISTER — OPEN MODAL
+        // ============================================================
+
+        if (registerLink) {
+
+            registerLink.addEventListener(
+                "click",
+                (event) => {
+
+                    event.preventDefault();
+
+                    openModal(
+                        registerModal
+                    );
+
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // CLOSE MODAL BUTTONS
+        // ============================================================
+
+        document
+            .querySelectorAll("[data-close-modal]")
+            .forEach(
+                (button) => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            closeAllModals();
+
+                        }
+                    );
+
+                }
+            );
+
+
+        // ============================================================
+        // CLICK OUTSIDE MODAL
+        // ============================================================
+
+        document
+            .querySelectorAll(".modalOverlay")
+            .forEach(
+                (overlay) => {
+
+                    overlay.addEventListener(
+                        "click",
+                        (event) => {
+
+                            if (
+                                event.target === overlay
+                            ) {
+
+                                closeModal(
+                                    overlay
+                                );
+
+                            }
+
+                        }
+                    );
+
+                }
+            );
+
+
+        // ============================================================
+        // ESCAPE KEY
+        // ============================================================
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+
+                if (
+                    event.key !== "Escape"
+                ) {
+
+                    return;
+
+                }
+
+
+                closeAllModals();
+
+            }
+        );
+
+
+        // ============================================================
+        // FORGOT PASSWORD FORM
+        // ============================================================
+
+        if (forgotPasswordForm) {
+
+            forgotPasswordForm.addEventListener(
+                "submit",
+                (event) => {
+
+                    event.preventDefault();
+
+
+                    const forgotEmailInput =
                         document.querySelector(
-                            `#${inputId}`
+                            "#forgotEmail"
                         );
 
 
-                    if (!input) {
+                    if (!forgotEmailInput) {
 
                         return;
 
                     }
 
 
-                    const isPassword =
-                        input.type === "password";
+                    const email =
+                        forgotEmailInput.value.trim();
 
 
                     // ------------------------------------------------
-                    // Cambiar tipo
+                    // EMAIL VACÍO
                     // ------------------------------------------------
 
-                    input.type =
-                        isPassword
-                            ? "text"
-                            : "password";
+                    if (email === "") {
+
+                        showToast(
+                            "Please enter your email address.",
+                            "error",
+                            "Email required"
+                        );
+
+                        forgotEmailInput.focus();
+
+                        return;
+
+                    }
 
 
                     // ------------------------------------------------
-                    // Accesibilidad
+                    // EMAIL INVÁLIDO
                     // ------------------------------------------------
 
-                    button.setAttribute(
-                        "aria-label",
-                        isPassword
-                            ? "Hide password"
-                            : "Show password"
+                    if (
+                        !isValidEmail(email)
+                    ) {
+
+                        showToast(
+                            "Please enter a valid email address.",
+                            "error",
+                            "Invalid email"
+                        );
+
+                        forgotEmailInput.focus();
+
+                        return;
+
+                    }
+
+
+                    // ------------------------------------------------
+                    // SIMULACIÓN
+                    // ------------------------------------------------
+
+                    showToast(
+                        "If an account exists with this email, you'll receive a password reset link.",
+                        "success",
+                        "Email sent"
                     );
 
 
                     // ------------------------------------------------
-                    // Cambiar icono
+                    // Limpiar formulario
                     // ------------------------------------------------
 
-                    const eyeIcon =
-                        button.querySelector(
-                            ".eyeIcon"
+                    forgotPasswordForm.reset();
+
+
+                    // ------------------------------------------------
+                    // Cerrar modal
+                    // ------------------------------------------------
+
+                    closeModal(
+                        forgotPasswordModal
+                    );
+
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // REGISTER FORM
+        // ============================================================
+
+        if (registerForm) {
+
+            registerForm.addEventListener(
+                "submit",
+                (event) => {
+
+                    event.preventDefault();
+
+
+                    const registerName =
+                        document.querySelector(
+                            "#registerName"
+                        );
+
+                    const registerEmail =
+                        document.querySelector(
+                            "#registerEmail"
+                        );
+
+                    const registerPassword =
+                        document.querySelector(
+                            "#registerPassword"
+                        );
+
+                    const registerPasswordConfirm =
+                        document.querySelector(
+                            "#registerPasswordConfirm"
                         );
 
 
-                    if (eyeIcon) {
+                    // ------------------------------------------------
+                    // Verificar elementos
+                    // ------------------------------------------------
 
-                        eyeIcon.innerHTML =
-                            isPassword
+                    if (
+                        !registerName ||
+                        !registerEmail ||
+                        !registerPassword ||
+                        !registerPasswordConfirm
+                    ) {
 
-                                ? `
+                        return;
+
+                    }
+
+
+                    const name =
+                        registerName.value.trim();
+
+                    const email =
+                        registerEmail.value.trim();
+
+                    const password =
+                        registerPassword.value;
+
+                    const passwordConfirm =
+                        registerPasswordConfirm.value;
+
+
+                    // =================================================
+                    // VALIDAR NOMBRE
+                    // =================================================
+
+                    if (name === "") {
+
+                        showToast(
+                            "Please enter your full name.",
+                            "error",
+                            "Name required"
+                        );
+
+                        registerName.focus();
+
+                        return;
+
+                    }
+
+
+                    // =================================================
+                    // VALIDAR EMAIL VACÍO
+                    // =================================================
+
+                    if (email === "") {
+
+                        showToast(
+                            "Please enter your email address.",
+                            "error",
+                            "Email required"
+                        );
+
+                        registerEmail.focus();
+
+                        return;
+
+                    }
+
+
+                    // =================================================
+                    // VALIDAR EMAIL
+                    // =================================================
+
+                    if (
+                        !isValidEmail(email)
+                    ) {
+
+                        showToast(
+                            "Please enter a valid email address.",
+                            "error",
+                            "Invalid email"
+                        );
+
+                        registerEmail.focus();
+
+                        return;
+
+                    }
+
+
+                    // =================================================
+                    // VALIDAR PASSWORD
+                    // =================================================
+
+                    if (
+                        password.length < 8
+                    ) {
+
+                        showToast(
+                            "Your password must contain at least 8 characters.",
+                            "error",
+                            "Weak password"
+                        );
+
+                        registerPassword.focus();
+
+                        return;
+
+                    }
+
+
+                    // =================================================
+                    // VALIDAR CONFIRMACIÓN
+                    // =================================================
+
+                    if (
+                        password !== passwordConfirm
+                    ) {
+
+                        showToast(
+                            "The passwords do not match.",
+                            "error",
+                            "Password mismatch"
+                        );
+
+                        registerPasswordConfirm.focus();
+
+                        return;
+
+                    }
+
+
+                    // =================================================
+                    // CUENTA CREADA
+                    // =================================================
+
+                    showToast(
+                        "Your account has been created successfully.",
+                        "success",
+                        "Welcome to TaskFlow"
+                    );
+
+
+                    // ------------------------------------------------
+                    // Limpiar formulario
+                    // ------------------------------------------------
+
+                    registerForm.reset();
+
+
+                    // ------------------------------------------------
+                    // Cerrar modal
+                    // ------------------------------------------------
+
+                    closeModal(
+                        registerModal
+                    );
+
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // BACK TO LOGIN
+        // ============================================================
+
+        if (backToLogin) {
+
+            backToLogin.addEventListener(
+                "click",
+                () => {
+
+                    closeModal(
+                        registerModal
+                    );
+
+                }
+            );
+
+        }
+
+
+        // ============================================================
+        // MODAL PASSWORD VISIBILITY
+        // ============================================================
+
+        document
+            .querySelectorAll(
+                "[data-password-toggle]"
+            )
+            .forEach(
+                (button) => {
+
+                    button.addEventListener(
+                        "click",
+                        () => {
+
+                            const inputId =
+                                button.dataset.passwordToggle;
+
+
+                            const input =
+                                document.querySelector(
+                                    `#${inputId}`
+                                );
+
+
+                            if (!input) {
+
+                                return;
+
+                            }
+
+
+                            const isPassword =
+                                input.type === "password";
+
+
+                            // ------------------------------------------------
+                            // Cambiar tipo
+                            // ------------------------------------------------
+
+                            input.type =
+                                isPassword
+                                    ? "text"
+                                    : "password";
+
+
+                            // ------------------------------------------------
+                            // Accesibilidad
+                            // ------------------------------------------------
+
+                            button.setAttribute(
+                                "aria-label",
+                                isPassword
+                                    ? "Hide password"
+                                    : "Show password"
+                            );
+
+
+                            // ------------------------------------------------
+                            // Cambiar icono
+                            // ------------------------------------------------
+
+                            const eyeIcon =
+                                button.querySelector(
+                                    ".eyeIcon"
+                                );
+
+
+                            if (eyeIcon) {
+
+                                eyeIcon.innerHTML =
+                                    isPassword
+
+                                        ? `
                                     <path
                                         d="M3 3l18 18"
                                     ></path>
@@ -3981,7 +4253,7 @@ document
                                     ></path>
                                 `
 
-                                : `
+                                        : `
                                     <path
                                         d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6Z"
                                     ></path>
@@ -3993,19 +4265,19 @@ document
                                     ></circle>
                                 `;
 
-                    }
+                            }
+
+                        }
+                    );
 
                 }
             );
 
-        }
-    );
 
-
-// ============================================================
-// END OF TASKFLOW LOGIN JAVASCRIPT
-// ============================================================
-</script>
+        // ============================================================
+        // END OF TASKFLOW LOGIN JAVASCRIPT
+        // ============================================================
+    </script>
 
 
 </body>
