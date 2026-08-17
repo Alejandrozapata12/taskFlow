@@ -80,6 +80,20 @@ function initNavigation() {
 }
 
 
+function disableTranslation() {
+    document.documentElement.setAttribute('translate', 'no');
+    document.documentElement.setAttribute('lang', 'es');
+
+    const meta = document.createElement('meta');
+    meta.name = 'google';
+    meta.content = 'notranslate';
+
+    document.head.appendChild(meta);
+
+    document.documentElement.classList.add('notranslate');
+}
+
+
 function initApplication() {
 
     initNavigation();
@@ -95,6 +109,8 @@ function initApplication() {
     initLogout();
 
     router();
+
+    disableTranslation();
 
 }
 

@@ -13,8 +13,8 @@
        BRAND / PRIMARY
     ========================= */
 
-    --primary: #16A34A;
-    --primary-hover: #15803D;
+    --primary: #166534;
+    --primary-hover: #22C55E;
     --primary-light: #DCFCE7;
 
 
@@ -22,9 +22,9 @@
        SIDEBAR
     ========================= */
 
-    --sidebar: #14532D;
-    --sidebar-secondary: #166534;
-    --sidebar-hover: #15803D;
+ --sidebar: #064E3B;
+--sidebar-secondary: #065F46;
+--sidebar-hover: #047857;
 
 
     /* =========================
@@ -367,7 +367,7 @@ aside {
 ========================================================= */
 
 .stad {
-    margin-top: auto;
+    margin-top: 2rem;
 
     padding: 1rem;
 
@@ -1106,7 +1106,7 @@ main {
     background-color: var(--background);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 }
 
 
@@ -1230,7 +1230,7 @@ main {
     background-color: var(--surface);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 
     cursor: pointer;
 
@@ -2432,11 +2432,13 @@ main {
 
     gap: 5px;
 
-    padding: 24px;
+    padding: 24px; 
 }
 
 .profileAction {
     width: 100%;
+
+    text-decoration: none;
 
     display: flex;
 
@@ -3196,7 +3198,7 @@ body.sidebar-collapsed .stad {
     background-color: var(--surface);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 
     cursor: pointer;
 
@@ -3457,7 +3459,7 @@ body.sidebar-collapsed .stad {
     background-color: var(--surface);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 }
 
 .calendarDay.otherMonth {
@@ -3553,7 +3555,7 @@ body.sidebar-collapsed .stad {
     background-color: var(--surface);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 }
 
 
@@ -3624,7 +3626,7 @@ body.sidebar-collapsed .stad {
     background-color: var(--surface);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 
     cursor: pointer;
 
@@ -3681,7 +3683,7 @@ body.sidebar-collapsed .stad {
     background-color: var(--surface);
 
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 }
 
 
